@@ -19,8 +19,8 @@ struct PtoException : std::exception {
 	std::string reason_;
 };
 
-struct ArrayException : public PtoException {
-	ArrayException(const char* field, const char* vt) {
+struct ArrayMemberException : public PtoException {
+	ArrayMemberException(const char* field, const char* vt) {
 		reason_ = fmt::format("field:{} expect table,not {}", field, vt);
 	}
 };
@@ -54,6 +54,12 @@ struct IntLimitException : public PtoException {
 	}
 };
 
+struct StringLimitException : public PtoException {
+	StringLimitException(const char* field, size_t size) {
+		reason_ = fmt::format("field:{} string size more than 0xffff:{}", field, size);
+	}
+};
+
 struct TypeException : public PtoException {
 	TypeException(const char* field, int type) {
 		reason_ = fmt::format("unknown field:{},type:{}", field, type);
@@ -63,12 +69,6 @@ struct TypeException : public PtoException {
 struct ErrorDecode : public PtoException {
 	ErrorDecode() {
 		reason_ = "invalid message";
-	}
-};
-
-struct StringLimitException : public PtoException {
-	StringLimitException(const char* field, size_t size) {
-		reason_ = fmt::format("field:{} string size more than 0xffff:{}", field, size);
 	}
 };
 
@@ -97,6 +97,17 @@ struct Field {
 		childs_ = NULL;
 	}
 
+	~Field() {
+		free(name_);
+		if ( childs_ ) {
+			for ( int i = 0; i < childs_->size(); ++i ) {
+				Field* field = (*childs_)[i];
+				delete field;
+			}
+			delete childs_;
+		}
+	}
+
 	void AddField(struct Field* field) {
 		if ( !childs_ ) {
 			childs_ = new std::vector<Field*>();
@@ -113,6 +124,14 @@ struct Protocol {
 		name_ = _strdup(name);
 	}
 
+	~Protocol() {
+		free(name_);
+		for ( int i = 0; i < fields_.size(); ++i ) {
+			Field* field = fields_[i];
+			delete field;
+		}
+	}
+
 	void AddField(struct Field* field) {
 		fields_.push_back(field);
 	}
@@ -127,6 +146,13 @@ struct ProtocolContext {
 
 	ProtocolContext() {
 		ptos_.resize(0xffff);
+	}
+
+	~ProtocolContext() {
+		for ( int i = 0; i < ptos_.size(); ++i ) {
+			Protocol* pto = ptos_[i];
+			delete pto;
+		}
 	}
 
 	void AddPto(uint16_t id, Protocol* pto) {
@@ -236,7 +262,7 @@ struct PtoWriter {
 
 	inline int CheckArray(lua_State* L, Field* field, int index, int vt) {
 		if ( vt != LUA_TTABLE ) {
-			throw ArrayException(field->name_, lua_typename(L, vt));
+			throw ArrayMemberException(field->name_, lua_typename(L, vt));
 		}
 
 		int size = lua_rawlen(L, index);
@@ -901,8 +927,8 @@ static int Create(lua_State* L) {
 int luaopen_pto(lua_State* L) {
 	luaL_checkversion(L);
 	luaL_Reg l[] = {
-		{ "Create", Create },
-		{ NULL, NULL },
+		{"Create", Create},
+		{NULL, NULL},
 	};
 	luaL_newlib(L, l);
 
@@ -923,7 +949,7 @@ int luaopen_pto(lua_State* L) {
 
 	lua_pushinteger(L, FTYPE_STRING);
 	lua_setfield(L, -2, "STRING");
-	
+
 	lua_pushinteger(L, FTYPE_PROTOCOL);
 	lua_setfield(L, -2, "PROTOCOL");
 
