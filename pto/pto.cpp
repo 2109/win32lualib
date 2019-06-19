@@ -816,8 +816,8 @@ static int EncodePto(lua_State* L) {
 			lua_pop(L, 1);
 		}
 	}
-	catch ( PtoException* e ) {
-		luaL_error(L, e->reason_.c_str());
+	catch ( PtoException e ) {
+		luaL_error(L, e.reason_.c_str());
 	}
 
 	lua_pushlstring(L, writer.ptr_, writer.offset_);
