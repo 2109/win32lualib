@@ -15,15 +15,47 @@
 #define FTYPE_STRING 	5
 #define FTYPE_PROTOCOL 	6
 
-struct EncodeException : std::exception {
+struct PtoException : std::exception {
 	std::string reason_;
+};
 
-	EncodeException() {
-
+struct ArrayException : public PtoException {
+	ArrayException(const char* field, const char* vt) {
+		reason_ = fmt::format("field:{} expect table,not {}", field, vt);
 	}
+};
 
-	EncodeException(std::string reason) : reason_(reason) {
+struct ArraySizeException : public PtoException {
+	ArraySizeException(const char* field) {
+		reason_ = fmt::format("field:{} array size more than 0xffff", field);
+	}
+};
 
+struct FieldException : public PtoException {
+	FieldException(const char* field, const char* expect, const char* vt) {
+		reason_ = fmt::format("field:{} expect {},not {}", field, expect, vt);
+	}
+};
+
+struct ArrayFieldException : public PtoException {
+	ArrayFieldException(const char* field, const char* expect, const char* vt) {
+		reason_ = fmt::format("field:{} array member expect {},not {}", field, expect, vt);
+	}
+};
+
+struct IntLimitException : public PtoException {
+	IntLimitException(const char* field, lua_Integer val, bool array) {
+		if (array) {
+			reason_ = fmt::format("field:{} array member int out of range,{}", field, val);
+		} else {
+			reason_ = fmt::format("field:{} int out of range,{}", field, val);
+		}
+	}
+};
+
+struct StringLimitException : public PtoException {
+	StringLimitException(const char* field, size_t size) {
+		reason_ = fmt::format("field:{} string size more than 0xffff:{}", field, size);
 	}
 };
 
@@ -180,12 +212,12 @@ struct PtoWriter {
 
 	inline int CheckArray(lua_State* L, Field* field, int index, int vt) {
 		if ( vt != LUA_TTABLE ) {
-			throw EncodeException(fmt::format("field:{} expect {},not {}", field->name_, lua_typename(L, LUA_TTABLE)));
+			throw ArrayException(field->name_, lua_typename(L, vt));
 		}
 
 		int size = lua_rawlen(L, index);
 		if ( size > 0xffff ) {
-			throw EncodeException(fmt::format("field:{} array size more than 0xffff", field->name_, lua_typename(L, LUA_TTABLE)));
+			throw ArraySizeException(field->name_);
 		}
 		return size;
 	}
@@ -235,7 +267,7 @@ struct PtoWriter {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
 				if ( vt != LUA_TBOOLEAN ) {
-					throw EncodeException(fmt::format("field:{} array member expect bool,not {}", field->name_, lua_typename(L, vt)));
+					throw ArrayFieldException(field->name_, "bool", lua_typename(L, vt));
 				}
 				Append<bool>(lua_toboolean(L, -1));
 				lua_pop(L, 1);
@@ -243,7 +275,7 @@ struct PtoWriter {
 		}
 		else {
 			if ( vt != LUA_TBOOLEAN ) {
-				throw EncodeException(fmt::format("field:{} expect bool,not {}", field->name_, lua_typename(L, vt)));
+				throw FieldException(field->name_, "bool", lua_typename(L, vt));
 			}
 			Append<bool>(lua_toboolean(L, index));
 		}
@@ -258,7 +290,7 @@ struct PtoWriter {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
 				if ( vt != LUA_TNUMBER ) {
-					throw EncodeException(fmt::format("field:{} array member expect short,not {}", field->name_, lua_typename(L, vt)));
+					throw ArrayFieldException(field->name_, "short", lua_typename(L, vt));
 				}
 				Append<int16_t>(lua_tointeger(L, -1));
 				lua_pop(L, 1);
@@ -266,7 +298,7 @@ struct PtoWriter {
 		}
 		else {
 			if ( vt != LUA_TNUMBER ) {
-				throw EncodeException(fmt::format("field:{} expect short,not {}", field->name_, lua_typename(L, vt)));
+				throw FieldException(field->name_, "short", lua_typename(L, vt));
 			}
 			Append<int16_t>(lua_tointeger(L, index));
 		}
@@ -282,11 +314,11 @@ struct PtoWriter {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
 				if ( vt != LUA_TNUMBER ) {
-					throw EncodeException(fmt::format("field:{} array member expect int,not {}", field->name_, lua_typename(L, vt)));
+					throw ArrayFieldException(field->name_, "int", lua_typename(L, vt));
 				}
 				lua_Integer val = lua_tointeger(L, -1);
 				if ( val > MAX_INT || val < -MAX_INT ) {
-					throw EncodeException(fmt::format("field:{} array member int out of range,{}", field->name_, val));
+					throw IntLimitException(field->name_, val, true);
 				}
 				Append<int64_t>(val);
 				lua_pop(L, 1);
@@ -294,11 +326,11 @@ struct PtoWriter {
 		}
 		else {
 			if ( vt != LUA_TNUMBER ) {
-				throw EncodeException(fmt::format("field:{} expect int,not {}", field->name_, lua_typename(L, vt)));
+				throw FieldException(field->name_, "int", lua_typename(L, vt));
 			}
 			lua_Integer val = lua_tointeger(L, index);
 			if ( val > MAX_INT || val < -MAX_INT ) {
-				throw EncodeException(fmt::format("field:{} int out of range,{}", field->name_, val));
+				throw IntLimitException(field->name_, val, false);
 			}
 			Append<int64_t>(val);
 		}
@@ -314,7 +346,7 @@ struct PtoWriter {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
 				if ( vt != LUA_TNUMBER ) {
-					throw EncodeException(fmt::format("field:{} array member expect float,not {}", field->name_, lua_typename(L, vt)));
+					throw ArrayFieldException(field->name_, "float", lua_typename(L, vt));
 				}
 				Append<float>(lua_tonumber(L, -1));
 				lua_pop(L, 1);
@@ -322,7 +354,7 @@ struct PtoWriter {
 		}
 		else {
 			if ( vt != LUA_TNUMBER ) {
-				throw EncodeException(fmt::format("field:{} expect float,not {}", field->name_, lua_typename(L, vt)));
+				throw FieldException(field->name_, "float", lua_typename(L, vt));
 			}
 			Append<float>(lua_tonumber(L, index));
 		}
@@ -337,7 +369,7 @@ struct PtoWriter {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
 				if ( vt != LUA_TNUMBER ) {
-					throw EncodeException(fmt::format("field:{} array member expect double,not {}", field->name_, lua_typename(L, vt)));
+					throw ArrayFieldException(field->name_, "double", lua_typename(L, vt));
 				}
 				Append<double>(lua_tonumber(L, -1));
 				lua_pop(L, 1);
@@ -345,7 +377,7 @@ struct PtoWriter {
 		}
 		else {
 			if ( vt != LUA_TNUMBER ) {
-				throw EncodeException(fmt::format("field:{} expect double,not {}", field->name_, lua_typename(L, vt)));
+				throw FieldException(field->name_, "double", lua_typename(L, vt));
 			}
 			Append<double>(lua_tonumber(L, index));
 		}
@@ -360,12 +392,12 @@ struct PtoWriter {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
 				if ( vt != LUA_TSTRING ) {
-					throw EncodeException(fmt::format("field:{} array member expect string,not {}", field->name_, lua_typename(L, vt)));
+					throw ArrayFieldException(field->name_, "string", lua_typename(L, vt));
 				}
 				size_t size;
 				const char* str = lua_tolstring(L, -1, &size);
 				if ( size > 0xffff ) {
-					throw EncodeException(fmt::format("field:{} string size more than 0xffff:{}", field->name_, size));
+					throw StringLimitException(field->name_, size);
 				}
 				Append(str, size);
 				lua_pop(L, 1);
@@ -373,12 +405,12 @@ struct PtoWriter {
 		}
 		else {
 			if ( vt != LUA_TSTRING ) {
-				throw EncodeException(fmt::format("field:{} expect string,not {}", field->name_, lua_typename(L, vt)));
+				throw FieldException(field->name_, "string", lua_typename(L, vt));
 			}
 			size_t size;
 			const char* str = lua_tolstring(L, index, &size);
 			if ( size > 0xffff ) {
-				throw EncodeException(fmt::format("field:{} string size more than 0xffff:{}", field->name_, size));
+				throw StringLimitException(field->name_, size);
 			}
 			Append(str, size);
 		}
@@ -399,7 +431,7 @@ struct PtoReader {
 	template<typename T>
 	inline T Read()  {
 		assert(sizeof(T) <= size_ - offset_);
-		T val = *((T*)&data_[offset_]);
+		T val = *((T*)&ptr_[offset_]);
 		offset_ += sizeof(T);
 		return val;
 	}
