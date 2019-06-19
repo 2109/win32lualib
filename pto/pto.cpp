@@ -7,13 +7,15 @@
 #define BUFFER_SIZE 128
 #define MAX_INT 	0xffffffffffffff
 
-#define FTYPE_BOOL 		0
-#define FTYPE_SHORT     1
-#define FTYPE_INT 		2
-#define FTYPE_FLOAT 	3
-#define FTYPE_DOUBLE 	4
-#define FTYPE_STRING 	5
-#define FTYPE_PROTOCOL 	6
+enum eTYPE {
+	Bool = 0,
+	Short,
+	Int,
+	Float,
+	Double,
+	String,
+	Pto
+};
 
 struct PtoException : std::exception {
 	std::string reason_;
@@ -86,11 +88,11 @@ struct TooDepthException : public PtoException {
 struct Field {
 	char* name_;
 	bool array_;
-	int type_;
+	eTYPE type_;
 
 	std::vector<Field*>* childs_;
 
-	Field(const char* name, bool array, int type) {
+	Field(const char* name, bool array, eTYPE type) {
 		name_ = _strdup(name);
 		array_ = array;
 		type_ = type;
@@ -113,6 +115,16 @@ struct Field {
 			childs_ = new std::vector<Field*>();
 		}
 		childs_->push_back(field);
+	}
+
+	inline Field* GetField(int index) {
+		if (!childs_) {
+			return NULL;
+		}
+		if (index > childs_->size()) {
+			return NULL;
+		}
+		return (*childs_)[index];
 	}
 };
 
@@ -274,31 +286,31 @@ struct PtoWriter {
 
 	void EncodeOne(lua_State* L, Field* field, int index, int depth) {
 		switch ( field->type_ ) {
-			case FTYPE_BOOL: {
+			case eTYPE::Bool: {
 								 EncodeBool(L, field, index);
 								 break;
 			}
-			case FTYPE_SHORT: {
+			case eTYPE::Short: {
 								  EncodeShort(L, field, index);
 								  break;
 			}
-			case FTYPE_INT: {
+			case eTYPE::Int: {
 								EncodeInt(L, field, index);
 								break;
 			}
-			case FTYPE_FLOAT: {
+			case eTYPE::Float: {
 								  EncodeFloat(L, field, index);
 								  break;
 			}
-			case FTYPE_DOUBLE: {
+			case eTYPE::Double: {
 								   EncodeDouble(L, field, index);
 								   break;
 			}
-			case FTYPE_STRING: {
+			case eTYPE::String: {
 								   EncodeString(L, field, index);
 								   break;
 			}
-			case FTYPE_PROTOCOL: {
+			case eTYPE::Pto: {
 									 EncodePto(L, field, index, depth);
 									 break;
 			}
@@ -490,7 +502,7 @@ struct PtoWriter {
 				}
 
 				for ( int j = 0; j < field->childs_->size(); j++ ) {
-					Field* child = (*field->childs_)[j];
+					Field* child = field->GetField(j);
 					lua_getfield(L, -1, child->name_);
 					EncodeOne(L, child, index + 2, depth);
 					lua_pop(L, 1);
@@ -500,7 +512,7 @@ struct PtoWriter {
 		}
 		else {
 			for ( int i = 0; i < field->childs_->size(); i++ ) {
-				Field* child = (*field->childs_)[i];
+				Field* child = field->GetField(i);
 				lua_getfield(L, index, child->name_);
 				EncodeOne(L, child, index + 1, depth);
 				lua_pop(L, 1);
@@ -567,31 +579,31 @@ struct PtoReader {
 
 	void DecodeOne(lua_State* L, Field* field, int index, int depth) {
 		switch ( field->type_ ) {
-			case FTYPE_BOOL: {
+			case eTYPE::Bool: {
 								 DecodeBool(L, field, index);
 								 break;
 			}
-			case FTYPE_SHORT: {
+			case eTYPE::Short: {
 								  DecodeShort(L, field, index);
 								  break;
 			}
-			case FTYPE_INT: {
+			case eTYPE::Int: {
 								DecodeInt(L, field, index);
 								break;
 			}
-			case FTYPE_FLOAT: {
+			case eTYPE::Float: {
 								  DecodeFloat(L, field, index);
 								  break;
 			}
-			case FTYPE_DOUBLE: {
+			case eTYPE::Double: {
 								   DecodeDouble(L, field, index);
 								   break;
 			}
-			case FTYPE_STRING: {
+			case eTYPE::String: {
 								   DecodeString(L, field, index);
 								   break;
 			}
-			case FTYPE_PROTOCOL: {
+			case eTYPE::Pto: {
 									 DecodePto(L, field, index, depth);
 									 break;
 			}
@@ -723,7 +735,7 @@ struct PtoReader {
 			for ( int i = 1; i <= size; i++ ) {
 				lua_createtable(L, 0, field->childs_->size());
 				for ( int j = 0; j < field->childs_->size(); j++ ) {
-					Field* child = (*field->childs_)[j];
+					Field* child = field->GetField(j);
 					DecodeOne(L, child, index + 2, depth);
 				}
 				lua_seti(L, -2, i);
@@ -733,7 +745,7 @@ struct PtoReader {
 		else {
 			lua_createtable(L, 0, field->childs_->size());
 			for ( int i = 0; i < field->childs_->size(); i++ ) {
-				Field* child = (*field->childs_)[i];
+				Field* child = field->GetField(i);
 				DecodeOne(L, child, index + 1, depth);
 			}
 			lua_setfield(L, index, field->name_);
@@ -748,7 +760,7 @@ static void ImportField(lua_State* L, ProtocolContext* ctx, Field* field, int in
 		lua_rawgeti(L, index, i);
 
 		lua_getfield(L, -1, "type");
-		int type = lua_tointeger(L, -1);
+		eTYPE type = (eTYPE)lua_tointeger(L, -1);
 		lua_pop(L, 1);
 
 		lua_getfield(L, -1, "array");
@@ -760,7 +772,7 @@ static void ImportField(lua_State* L, ProtocolContext* ctx, Field* field, int in
 		lua_pop(L, 1);
 
 		Field* child = new Field(name, array, type);
-		if ( type == FTYPE_PROTOCOL ) {
+		if ( type == eTYPE::Pto ) {
 			lua_getfield(L, -1, "pto");
 			ImportField(L, ctx, child, lua_gettop(L), ++depth);
 			lua_pop(L, 1);
@@ -777,7 +789,7 @@ static void ImportField(lua_State* L, ProtocolContext* ctx, Protocol* pto, int i
 		lua_rawgeti(L, index, i);
 
 		lua_getfield(L, -1, "type");
-		int type = lua_tointeger(L, -1);
+		eTYPE type = (eTYPE)lua_tointeger(L, -1);
 		lua_pop(L, 1);
 
 		lua_getfield(L, -1, "array");
@@ -790,7 +802,7 @@ static void ImportField(lua_State* L, ProtocolContext* ctx, Protocol* pto, int i
 
 		Field* field = new Field(name, array, type);
 
-		if ( type == FTYPE_PROTOCOL ) {
+		if ( type == eTYPE::Pto ) {
 			lua_getfield(L, -1, "pto");
 			ImportField(L, ctx, field, lua_gettop(L), ++depth);
 			lua_pop(L, 1);
@@ -932,25 +944,25 @@ int luaopen_pto(lua_State* L) {
 	};
 	luaL_newlib(L, l);
 
-	lua_pushinteger(L, FTYPE_BOOL);
+	lua_pushinteger(L, eTYPE::Bool);
 	lua_setfield(L, -2, "BOOL");
 
-	lua_pushinteger(L, FTYPE_SHORT);
+	lua_pushinteger(L, eTYPE::Short);
 	lua_setfield(L, -2, "SHORT");
 
-	lua_pushinteger(L, FTYPE_INT);
+	lua_pushinteger(L, eTYPE::Int);
 	lua_setfield(L, -2, "INT");
 
-	lua_pushinteger(L, FTYPE_FLOAT);
+	lua_pushinteger(L, eTYPE::Float);
 	lua_setfield(L, -2, "FLOAT");
 
-	lua_pushinteger(L, FTYPE_DOUBLE);
+	lua_pushinteger(L, eTYPE::Double);
 	lua_setfield(L, -2, "DOUBLE");
 
-	lua_pushinteger(L, FTYPE_STRING);
+	lua_pushinteger(L, eTYPE::String);
 	lua_setfield(L, -2, "STRING");
 
-	lua_pushinteger(L, FTYPE_PROTOCOL);
+	lua_pushinteger(L, eTYPE::Pto);
 	lua_setfield(L, -2, "PROTOCOL");
 
 	return 1;
