@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html lang="en">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>LCOV - oolua.info - unit_tests/cpp_classes/cpp_function_params.h</title>
+  <link rel="stylesheet" type="text/css" href="../../gcov.css">
+</head>
+
+<body>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="title">LCOV - code coverage report</td></tr>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+
+    <tr>
+      <td width="100%">
+        <table cellpadding=1 border=0 width="100%">
+          <tr>
+            <td width="10%" class="headerItem">Current view:</td>
+            <td width="35%" class="headerValue"><a href="../../index.html">top level</a> - <a href="index.html">unit_tests/cpp_classes</a> - cpp_function_params.h<span style="font-size: 80%;"> (source / <a href="cpp_function_params.h.func.html">functions</a>)</span></td>
+            <td width="5%"></td>
+            <td width="15%"></td>
+            <td width="10%" class="headerCovTableHead">Hit</td>
+            <td width="10%" class="headerCovTableHead">Total</td>
+            <td width="15%" class="headerCovTableHead">Coverage</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Test:</td>
+            <td class="headerValue">oolua.info</td>
+            <td></td>
+            <td class="headerItem">Lines:</td>
+            <td class="headerCovTableEntry">7</td>
+            <td class="headerCovTableEntry">16</td>
+            <td class="headerCovTableEntryLo">43.8 %</td>
+          </tr>
+          <tr>
+            <td class="headerItem">Date:</td>
+            <td class="headerValue">2013-10-18</td>
+            <td></td>
+            <td class="headerItem">Functions:</td>
+            <td class="headerCovTableEntry">12</td>
+            <td class="headerCovTableEntry">23</td>
+            <td class="headerCovTableEntryLo">52.2 %</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="headerItem">Branches:</td>
+            <td class="headerCovTableEntry">30</td>
+            <td class="headerCovTableEntry">60</td>
+            <td class="headerCovTableEntryLo">50.0 %</td>
+          </tr>
+          <tr><td><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+        </table>
+      </td>
+    </tr>
+
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+  </table>
+
+  <table cellpadding=0 cellspacing=0 border=0>
+    <tr>
+      <td><br></td>
+    </tr>
+    <tr>
+      <td>
+<pre class="sourceHeading">           Branch data     Line data    Source code</pre>
+<pre class="source">
+<a name="1"><span class="lineNum">       1 </span>                :            : #ifndef CPP_FUNCTION_PARAMS_H_</a>
+<span class="lineNum">       2 </span>                :            : #       define CPP_FUNCTION_PARAMS_H_
+<span class="lineNum">       3 </span>                :            : 
+<span class="lineNum">       4 </span>                :            : 
+<span class="lineNum">       5 </span>                :            : #       include &quot;oolua_tests_pch.h&quot;
+<span class="lineNum">       6 </span>                :            : #       include &quot;gmock/gmock.h&quot;
+<a name="7"><span class="lineNum">       7 </span>                :            : </a>
+<span class="lineNum">       8 </span>                :            : template&lt;typename Specialisation , typename ParamType&gt;
+<span class="lineNum">       9 </span>                :<span class="lineCov">          9 : class FunctionParamType</span>
+<a name="10"><span class="lineNum">      10 </span>                :            : {</a>
+<span class="lineNum">      11 </span>                :            : public:
+<span class="lineNum">      12 </span>        [<span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchCov" title="Branch 3 was taken 9 times"> + </span>]:<span class="lineCov">          9 :         virtual ~FunctionParamType(){}</span>
+<span class="lineNum">      13 </span>                :            :         /**[ValueParam]*/
+<span class="lineNum">      14 </span>                :            :         virtual void value(ParamType instance) = 0;
+<span class="lineNum">      15 </span>                :            :         /**[ValueParam]*/
+<span class="lineNum">      16 </span>                :            : 
+<span class="lineNum">      17 </span>                :            :         /**[PtrParam]*/
+<span class="lineNum">      18 </span>                :            :         virtual void ptr(ParamType* instance) = 0;
+<span class="lineNum">      19 </span>                :            :         /**[PtrParam]*/
+<span class="lineNum">      20 </span>                :            : 
+<span class="lineNum">      21 </span>                :            :         /**[RefParam]*/
+<span class="lineNum">      22 </span>                :            :         virtual void ref(ParamType&amp; instance)=0;
+<span class="lineNum">      23 </span>                :            :         /**[RefParam]*/
+<span class="lineNum">      24 </span>                :            : 
+<span class="lineNum">      25 </span>                :            :         /**[RefPtrParam]*/
+<span class="lineNum">      26 </span>                :            :         virtual void refPtr(ParamType*&amp; instance) = 0;
+<span class="lineNum">      27 </span>                :            :         /**[RefPtrParam]*/
+<span class="lineNum">      28 </span>                :            : 
+<span class="lineNum">      29 </span>                :            :         virtual void constant(ParamType const instance) = 0;
+<span class="lineNum">      30 </span>                :            :         virtual void refConst(ParamType const &amp; instance) = 0;
+<span class="lineNum">      31 </span>                :            :         virtual void ptrConst(ParamType const * instance) = 0;
+<span class="lineNum">      32 </span>                :            :         /**[RefPtrConstParam]*/
+<span class="lineNum">      33 </span>                :            :         virtual void refPtrConst(ParamType const* &amp; instance) = 0;
+<span class="lineNum">      34 </span>                :            :         /**[RefPtrConstParam]*/
+<span class="lineNum">      35 </span>                :            :         virtual void constPtr(ParamType * const instance) = 0;
+<span class="lineNum">      36 </span>                :            :         virtual void refConstPtr(ParamType * const&amp; instance) = 0;
+<span class="lineNum">      37 </span>                :            :         virtual void constPtrConst(ParamType const * const instance) = 0;
+<span class="lineNum">      38 </span>                :            :         virtual void refConstPtrConst(ParamType const * const &amp; instance) = 0;
+<span class="lineNum">      39 </span>                :            : 
+<span class="lineNum">      40 </span>                :            :         virtual void twoRefs(ParamType &amp; instance1, ParamType &amp; instance2) = 0;
+<span class="lineNum">      41 </span>                :            : };
+<span class="lineNum">      42 </span>                :            : 
+<span class="lineNum">      43 </span>                :            : 
+<span class="lineNum">      44 </span>                :            : #ifdef _MSC_VER
+<span class="lineNum">      45 </span>                :            :         /* I do not understand this warning for Visual Studio as the functions parameters are the same,
+<span class="lineNum">      46 </span>                :            :                 that is unless googlemock is doing something really strange?
+<span class="lineNum">      47 </span>                :            :                 Anyway, a big bag of Shhhhhhh
+<span class="lineNum">      48 </span>                :            :         */
+<span class="lineNum">      49 </span>                :            : #       pragma warning(push)
+<span class="lineNum">      50 </span>                :            : #       pragma warning(disable : 4373)
+<span class="lineNum">      51 </span>                :            : #endif
+<a name="52"><span class="lineNum">      52 </span>                :            : </a>
+<span class="lineNum">      53 </span>                :            : template&lt;typename Specialisation , typename ParamType&gt;
+<span class="lineNum">      54 </span>[<span class="branchCov" title="Branch 2 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>][<span class="branchCov" title="Branch 5 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 6 was not taken"> - </span>]:<span class="lineCov">         18 : class MockFunctionParamType : public FunctionParamType&lt;Specialisation, ParamType&gt;</span>
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 8 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 9 was not taken"> - </span>][<span class="branchCov" title="Branch 11 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 12 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 14 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 15 was not taken"> - </span>][<span class="branchCov" title="Branch 17 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 18 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 20 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 21 was not taken"> - </span>][<span class="branchCov" title="Branch 23 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 24 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 26 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 27 was not taken"> - </span>][<span class="branchCov" title="Branch 29 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 30 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 32 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 33 was not taken"> - </span>][<span class="branchCov" title="Branch 35 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 36 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 38 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 39 was not taken"> - </span>][<span class="branchNoCov" title="Branch 42 was not taken"> - </span><span class="branchCov" title="Branch 43 was taken 9 times"> + </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 60 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 61 was not taken"> - </span>][<span class="branchCov" title="Branch 63 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 64 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 66 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 67 was not taken"> - </span>][<span class="branchCov" title="Branch 69 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 70 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 72 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 73 was not taken"> - </span>][<span class="branchCov" title="Branch 75 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 76 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 78 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 79 was not taken"> - </span>][<span class="branchCov" title="Branch 81 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 82 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 84 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 85 was not taken"> - </span>][<span class="branchCov" title="Branch 87 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 88 was not taken"> - </span>]
+<span class="lineNum">         </span>[<span class="branchCov" title="Branch 90 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 91 was not taken"> - </span>][<span class="branchCov" title="Branch 93 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 94 was not taken"> - </span>]
+<span class="lineNum">         </span>        [<span class="branchCov" title="Branch 96 was taken 9 times"> + </span><span class="branchNoCov" title="Branch 97 was not taken"> - </span>]
+<a name="55"><span class="lineNum">      55 </span>                :            : {</a>
+<a name="56"><span class="lineNum">      56 </span>                :            : public:</a>
+<a name="57"><span class="lineNum">      57 </span>        [<span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :         MOCK_METHOD1_T(value, void(ParamType));</span></a>
+<a name="58"><span class="lineNum">      58 </span>                :<span class="lineNoCov">          0 :         MOCK_METHOD1_T(ptr, void(ParamType*)); // NOLINT(readability/function)</span></a>
+<span class="lineNum">      59 </span>                :<span class="lineCov">         10 :         MOCK_METHOD1_T(ref, void(ParamType&amp;));</span>
+<a name="60"><span class="lineNum">      60 </span>                :<span class="lineNoCov">          0 :         MOCK_METHOD1_T(refPtr, void(ParamType*&amp;));</span></a>
+<a name="61"><span class="lineNum">      61 </span>                :            : </a>
+<a name="62"><span class="lineNum">      62 </span>        [<span class="branchCov" title="Branch 2 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">          2 :         MOCK_METHOD1_T(constant, void(ParamType const));</span></a>
+<a name="63"><span class="lineNum">      63 </span>                :<span class="lineCov">          2 :         MOCK_METHOD1_T(refConst, void(ParamType const &amp;));</span></a>
+<a name="64"><span class="lineNum">      64 </span>                :<span class="lineNoCov">          0 :         MOCK_METHOD1_T(ptrConst, void(ParamType const *));</span></a>
+<a name="65"><span class="lineNum">      65 </span>                :<span class="lineNoCov">          0 :         MOCK_METHOD1_T(refPtrConst, void(ParamType const* &amp;));</span></a>
+<a name="66"><span class="lineNum">      66 </span>                :<span class="lineNoCov">          0 :         MOCK_METHOD1_T(constPtr, void(ParamType * const));</span></a>
+<a name="67"><span class="lineNum">      67 </span>                :<span class="lineNoCov">          0 :         MOCK_METHOD1_T(refConstPtr, void(ParamType * const&amp;));</span></a>
+<a name="68"><span class="lineNum">      68 </span>                :<span class="lineNoCov">          0 :         MOCK_METHOD1_T(constPtrConst, void(ParamType const * const));</span></a>
+<span class="lineNum">      69 </span>                :<span class="lineNoCov">          0 :         MOCK_METHOD1_T(refConstPtrConst, void(ParamType const * const &amp;));</span>
+<span class="lineNum">      70 </span>                :<span class="lineNoCov">          0 :         MOCK_METHOD2_T(twoRefs, void(ParamType &amp;, ParamType &amp;));</span>
+<span class="lineNum">      71 </span>                :            : };
+<span class="lineNum">      72 </span>                :            : 
+<span class="lineNum">      73 </span>                :            : #ifdef _MSC_VER
+<span class="lineNum">      74 </span>                :            : #       pragma warning(pop)
+<span class="lineNum">      75 </span>                :            : #endif
+<span class="lineNum">      76 </span>                :            : 
+<span class="lineNum">      77 </span>                :            : #endif
+</pre>
+      </td>
+    </tr>
+  </table>
+  <br>
+
+  <table width="100%" border=0 cellspacing=0 cellpadding=0>
+    <tr><td class="ruler"><img src="../../glass.png" width=3 height=3 alt=""></td></tr>
+    <tr><td class="versionInfo">Generated by: <a href="http://ltp.sourceforge.net/coverage/lcov.php" target="_parent">LCOV version 1.9</a></td></tr>
+  </table>
+  <br>
+
+</body>
+</html>

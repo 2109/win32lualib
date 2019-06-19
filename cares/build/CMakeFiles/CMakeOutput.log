@@ -1,0 +1,2904 @@
+The system is: Windows - 6.1.7601 - AMD64
+Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+Compiler:  
+Build flags: 
+Id flags:  
+
+The output was:
+0
+Microsoft(R) ��������汾 12.0.21005.1
+[Microsoft .NET Framework �汾 4.0.30319.42000]
+��Ȩ���� (C) Microsoft Corporation����������Ȩ����
+
+��������ʱ��Ϊ 2019/6/17 19:35:53��
+�ڵ� 1 �ϵ���Ŀ��E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CompilerIdC\CompilerIdC.vcxproj��(Ĭ��Ŀ��)��
+PrepareForBuild:
+  ���ڴ���Ŀ¼��Debug\����
+  ���ڴ���Ŀ¼��Debug\CompilerIdC.tlog\����
+InitializeBuildStatus:
+  ���ڴ�����Debug\CompilerIdC.tlog\unsuccessfulbuild������Ϊ��ָ����AlwaysCreate����
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /nologo /W0 /WX- /Od /Oy- /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue CMakeCCompilerId.c
+  CMakeCCompilerId.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:".\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\CompilerIdC.lib" /MACHINE:X86 /SAFESEH Debug\CMakeCCompilerId.obj
+  CompilerIdC.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CompilerIdC\.\CompilerIdC.exe
+PostBuildEvent:
+  for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+  :VCEnd
+  CMAKE_C_COMPILER=D:\Microsoft Visual Studio 12.0\VC\bin\cl.exe
+FinalizeBuildStatus:
+  ����ɾ���ļ���Debug\CompilerIdC.tlog\unsuccessfulbuild����
+  ���ڶԡ�Debug\CompilerIdC.tlog\CompilerIdC.lastbuildstate��ִ�� Touch ����
+�����������Ŀ��E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CompilerIdC\CompilerIdC.vcxproj��(Ĭ��Ŀ��)�Ĳ�����
+
+�ѳɹ����ɡ�
+    0 ������
+    0 ������
+
+����ʱ�� 00:00:01.66
+
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+
+Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+
+The C compiler identification is MSVC, found in "E:/github/w32lualib/cares/build/CMakeFiles/3.13.2/CompilerIdC/CompilerIdC.exe"
+
+Determining if the C compiler works passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_28bee.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:35:55。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_28bee.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_28bee.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_28bee.dir\Debug\cmTC_28bee.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_28bee.dir\Debug\cmTC_28bee.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_28bee.dir\Debug\\" /Fd"cmTC_28bee.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_28bee.dir\Debug\\" /Fd"cmTC_28bee.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\testCCompiler.c
+  
+  testCCompiler.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_28bee.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_28bee.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_28bee.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_28bee.dir\Debug\testCCompiler.obj
+  cmTC_28bee.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_28bee.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_28bee.dir\Debug\cmTC_28bee.tlog\unsuccessfulbuild”。
+  正在对“cmTC_28bee.dir\Debug\cmTC_28bee.tlog\cmTC_28bee.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_28bee.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:03.94
+
+
+Detecting C compiler ABI info compiled with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_27fd7.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:35:59。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_27fd7.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_27fd7.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_27fd7.dir\Debug\cmTC_27fd7.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_27fd7.dir\Debug\cmTC_27fd7.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_27fd7.dir\Debug\\" /Fd"cmTC_27fd7.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue "E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompilerABI.c"
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_27fd7.dir\Debug\\" /Fd"cmTC_27fd7.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue "E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompilerABI.c"
+  
+  CMakeCCompilerABI.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_27fd7.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_27fd7.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_27fd7.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_27fd7.dir\Debug\CMakeCCompilerABI.obj
+  cmTC_27fd7.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_27fd7.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_27fd7.dir\Debug\cmTC_27fd7.tlog\unsuccessfulbuild”。
+  正在对“cmTC_27fd7.dir\Debug\cmTC_27fd7.tlog\cmTC_27fd7.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_27fd7.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.09
+
+
+
+
+Detecting C [] compiler features compiled with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_3ac55.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:01。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_3ac55.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_3ac55.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_3ac55.dir\Debug\cmTC_3ac55.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_3ac55.dir\Debug\cmTC_3ac55.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_3ac55.dir\Debug\\" /Fd"cmTC_3ac55.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\feature_tests.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_3ac55.dir\Debug\\" /Fd"cmTC_3ac55.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\feature_tests.c
+  
+  feature_tests.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_3ac55.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_3ac55.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_3ac55.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_3ac55.dir\Debug\feature_tests.obj
+  cmTC_3ac55.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_3ac55.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_3ac55.dir\Debug\cmTC_3ac55.tlog\unsuccessfulbuild”。
+  正在对“cmTC_3ac55.dir\Debug\cmTC_3ac55.tlog\cmTC_3ac55.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_3ac55.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.86
+
+
+    Feature record: C_FEATURE:1c_function_prototypes
+    Feature record: C_FEATURE:1c_variadic_macros
+Determining if files sys/types.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_f307f.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:06。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_f307f.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_f307f.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_f307f.dir\Debug\cmTC_f307f.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_f307f.dir\Debug\cmTC_f307f.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_f307f.dir\Debug\\" /Fd"cmTC_f307f.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TYPES_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_f307f.dir\Debug\\" /Fd"cmTC_f307f.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TYPES_H.c
+  HAVE_SYS_TYPES_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_f307f.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_f307f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_f307f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_f307f.dir\Debug\HAVE_SYS_TYPES_H.obj
+  cmTC_f307f.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_f307f.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_f307f.dir\Debug\cmTC_f307f.tlog\unsuccessfulbuild”。
+  正在对“cmTC_f307f.dir\Debug\cmTC_f307f.tlog\cmTC_f307f.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_f307f.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.00
+
+
+Determining if files assert.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_f1f83.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:09。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_f1f83.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_f1f83.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_f1f83.dir\Debug\cmTC_f1f83.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_f1f83.dir\Debug\cmTC_f1f83.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_f1f83.dir\Debug\\" /Fd"cmTC_f1f83.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_f1f83.dir\Debug\\" /Fd"cmTC_f1f83.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c
+  HAVE_ASSERT_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_f1f83.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_f1f83.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_f1f83.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_f1f83.dir\Debug\HAVE_ASSERT_H.obj
+  cmTC_f1f83.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_f1f83.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_f1f83.dir\Debug\cmTC_f1f83.tlog\unsuccessfulbuild”。
+  正在对“cmTC_f1f83.dir\Debug\cmTC_f1f83.tlog\cmTC_f1f83.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_f1f83.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:06.14
+
+
+Determining if files errno.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_2078b.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:16。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_2078b.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_2078b.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_2078b.dir\Debug\cmTC_2078b.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_2078b.dir\Debug\cmTC_2078b.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_2078b.dir\Debug\\" /Fd"cmTC_2078b.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_2078b.dir\Debug\\" /Fd"cmTC_2078b.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c
+  HAVE_ERRNO_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_2078b.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_2078b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_2078b.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_2078b.dir\Debug\HAVE_ERRNO_H.obj
+  cmTC_2078b.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_2078b.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_2078b.dir\Debug\cmTC_2078b.tlog\unsuccessfulbuild”。
+  正在对“cmTC_2078b.dir\Debug\cmTC_2078b.tlog\cmTC_2078b.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_2078b.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:10.29
+
+
+Determining if files fcntl.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_5d9f0.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:26。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_5d9f0.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_5d9f0.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_5d9f0.dir\Debug\cmTC_5d9f0.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_5d9f0.dir\Debug\cmTC_5d9f0.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_5d9f0.dir\Debug\\" /Fd"cmTC_5d9f0.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_FCNTL_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_5d9f0.dir\Debug\\" /Fd"cmTC_5d9f0.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_FCNTL_H.c
+  
+  HAVE_FCNTL_H.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_5d9f0.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_5d9f0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_5d9f0.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_5d9f0.dir\Debug\HAVE_FCNTL_H.obj
+  cmTC_5d9f0.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_5d9f0.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_5d9f0.dir\Debug\cmTC_5d9f0.tlog\unsuccessfulbuild”。
+  正在对“cmTC_5d9f0.dir\Debug\cmTC_5d9f0.tlog\cmTC_5d9f0.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_5d9f0.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.39
+
+
+Determining if files inttypes.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_e9aec.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:28。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_e9aec.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_e9aec.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_e9aec.dir\Debug\cmTC_e9aec.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_e9aec.dir\Debug\cmTC_e9aec.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_e9aec.dir\Debug\\" /Fd"cmTC_e9aec.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_e9aec.dir\Debug\\" /Fd"cmTC_e9aec.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c
+  
+  HAVE_INTTYPES_H.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_e9aec.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_e9aec.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_e9aec.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_e9aec.dir\Debug\HAVE_INTTYPES_H.obj
+  cmTC_e9aec.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_e9aec.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_e9aec.dir\Debug\cmTC_e9aec.tlog\unsuccessfulbuild”。
+  正在对“cmTC_e9aec.dir\Debug\cmTC_e9aec.tlog\cmTC_e9aec.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_e9aec.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.85
+
+
+Determining if files limits.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_855cb.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:29。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_855cb.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_855cb.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_855cb.dir\Debug\cmTC_855cb.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_855cb.dir\Debug\cmTC_855cb.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_855cb.dir\Debug\\" /Fd"cmTC_855cb.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_LIMITS_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_855cb.dir\Debug\\" /Fd"cmTC_855cb.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_LIMITS_H.c
+  
+  HAVE_LIMITS_H.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_855cb.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_855cb.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_855cb.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_855cb.dir\Debug\HAVE_LIMITS_H.obj
+  cmTC_855cb.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_855cb.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_855cb.dir\Debug\cmTC_855cb.tlog\unsuccessfulbuild”。
+  正在对“cmTC_855cb.dir\Debug\cmTC_855cb.tlog\cmTC_855cb.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_855cb.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.83
+
+
+Determining if files malloc.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_0710d.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:30。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_0710d.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_0710d.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_0710d.dir\Debug\cmTC_0710d.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_0710d.dir\Debug\cmTC_0710d.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_0710d.dir\Debug\\" /Fd"cmTC_0710d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_0710d.dir\Debug\\" /Fd"cmTC_0710d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c
+  HAVE_MALLOC_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_0710d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_0710d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_0710d.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_0710d.dir\Debug\HAVE_MALLOC_H.obj
+  cmTC_0710d.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_0710d.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_0710d.dir\Debug\cmTC_0710d.tlog\unsuccessfulbuild”。
+  正在对“cmTC_0710d.dir\Debug\cmTC_0710d.tlog\cmTC_0710d.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_0710d.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:06.29
+
+
+Determining if files memory.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_4d53b.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:37。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_4d53b.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_4d53b.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_4d53b.dir\Debug\cmTC_4d53b.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_4d53b.dir\Debug\cmTC_4d53b.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_4d53b.dir\Debug\\" /Fd"cmTC_4d53b.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_4d53b.dir\Debug\\" /Fd"cmTC_4d53b.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c
+  HAVE_MEMORY_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_4d53b.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_4d53b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_4d53b.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_4d53b.dir\Debug\HAVE_MEMORY_H.obj
+  cmTC_4d53b.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_4d53b.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_4d53b.dir\Debug\cmTC_4d53b.tlog\unsuccessfulbuild”。
+  正在对“cmTC_4d53b.dir\Debug\cmTC_4d53b.tlog\cmTC_4d53b.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_4d53b.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.12
+
+
+Determining if files signal.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_8521d.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:41。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_8521d.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_8521d.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_8521d.dir\Debug\cmTC_8521d.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_8521d.dir\Debug\cmTC_8521d.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_8521d.dir\Debug\\" /Fd"cmTC_8521d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SIGNAL_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_8521d.dir\Debug\\" /Fd"cmTC_8521d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SIGNAL_H.c
+  
+  HAVE_SIGNAL_H.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_8521d.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_8521d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_8521d.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_8521d.dir\Debug\HAVE_SIGNAL_H.obj
+  cmTC_8521d.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_8521d.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_8521d.dir\Debug\cmTC_8521d.tlog\unsuccessfulbuild”。
+  正在对“cmTC_8521d.dir\Debug\cmTC_8521d.tlog\cmTC_8521d.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_8521d.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.81
+
+
+Determining if files stdbool.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_c6a45.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:42。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_c6a45.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_c6a45.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_c6a45.dir\Debug\cmTC_c6a45.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_c6a45.dir\Debug\cmTC_c6a45.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_c6a45.dir\Debug\\" /Fd"cmTC_c6a45.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_c6a45.dir\Debug\\" /Fd"cmTC_c6a45.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c
+  HAVE_STDBOOL_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_c6a45.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_c6a45.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_c6a45.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_c6a45.dir\Debug\HAVE_STDBOOL_H.obj
+  cmTC_c6a45.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_c6a45.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_c6a45.dir\Debug\cmTC_c6a45.tlog\unsuccessfulbuild”。
+  正在对“cmTC_c6a45.dir\Debug\cmTC_c6a45.tlog\cmTC_c6a45.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_c6a45.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.82
+
+
+Determining if files stdint.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_50b4b.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:43。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_50b4b.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_50b4b.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_50b4b.dir\Debug\cmTC_50b4b.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_50b4b.dir\Debug\cmTC_50b4b.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_50b4b.dir\Debug\\" /Fd"cmTC_50b4b.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDINT_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_50b4b.dir\Debug\\" /Fd"cmTC_50b4b.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDINT_H.c
+  HAVE_STDINT_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_50b4b.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_50b4b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_50b4b.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_50b4b.dir\Debug\HAVE_STDINT_H.obj
+  cmTC_50b4b.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_50b4b.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_50b4b.dir\Debug\cmTC_50b4b.tlog\unsuccessfulbuild”。
+  正在对“cmTC_50b4b.dir\Debug\cmTC_50b4b.tlog\cmTC_50b4b.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_50b4b.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.80
+
+
+Determining if files stdlib.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_6c00e.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:44。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_6c00e.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_6c00e.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_6c00e.dir\Debug\cmTC_6c00e.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_6c00e.dir\Debug\cmTC_6c00e.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_6c00e.dir\Debug\\" /Fd"cmTC_6c00e.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_6c00e.dir\Debug\\" /Fd"cmTC_6c00e.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c
+  
+  HAVE_STDLIB_H.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_6c00e.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_6c00e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_6c00e.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_6c00e.dir\Debug\HAVE_STDLIB_H.obj
+  cmTC_6c00e.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_6c00e.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_6c00e.dir\Debug\cmTC_6c00e.tlog\unsuccessfulbuild”。
+  正在对“cmTC_6c00e.dir\Debug\cmTC_6c00e.tlog\cmTC_6c00e.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_6c00e.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.86
+
+
+Determining if files string.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_6fc25.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:46。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_6fc25.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_6fc25.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_6fc25.dir\Debug\cmTC_6fc25.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_6fc25.dir\Debug\cmTC_6fc25.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_6fc25.dir\Debug\\" /Fd"cmTC_6fc25.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRING_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_6fc25.dir\Debug\\" /Fd"cmTC_6fc25.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRING_H.c
+  HAVE_STRING_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_6fc25.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_6fc25.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_6fc25.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_6fc25.dir\Debug\HAVE_STRING_H.obj
+  cmTC_6fc25.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_6fc25.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_6fc25.dir\Debug\cmTC_6fc25.tlog\unsuccessfulbuild”。
+  正在对“cmTC_6fc25.dir\Debug\cmTC_6fc25.tlog\cmTC_6fc25.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_6fc25.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.84
+
+
+Determining if files sys/stat.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_829e1.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:50。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_829e1.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_829e1.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_829e1.dir\Debug\cmTC_829e1.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_829e1.dir\Debug\cmTC_829e1.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_829e1.dir\Debug\\" /Fd"cmTC_829e1.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_STAT_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_829e1.dir\Debug\\" /Fd"cmTC_829e1.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_STAT_H.c
+  HAVE_SYS_STAT_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_829e1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_829e1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_829e1.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_829e1.dir\Debug\HAVE_SYS_STAT_H.obj
+  cmTC_829e1.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_829e1.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_829e1.dir\Debug\cmTC_829e1.tlog\unsuccessfulbuild”。
+  正在对“cmTC_829e1.dir\Debug\cmTC_829e1.tlog\cmTC_829e1.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_829e1.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.04
+
+
+Determining if files time.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_a77e2.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:53。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_a77e2.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_a77e2.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_a77e2.dir\Debug\cmTC_a77e2.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_a77e2.dir\Debug\cmTC_a77e2.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_a77e2.dir\Debug\\" /Fd"cmTC_a77e2.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_TIME_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_a77e2.dir\Debug\\" /Fd"cmTC_a77e2.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_TIME_H.c
+  HAVE_TIME_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_a77e2.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_a77e2.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_a77e2.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_a77e2.dir\Debug\HAVE_TIME_H.obj
+  cmTC_a77e2.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_a77e2.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_a77e2.dir\Debug\cmTC_a77e2.tlog\unsuccessfulbuild”。
+  正在对“cmTC_a77e2.dir\Debug\cmTC_a77e2.tlog\cmTC_a77e2.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_a77e2.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.08
+
+
+Determining if files winsock2.h;windows.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_77a8c.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:56。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_77a8c.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_77a8c.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_77a8c.dir\Debug\cmTC_77a8c.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_77a8c.dir\Debug\cmTC_77a8c.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_77a8c.dir\Debug\\" /Fd"cmTC_77a8c.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  HAVE_WINSOCK2_H.c
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_77a8c.dir\Debug\\" /Fd"cmTC_77a8c.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_77a8c.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_77a8c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_77a8c.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_77a8c.dir\Debug\HAVE_WINSOCK2_H.obj
+  cmTC_77a8c.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_77a8c.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_77a8c.dir\Debug\cmTC_77a8c.tlog\unsuccessfulbuild”。
+  正在对“cmTC_77a8c.dir\Debug\cmTC_77a8c.tlog\cmTC_77a8c.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_77a8c.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.22
+
+
+Determining if files winsock2.h;ws2tcpip.h;windows.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_62e17.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:57。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_62e17.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_62e17.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_62e17.dir\Debug\cmTC_62e17.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_62e17.dir\Debug\cmTC_62e17.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_62e17.dir\Debug\\" /Fd"cmTC_62e17.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_62e17.dir\Debug\\" /Fd"cmTC_62e17.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c
+  
+  HAVE_WS2TCPIP_H.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_62e17.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_62e17.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_62e17.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_62e17.dir\Debug\HAVE_WS2TCPIP_H.obj
+  cmTC_62e17.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_62e17.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_62e17.dir\Debug\cmTC_62e17.tlog\unsuccessfulbuild”。
+  正在对“cmTC_62e17.dir\Debug\cmTC_62e17.tlog\cmTC_62e17.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_62e17.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.17
+
+
+Determining if files winsock.h;windows.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_c61aa.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:36:59。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_c61aa.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_c61aa.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_c61aa.dir\Debug\cmTC_c61aa.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_c61aa.dir\Debug\cmTC_c61aa.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_c61aa.dir\Debug\\" /Fd"cmTC_c61aa.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_c61aa.dir\Debug\\" /Fd"cmTC_c61aa.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK_H.c
+  
+  HAVE_WINSOCK_H.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_c61aa.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_c61aa.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_c61aa.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_c61aa.dir\Debug\HAVE_WINSOCK_H.obj
+  cmTC_c61aa.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_c61aa.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_c61aa.dir\Debug\cmTC_c61aa.tlog\unsuccessfulbuild”。
+  正在对“cmTC_c61aa.dir\Debug\cmTC_c61aa.tlog\cmTC_c61aa.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_c61aa.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:08.60
+
+
+Determining if files windows.h exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_4a1dd.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:08。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_4a1dd.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_4a1dd.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_4a1dd.dir\Debug\cmTC_4a1dd.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_4a1dd.dir\Debug\cmTC_4a1dd.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_4a1dd.dir\Debug\\" /Fd"cmTC_4a1dd.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_4a1dd.dir\Debug\\" /Fd"cmTC_4a1dd.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c
+  HAVE_WINDOWS_H.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_4a1dd.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_4a1dd.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_4a1dd.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_4a1dd.dir\Debug\HAVE_WINDOWS_H.obj
+  cmTC_4a1dd.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_4a1dd.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_4a1dd.dir\Debug\cmTC_4a1dd.tlog\unsuccessfulbuild”。
+  正在对“cmTC_4a1dd.dir\Debug\cmTC_4a1dd.tlog\cmTC_4a1dd.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_4a1dd.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.59
+
+
+Performing C SOURCE FILE Test HAVE_SOCKLEN_T succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_0a4b4.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:09。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_0a4b4.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_0a4b4.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_0a4b4.dir\Debug\cmTC_0a4b4.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_0a4b4.dir\Debug\cmTC_0a4b4.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_SOCKLEN_T /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_0a4b4.dir\Debug\\" /Fd"cmTC_0a4b4.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_SOCKLEN_T /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_0a4b4.dir\Debug\\" /Fd"cmTC_0a4b4.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  src.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_0a4b4.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_0a4b4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_0a4b4.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_0a4b4.dir\Debug\src.obj
+  cmTC_0a4b4.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_0a4b4.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_0a4b4.dir\Debug\cmTC_0a4b4.tlog\unsuccessfulbuild”。
+  正在对“cmTC_0a4b4.dir\Debug\cmTC_0a4b4.tlog\cmTC_0a4b4.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_0a4b4.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.06
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			socklen_t var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Performing C SOURCE FILE Test HAVE_TYPE_SOCKET succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_7bd16.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:11。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_7bd16.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_7bd16.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_7bd16.dir\Debug\cmTC_7bd16.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_7bd16.dir\Debug\cmTC_7bd16.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_TYPE_SOCKET /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_7bd16.dir\Debug\\" /Fd"cmTC_7bd16.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_TYPE_SOCKET /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_7bd16.dir\Debug\\" /Fd"cmTC_7bd16.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  
+  src.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_7bd16.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_7bd16.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_7bd16.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_7bd16.dir\Debug\src.obj
+  cmTC_7bd16.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_7bd16.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_7bd16.dir\Debug\cmTC_7bd16.tlog\unsuccessfulbuild”。
+  正在对“cmTC_7bd16.dir\Debug\cmTC_7bd16.tlog\cmTC_7bd16.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_7bd16.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.04
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			SOCKET var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Performing C SOURCE FILE Test HAVE_BOOL_T succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_30556.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:12。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_30556.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_30556.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_30556.dir\Debug\cmTC_30556.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_30556.dir\Debug\cmTC_30556.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_BOOL_T /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_30556.dir\Debug\\" /Fd"cmTC_30556.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_BOOL_T /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_30556.dir\Debug\\" /Fd"cmTC_30556.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  src.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_30556.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_30556.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_30556.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_30556.dir\Debug\src.obj
+  cmTC_30556.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_30556.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_30556.dir\Debug\cmTC_30556.tlog\unsuccessfulbuild”。
+  正在对“cmTC_30556.dir\Debug\cmTC_30556.tlog\cmTC_30556.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_30556.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:05.87
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			bool var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Performing C SOURCE FILE Test HAVE_LONGLONG succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_44b8d.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:19。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_44b8d.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_44b8d.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_44b8d.dir\Debug\cmTC_44b8d.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_44b8d.dir\Debug\cmTC_44b8d.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_LONGLONG /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_44b8d.dir\Debug\\" /Fd"cmTC_44b8d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_LONGLONG /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_44b8d.dir\Debug\\" /Fd"cmTC_44b8d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  
+  src.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_44b8d.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_44b8d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_44b8d.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_44b8d.dir\Debug\src.obj
+  cmTC_44b8d.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_44b8d.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_44b8d.dir\Debug\cmTC_44b8d.tlog\unsuccessfulbuild”。
+  正在对“cmTC_44b8d.dir\Debug\cmTC_44b8d.tlog\cmTC_44b8d.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_44b8d.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.28
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			long long var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Performing C SOURCE FILE Test HAVE_SIG_ATOMIC_T succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_56038.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:21。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_56038.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_56038.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_56038.dir\Debug\cmTC_56038.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_56038.dir\Debug\cmTC_56038.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_SIG_ATOMIC_T /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_56038.dir\Debug\\" /Fd"cmTC_56038.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_SIG_ATOMIC_T /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_56038.dir\Debug\\" /Fd"cmTC_56038.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  src.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_56038.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_56038.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_56038.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_56038.dir\Debug\src.obj
+  cmTC_56038.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_56038.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_56038.dir\Debug\cmTC_56038.tlog\unsuccessfulbuild”。
+  正在对“cmTC_56038.dir\Debug\cmTC_56038.tlog\cmTC_56038.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_56038.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.10
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			sig_atomic_t var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Performing C SOURCE FILE Test HAVE_STRUCT_ADDRINFO succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_14cf6.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:22。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_14cf6.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_14cf6.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_14cf6.dir\Debug\cmTC_14cf6.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_14cf6.dir\Debug\cmTC_14cf6.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_ADDRINFO /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_14cf6.dir\Debug\\" /Fd"cmTC_14cf6.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_ADDRINFO /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_14cf6.dir\Debug\\" /Fd"cmTC_14cf6.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  
+  src.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_14cf6.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_14cf6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_14cf6.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_14cf6.dir\Debug\src.obj
+  cmTC_14cf6.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_14cf6.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_14cf6.dir\Debug\cmTC_14cf6.tlog\unsuccessfulbuild”。
+  正在对“cmTC_14cf6.dir\Debug\cmTC_14cf6.tlog\cmTC_14cf6.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_14cf6.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.04
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			struct addrinfo var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Performing C SOURCE FILE Test HAVE_STRUCT_IN6_ADDR succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_15f6a.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:23。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_15f6a.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_15f6a.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_15f6a.dir\Debug\cmTC_15f6a.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_15f6a.dir\Debug\cmTC_15f6a.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_IN6_ADDR /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_15f6a.dir\Debug\\" /Fd"cmTC_15f6a.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_IN6_ADDR /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_15f6a.dir\Debug\\" /Fd"cmTC_15f6a.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  src.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_15f6a.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_15f6a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_15f6a.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_15f6a.dir\Debug\src.obj
+  cmTC_15f6a.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_15f6a.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_15f6a.dir\Debug\cmTC_15f6a.tlog\unsuccessfulbuild”。
+  正在对“cmTC_15f6a.dir\Debug\cmTC_15f6a.tlog\cmTC_15f6a.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_15f6a.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.06
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			struct in6_addr var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Performing C SOURCE FILE Test HAVE_STRUCT_SOCKADDR_IN6 succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_b601c.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:25。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_b601c.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_b601c.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_b601c.dir\Debug\cmTC_b601c.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_b601c.dir\Debug\cmTC_b601c.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_SOCKADDR_IN6 /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_b601c.dir\Debug\\" /Fd"cmTC_b601c.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_SOCKADDR_IN6 /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_b601c.dir\Debug\\" /Fd"cmTC_b601c.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  src.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_b601c.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_b601c.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_b601c.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_b601c.dir\Debug\src.obj
+  cmTC_b601c.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_b601c.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_b601c.dir\Debug\cmTC_b601c.tlog\unsuccessfulbuild”。
+  正在对“cmTC_b601c.dir\Debug\cmTC_b601c.tlog\cmTC_b601c.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_b601c.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.14
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			struct sockaddr_in6 var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Performing C SOURCE FILE Test HAVE_STRUCT_SOCKADDR_STORAGE succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_9d8d6.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:26。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_9d8d6.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_9d8d6.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_9d8d6.dir\Debug\cmTC_9d8d6.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_9d8d6.dir\Debug\cmTC_9d8d6.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_SOCKADDR_STORAGE /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_9d8d6.dir\Debug\\" /Fd"cmTC_9d8d6.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_SOCKADDR_STORAGE /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_9d8d6.dir\Debug\\" /Fd"cmTC_9d8d6.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  
+  src.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_9d8d6.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_9d8d6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_9d8d6.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_9d8d6.dir\Debug\src.obj
+  cmTC_9d8d6.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_9d8d6.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_9d8d6.dir\Debug\cmTC_9d8d6.tlog\unsuccessfulbuild”。
+  正在对“cmTC_9d8d6.dir\Debug\cmTC_9d8d6.tlog\cmTC_9d8d6.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_9d8d6.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.98
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			struct sockaddr_storage var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Performing C SOURCE FILE Test HAVE_STRUCT_TIMEVAL succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_5d32a.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:27。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_5d32a.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_5d32a.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_5d32a.dir\Debug\cmTC_5d32a.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_5d32a.dir\Debug\cmTC_5d32a.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_TIMEVAL /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_5d32a.dir\Debug\\" /Fd"cmTC_5d32a.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_STRUCT_TIMEVAL /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_5d32a.dir\Debug\\" /Fd"cmTC_5d32a.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  src.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_5d32a.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_5d32a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_5d32a.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_5d32a.dir\Debug\src.obj
+  cmTC_5d32a.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_5d32a.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_5d32a.dir\Debug\cmTC_5d32a.tlog\unsuccessfulbuild”。
+  正在对“cmTC_5d32a.dir\Debug\cmTC_5d32a.tlog\cmTC_5d32a.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_5d32a.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.11
+
+Source file was:
+
+		#include <stdio.h>
+		#include <stdlib.h>
+	
+		#include <stdbool.h>
+		#include <sys/types.h>
+		#include <signal.h>
+		#include <stdlib.h>
+		#include <string.h>
+		#include <time.h>
+		#include <fcntl.h>
+		#include <winsock2.h>
+		#include <ws2tcpip.h>
+		#include <windows.h>
+		int main() {
+			struct timeval var_exists;
+			(void)var_exists;
+			return 0;
+		}
+	
+Determining if the AF_INET6 exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_b3744.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:29。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_b3744.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_b3744.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_b3744.dir\Debug\cmTC_b3744.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_b3744.dir\Debug\cmTC_b3744.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_b3744.dir\Debug\\" /Fd"cmTC_b3744.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_b3744.dir\Debug\\" /Fd"cmTC_b3744.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_b3744.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_b3744.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_b3744.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_b3744.dir\Debug\CheckSymbolExists.obj
+  cmTC_b3744.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_b3744.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_b3744.dir\Debug\cmTC_b3744.tlog\unsuccessfulbuild”。
+  正在对“cmTC_b3744.dir\Debug\cmTC_b3744.tlog\cmTC_b3744.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_b3744.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.03
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef AF_INET6
+  return ((int*)(&AF_INET6))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the FIONBIO exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_b0b6d.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:31。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_b0b6d.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_b0b6d.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_b0b6d.dir\Debug\cmTC_b0b6d.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_b0b6d.dir\Debug\cmTC_b0b6d.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_b0b6d.dir\Debug\\" /Fd"cmTC_b0b6d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_b0b6d.dir\Debug\\" /Fd"cmTC_b0b6d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_b0b6d.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_b0b6d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_b0b6d.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_b0b6d.dir\Debug\CheckSymbolExists.obj
+  cmTC_b0b6d.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_b0b6d.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_b0b6d.dir\Debug\cmTC_b0b6d.tlog\unsuccessfulbuild”。
+  正在对“cmTC_b0b6d.dir\Debug\cmTC_b0b6d.tlog\cmTC_b0b6d.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_b0b6d.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.23
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef FIONBIO
+  return ((int*)(&FIONBIO))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the PF_INET6 exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_4d5b0.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:34。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_4d5b0.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_4d5b0.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_4d5b0.dir\Debug\cmTC_4d5b0.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_4d5b0.dir\Debug\cmTC_4d5b0.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_4d5b0.dir\Debug\\" /Fd"cmTC_4d5b0.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_4d5b0.dir\Debug\\" /Fd"cmTC_4d5b0.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_4d5b0.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_4d5b0.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_4d5b0.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_4d5b0.dir\Debug\CheckSymbolExists.obj
+  cmTC_4d5b0.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_4d5b0.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_4d5b0.dir\Debug\cmTC_4d5b0.tlog\unsuccessfulbuild”。
+  正在对“cmTC_4d5b0.dir\Debug\cmTC_4d5b0.tlog\cmTC_4d5b0.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_4d5b0.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.12
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef PF_INET6
+  return ((int*)(&PF_INET6))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Performing C SOURCE FILE Test HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_1a4c8.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:37。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_1a4c8.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_1a4c8.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_1a4c8.dir\Debug\cmTC_1a4c8.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_1a4c8.dir\Debug\cmTC_1a4c8.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_1a4c8.dir\Debug\\" /Fd"cmTC_1a4c8.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_SOCKADDR_IN6_SIN6_SCOPE_ID /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_1a4c8.dir\Debug\\" /Fd"cmTC_1a4c8.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  
+  src.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_1a4c8.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_1a4c8.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_1a4c8.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_1a4c8.dir\Debug\src.obj
+  cmTC_1a4c8.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_1a4c8.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_1a4c8.dir\Debug\cmTC_1a4c8.tlog\unsuccessfulbuild”。
+  正在对“cmTC_1a4c8.dir\Debug\cmTC_1a4c8.tlog\cmTC_1a4c8.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_1a4c8.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.04
+
+Source file was:
+
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main()
+{
+   (void)sizeof(((struct sockaddr_in6 *)0)->sin6_scope_id);
+   return 0;
+}
+
+Performing C SOURCE FILE Test HAVE_LL succeeded with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_67cc8.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:38。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_67cc8.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_67cc8.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_67cc8.dir\Debug\cmTC_67cc8.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_67cc8.dir\Debug\cmTC_67cc8.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_LL /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_67cc8.dir\Debug\\" /Fd"cmTC_67cc8.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_LL /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_67cc8.dir\Debug\\" /Fd"cmTC_67cc8.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\src.c
+  
+  src.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_67cc8.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_67cc8.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_67cc8.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_67cc8.dir\Debug\src.obj
+  cmTC_67cc8.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_67cc8.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_67cc8.dir\Debug\cmTC_67cc8.tlog\unsuccessfulbuild”。
+  正在对“cmTC_67cc8.dir\Debug\cmTC_67cc8.tlog\cmTC_67cc8.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_67cc8.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:05.81
+
+Source file was:
+int main() { int n=1234LL; return 0; }
+Determining if the closesocket exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_d283a.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:46。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_d283a.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_d283a.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_d283a.dir\Debug\cmTC_d283a.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_d283a.dir\Debug\cmTC_d283a.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_d283a.dir\Debug\\" /Fd"cmTC_d283a.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_d283a.dir\Debug\\" /Fd"cmTC_d283a.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_d283a.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_d283a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_d283a.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_d283a.dir\Debug\CheckSymbolExists.obj
+  cmTC_d283a.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_d283a.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_d283a.dir\Debug\cmTC_d283a.tlog\unsuccessfulbuild”。
+  正在对“cmTC_d283a.dir\Debug\cmTC_d283a.tlog\cmTC_d283a.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_d283a.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.10
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef closesocket
+  return ((int*)(&closesocket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the connect exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_ef541.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:48。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_ef541.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_ef541.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_ef541.dir\Debug\cmTC_ef541.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_ef541.dir\Debug\cmTC_ef541.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_ef541.dir\Debug\\" /Fd"cmTC_ef541.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_ef541.dir\Debug\\" /Fd"cmTC_ef541.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_ef541.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_ef541.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_ef541.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_ef541.dir\Debug\CheckSymbolExists.obj
+  cmTC_ef541.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_ef541.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_ef541.dir\Debug\cmTC_ef541.tlog\unsuccessfulbuild”。
+  正在对“cmTC_ef541.dir\Debug\cmTC_ef541.tlog\cmTC_ef541.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_ef541.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.08
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef connect
+  return ((int*)(&connect))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the freeaddrinfo exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_1b2a4.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:50。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_1b2a4.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_1b2a4.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_1b2a4.dir\Debug\cmTC_1b2a4.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_1b2a4.dir\Debug\cmTC_1b2a4.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_1b2a4.dir\Debug\\" /Fd"cmTC_1b2a4.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_1b2a4.dir\Debug\\" /Fd"cmTC_1b2a4.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_1b2a4.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_1b2a4.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_1b2a4.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_1b2a4.dir\Debug\CheckSymbolExists.obj
+  cmTC_1b2a4.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_1b2a4.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_1b2a4.dir\Debug\cmTC_1b2a4.tlog\unsuccessfulbuild”。
+  正在对“cmTC_1b2a4.dir\Debug\cmTC_1b2a4.tlog\cmTC_1b2a4.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_1b2a4.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:05.93
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef freeaddrinfo
+  return ((int*)(&freeaddrinfo))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getaddrinfo exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_29c7f.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:56。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_29c7f.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_29c7f.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_29c7f.dir\Debug\cmTC_29c7f.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_29c7f.dir\Debug\cmTC_29c7f.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_29c7f.dir\Debug\\" /Fd"cmTC_29c7f.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_29c7f.dir\Debug\\" /Fd"cmTC_29c7f.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_29c7f.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_29c7f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_29c7f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_29c7f.dir\Debug\CheckSymbolExists.obj
+  cmTC_29c7f.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_29c7f.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_29c7f.dir\Debug\cmTC_29c7f.tlog\unsuccessfulbuild”。
+  正在对“cmTC_29c7f.dir\Debug\cmTC_29c7f.tlog\cmTC_29c7f.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_29c7f.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.59
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getaddrinfo
+  return ((int*)(&getaddrinfo))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getenv exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_071ad.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:37:58。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_071ad.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_071ad.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_071ad.dir\Debug\cmTC_071ad.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_071ad.dir\Debug\cmTC_071ad.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_071ad.dir\Debug\\" /Fd"cmTC_071ad.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_071ad.dir\Debug\\" /Fd"cmTC_071ad.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_071ad.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_071ad.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_071ad.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_071ad.dir\Debug\CheckSymbolExists.obj
+  cmTC_071ad.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_071ad.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_071ad.dir\Debug\cmTC_071ad.tlog\unsuccessfulbuild”。
+  正在对“cmTC_071ad.dir\Debug\cmTC_071ad.tlog\cmTC_071ad.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_071ad.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:06.27
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getenv
+  return ((int*)(&getenv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the gethostbyaddr exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_9a6a5.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:04。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_9a6a5.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_9a6a5.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_9a6a5.dir\Debug\cmTC_9a6a5.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_9a6a5.dir\Debug\cmTC_9a6a5.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_9a6a5.dir\Debug\\" /Fd"cmTC_9a6a5.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_9a6a5.dir\Debug\\" /Fd"cmTC_9a6a5.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_9a6a5.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_9a6a5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_9a6a5.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_9a6a5.dir\Debug\CheckSymbolExists.obj
+  cmTC_9a6a5.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_9a6a5.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_9a6a5.dir\Debug\cmTC_9a6a5.tlog\unsuccessfulbuild”。
+  正在对“cmTC_9a6a5.dir\Debug\cmTC_9a6a5.tlog\cmTC_9a6a5.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_9a6a5.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.26
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gethostbyaddr
+  return ((int*)(&gethostbyaddr))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the gethostbyname exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_5ff83.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:06。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_5ff83.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_5ff83.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_5ff83.dir\Debug\cmTC_5ff83.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_5ff83.dir\Debug\cmTC_5ff83.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_5ff83.dir\Debug\\" /Fd"cmTC_5ff83.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_5ff83.dir\Debug\\" /Fd"cmTC_5ff83.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_5ff83.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_5ff83.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_5ff83.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_5ff83.dir\Debug\CheckSymbolExists.obj
+  cmTC_5ff83.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_5ff83.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_5ff83.dir\Debug\cmTC_5ff83.tlog\unsuccessfulbuild”。
+  正在对“cmTC_5ff83.dir\Debug\cmTC_5ff83.tlog\cmTC_5ff83.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_5ff83.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.06
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gethostbyname
+  return ((int*)(&gethostbyname))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the gethostname exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_adb6d.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:07。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_adb6d.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_adb6d.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_adb6d.dir\Debug\cmTC_adb6d.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_adb6d.dir\Debug\cmTC_adb6d.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_adb6d.dir\Debug\\" /Fd"cmTC_adb6d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_adb6d.dir\Debug\\" /Fd"cmTC_adb6d.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_adb6d.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_adb6d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_adb6d.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_adb6d.dir\Debug\CheckSymbolExists.obj
+  cmTC_adb6d.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_adb6d.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_adb6d.dir\Debug\cmTC_adb6d.tlog\unsuccessfulbuild”。
+  正在对“cmTC_adb6d.dir\Debug\cmTC_adb6d.tlog\cmTC_adb6d.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_adb6d.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.98
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef gethostname
+  return ((int*)(&gethostname))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the getnameinfo exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_da3e1.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:08。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_da3e1.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_da3e1.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_da3e1.dir\Debug\cmTC_da3e1.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_da3e1.dir\Debug\cmTC_da3e1.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_da3e1.dir\Debug\\" /Fd"cmTC_da3e1.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_da3e1.dir\Debug\\" /Fd"cmTC_da3e1.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_da3e1.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_da3e1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_da3e1.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_da3e1.dir\Debug\CheckSymbolExists.obj
+  cmTC_da3e1.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_da3e1.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_da3e1.dir\Debug\cmTC_da3e1.tlog\unsuccessfulbuild”。
+  正在对“cmTC_da3e1.dir\Debug\cmTC_da3e1.tlog\cmTC_da3e1.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_da3e1.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:00.97
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef getnameinfo
+  return ((int*)(&getnameinfo))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the ioctlsocket exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_c2358.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:14。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_c2358.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_c2358.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_c2358.dir\Debug\cmTC_c2358.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_c2358.dir\Debug\cmTC_c2358.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_c2358.dir\Debug\\" /Fd"cmTC_c2358.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_c2358.dir\Debug\\" /Fd"cmTC_c2358.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_c2358.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_c2358.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_c2358.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_c2358.dir\Debug\CheckSymbolExists.obj
+  cmTC_c2358.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_c2358.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_c2358.dir\Debug\cmTC_c2358.tlog\unsuccessfulbuild”。
+  正在对“cmTC_c2358.dir\Debug\cmTC_c2358.tlog\cmTC_c2358.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_c2358.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:06.37
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef ioctlsocket
+  return ((int*)(&ioctlsocket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the recv exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_5e0a6.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:22。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_5e0a6.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_5e0a6.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_5e0a6.dir\Debug\cmTC_5e0a6.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_5e0a6.dir\Debug\cmTC_5e0a6.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_5e0a6.dir\Debug\\" /Fd"cmTC_5e0a6.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_5e0a6.dir\Debug\\" /Fd"cmTC_5e0a6.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_5e0a6.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_5e0a6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_5e0a6.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_5e0a6.dir\Debug\CheckSymbolExists.obj
+  cmTC_5e0a6.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_5e0a6.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_5e0a6.dir\Debug\cmTC_5e0a6.tlog\unsuccessfulbuild”。
+  正在对“cmTC_5e0a6.dir\Debug\cmTC_5e0a6.tlog\cmTC_5e0a6.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_5e0a6.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.79
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef recv
+  return ((int*)(&recv))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the recvfrom exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_0eb8b.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:24。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_0eb8b.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_0eb8b.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_0eb8b.dir\Debug\cmTC_0eb8b.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_0eb8b.dir\Debug\cmTC_0eb8b.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_0eb8b.dir\Debug\\" /Fd"cmTC_0eb8b.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_0eb8b.dir\Debug\\" /Fd"cmTC_0eb8b.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_0eb8b.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_0eb8b.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_0eb8b.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_0eb8b.dir\Debug\CheckSymbolExists.obj
+  cmTC_0eb8b.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_0eb8b.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_0eb8b.dir\Debug\cmTC_0eb8b.tlog\unsuccessfulbuild”。
+  正在对“cmTC_0eb8b.dir\Debug\cmTC_0eb8b.tlog\cmTC_0eb8b.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_0eb8b.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.26
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef recvfrom
+  return ((int*)(&recvfrom))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the send exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_66114.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:26。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_66114.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_66114.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_66114.dir\Debug\cmTC_66114.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_66114.dir\Debug\cmTC_66114.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_66114.dir\Debug\\" /Fd"cmTC_66114.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_66114.dir\Debug\\" /Fd"cmTC_66114.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_66114.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_66114.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_66114.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_66114.dir\Debug\CheckSymbolExists.obj
+  cmTC_66114.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_66114.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_66114.dir\Debug\cmTC_66114.tlog\unsuccessfulbuild”。
+  正在对“cmTC_66114.dir\Debug\cmTC_66114.tlog\cmTC_66114.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_66114.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.37
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef send
+  return ((int*)(&send))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the setsockopt exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_b6f5f.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:27。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_b6f5f.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_b6f5f.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_b6f5f.dir\Debug\cmTC_b6f5f.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_b6f5f.dir\Debug\cmTC_b6f5f.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_b6f5f.dir\Debug\\" /Fd"cmTC_b6f5f.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_b6f5f.dir\Debug\\" /Fd"cmTC_b6f5f.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_b6f5f.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_b6f5f.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_b6f5f.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_b6f5f.dir\Debug\CheckSymbolExists.obj
+  cmTC_b6f5f.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_b6f5f.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_b6f5f.dir\Debug\cmTC_b6f5f.tlog\unsuccessfulbuild”。
+  正在对“cmTC_b6f5f.dir\Debug\cmTC_b6f5f.tlog\cmTC_b6f5f.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_b6f5f.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.32
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef setsockopt
+  return ((int*)(&setsockopt))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the socket exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_a6cb6.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:29。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_a6cb6.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_a6cb6.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_a6cb6.dir\Debug\cmTC_a6cb6.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_a6cb6.dir\Debug\cmTC_a6cb6.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_a6cb6.dir\Debug\\" /Fd"cmTC_a6cb6.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_a6cb6.dir\Debug\\" /Fd"cmTC_a6cb6.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_a6cb6.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_a6cb6.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_a6cb6.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_a6cb6.dir\Debug\CheckSymbolExists.obj
+  cmTC_a6cb6.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_a6cb6.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_a6cb6.dir\Debug\cmTC_a6cb6.tlog\unsuccessfulbuild”。
+  正在对“cmTC_a6cb6.dir\Debug\cmTC_a6cb6.tlog\cmTC_a6cb6.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_a6cb6.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.19
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef socket
+  return ((int*)(&socket))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strcmpi exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_24ada.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:31。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_24ada.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_24ada.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_24ada.dir\Debug\cmTC_24ada.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_24ada.dir\Debug\cmTC_24ada.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_24ada.dir\Debug\\" /Fd"cmTC_24ada.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_24ada.dir\Debug\\" /Fd"cmTC_24ada.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_24ada.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_24ada.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_24ada.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_24ada.dir\Debug\CheckSymbolExists.obj
+  cmTC_24ada.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_24ada.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_24ada.dir\Debug\cmTC_24ada.tlog\unsuccessfulbuild”。
+  正在对“cmTC_24ada.dir\Debug\cmTC_24ada.tlog\cmTC_24ada.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_24ada.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.14
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strcmpi
+  return ((int*)(&strcmpi))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strdup exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_80b23.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:33。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_80b23.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_80b23.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_80b23.dir\Debug\cmTC_80b23.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_80b23.dir\Debug\cmTC_80b23.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_80b23.dir\Debug\\" /Fd"cmTC_80b23.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_80b23.dir\Debug\\" /Fd"cmTC_80b23.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  CheckSymbolExists.c
+  
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_80b23.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_80b23.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_80b23.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_80b23.dir\Debug\CheckSymbolExists.obj
+  cmTC_80b23.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_80b23.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_80b23.dir\Debug\cmTC_80b23.tlog\unsuccessfulbuild”。
+  正在对“cmTC_80b23.dir\Debug\cmTC_80b23.tlog\cmTC_80b23.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_80b23.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.16
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strdup
+  return ((int*)(&strdup))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the stricmp exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_c5519.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:34。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_c5519.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_c5519.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_c5519.dir\Debug\cmTC_c5519.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_c5519.dir\Debug\cmTC_c5519.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_c5519.dir\Debug\\" /Fd"cmTC_c5519.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_c5519.dir\Debug\\" /Fd"cmTC_c5519.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_c5519.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_c5519.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_c5519.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_c5519.dir\Debug\CheckSymbolExists.obj
+  cmTC_c5519.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_c5519.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_c5519.dir\Debug\cmTC_c5519.tlog\unsuccessfulbuild”。
+  正在对“cmTC_c5519.dir\Debug\cmTC_c5519.tlog\cmTC_c5519.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_c5519.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.15
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef stricmp
+  return ((int*)(&stricmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the strnicmp exist passed with the following output:
+Change Dir: E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp
+
+Run Build Command:"C:/Program Files (x86)/MSBuild/12.0/bin/MSBuild.exe" "cmTC_e1934.vcxproj" "/p:Configuration=Debug" "/p:Platform=Win32" "/p:VisualStudioVersion=12.0"
+Microsoft(R) 生成引擎版本 12.0.21005.1
+[Microsoft .NET Framework 版本 4.0.30319.42000]
+版权所有 (C) Microsoft Corporation。保留所有权利。
+
+生成启动时间为 2019/6/17 19:38:37。
+节点 1 上的项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_e1934.vcxproj”(默认目标)。
+PrepareForBuild:
+  正在创建目录“cmTC_e1934.dir\Debug\”。
+  正在创建目录“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\”。
+  正在创建目录“cmTC_e1934.dir\Debug\cmTC_e1934.tlog\”。
+InitializeBuildStatus:
+  正在创建“cmTC_e1934.dir\Debug\cmTC_e1934.tlog\unsuccessfulbuild”，因为已指定“AlwaysCreate”。
+ClCompile:
+  D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_e1934.dir\Debug\\" /Fd"cmTC_e1934.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  用于 x86 的 Microsoft (R) C/C++ 优化编译器 18.00.21005.1 版版权所有(C) Microsoft Corporation。  保留所有权利。
+  
+  cl /c /Zi /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"cmTC_e1934.dir\Debug\\" /Fd"cmTC_e1934.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:queue E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\CheckSymbolExists.c
+  
+  CheckSymbolExists.c
+Link:
+  D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:QUEUE /OUT:"E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_e1934.exe" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_e1934.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/Debug/cmTC_e1934.lib" /MACHINE:X86 /SAFESEH  /machine:X86 cmTC_e1934.dir\Debug\CheckSymbolExists.obj
+  cmTC_e1934.vcxproj -> E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\Debug\cmTC_e1934.exe
+FinalizeBuildStatus:
+  正在删除文件“cmTC_e1934.dir\Debug\cmTC_e1934.tlog\unsuccessfulbuild”。
+  正在对“cmTC_e1934.dir\Debug\cmTC_e1934.tlog\cmTC_e1934.lastbuildstate”执行 Touch 任务。
+已完成生成项目“E:\github\w32lualib\cares\build\CMakeFiles\CMakeTmp\cmTC_e1934.vcxproj”(默认目标)的操作。
+
+已成功生成。
+    0 个警告
+    0 个错误
+
+已用时间 00:00:01.14
+
+File E:/github/w32lualib/cares/build/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <stdbool.h>
+#include <sys/types.h>
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+#include <fcntl.h>
+#include <winsock2.h>
+#include <ws2tcpip.h>
+#include <windows.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef strnicmp
+  return ((int*)(&strnicmp))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+

@@ -1,0 +1,373 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E50C25D9-1350-3773-A3BF-89836D26F74B}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>c-ares</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Bin\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(SolutionDir)Build\$(ProjectName)\$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">cares</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\github\w32lualib\cares\build\bin\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">c-ares.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">cares</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\github\w32lualib\cares\build\bin\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">c-ares.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">cares</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\github\w32lualib\cares\build\bin\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">c-ares.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">cares</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.dll</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;HAVE_CONFIG_H=1;CARES_BUILDING_LIBRARY;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;CMAKE_INTDIR="Debug";c_ares_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;HAVE_CONFIG_H=1;CARES_BUILDING_LIBRARY;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;CMAKE_INTDIR=\"Debug\";c_ares_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/github/w32lualib/cares/build/lib/Debug/cares.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/github/w32lualib/cares/build/bin/Debug/cares.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H=1;CARES_BUILDING_LIBRARY;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;CMAKE_INTDIR="Release";c_ares_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H=1;CARES_BUILDING_LIBRARY;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;CMAKE_INTDIR=\"Release\";c_ares_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/github/w32lualib/cares/build/lib/Release/cares.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/github/w32lualib/cares/build/bin/Release/cares.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H=1;CARES_BUILDING_LIBRARY;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;CMAKE_INTDIR="MinSizeRel";c_ares_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H=1;CARES_BUILDING_LIBRARY;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;CMAKE_INTDIR=\"MinSizeRel\";c_ares_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/github/w32lualib/cares/build/lib/MinSizeRel/cares.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/github/w32lualib/cares/build/bin/MinSizeRel/cares.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsC</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H=1;CARES_BUILDING_LIBRARY;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;CMAKE_INTDIR="RelWithDebInfo";c_ares_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;HAVE_CONFIG_H=1;CARES_BUILDING_LIBRARY;WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_DEPRECATE;_CRT_NONSTDC_NO_DEPRECATE;_WIN32_WINNT=0x0600;CMAKE_INTDIR=\"RelWithDebInfo\";c_ares_EXPORTS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>E:\github\w32lualib\cares\build;E:\github\w32lualib\cares;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>E:/github/w32lualib/cares/build/lib/RelWithDebInfo/cares.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/github/w32lualib/cares/build/bin/RelWithDebInfo/cares.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="E:\github\w32lualib\cares\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule E:/github/w32lualib/cares/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+E:\github\cmake-3.13.2-win64-x64\bin\cmake.exe -SE:/github/w32lualib/cares -BE:/github/w32lualib/cares/build --check-stamp-file E:/github/w32lualib/cares/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:/github/w32lualib/cares/CMakeLists.txt;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompiler.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompilerABI.c;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCommonLanguageInclude.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCompilerIdDetection.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeConfigurableFile.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompileFeatures.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompilerABI.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompilerId.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineRCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineSystem.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeFindBinUtils.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeGenericSystem.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeInitializeConfigs.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeLanguageInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakePackageConfigHelpers.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeParseImplicitLinkInfo.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeRCCompiler.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeRCInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystem.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystemSpecificInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystemSpecificInitialize.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestCompilerCommon.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestRCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckCSourceCompiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckCXXSourceCompiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckFunctionExists.c;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckFunctionExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFile.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFileCXX.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckLibraryExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckStructHasMember.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckSymbolExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckTypeSize.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\ADSP-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\ARMCC-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\AppleClang-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Borland-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Clang-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Cray-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\GHS-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\GNU-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\HP-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\IAR-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Intel-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-C-FeatureTests.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-C.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\PGI-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\PathScale-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SCO-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\TI-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Watcom-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\XL-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\zOS-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CompilerId\VS-10.vcxproj.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\GNUInstallDirs.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Internal\FeatureTesting.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows-MSVC-C.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows-MSVC.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\WindowsPaths.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\WriteBasicConfigVersionFile.cmake;E:\github\w32lualib\cares\CMakeLists.txt;E:\github\w32lualib\cares\ares_build.h.cmake;E:\github\w32lualib\cares\ares_config.h.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeCCompiler.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeRCCompiler.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeSystem.cmake;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_INET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_NAMESER_COMPAT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_NAMESER_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_DLFCN_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_FCNTL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_LIMITS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETDB_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_IN_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_TCP_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NET_IF_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SIGNAL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SOCKET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDINT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRINGS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRING_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STROPTS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_PARAM_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SELECT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SOCKET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_STAT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TIME_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TYPES_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_TIME_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_UNISTD_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c;E:\github\w32lualib\cares\build\CMakeFiles\feature_tests.c;E:\github\w32lualib\cares\build\Makefile.inc.cmake;E:\github\w32lualib\cares\c-ares-config.cmake.in;E:\github\w32lualib\cares\libcares.pc.cmake;E:\github\w32lualib\cares\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\github\w32lualib\cares\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule E:/github/w32lualib/cares/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+E:\github\cmake-3.13.2-win64-x64\bin\cmake.exe -SE:/github/w32lualib/cares -BE:/github/w32lualib/cares/build --check-stamp-file E:/github/w32lualib/cares/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:/github/w32lualib/cares/CMakeLists.txt;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompiler.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompilerABI.c;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCommonLanguageInclude.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCompilerIdDetection.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeConfigurableFile.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompileFeatures.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompilerABI.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompilerId.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineRCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineSystem.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeFindBinUtils.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeGenericSystem.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeInitializeConfigs.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeLanguageInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakePackageConfigHelpers.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeParseImplicitLinkInfo.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeRCCompiler.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeRCInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystem.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystemSpecificInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystemSpecificInitialize.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestCompilerCommon.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestRCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckCSourceCompiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckCXXSourceCompiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckFunctionExists.c;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckFunctionExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFile.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFileCXX.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckLibraryExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckStructHasMember.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckSymbolExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckTypeSize.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\ADSP-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\ARMCC-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\AppleClang-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Borland-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Clang-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Cray-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\GHS-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\GNU-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\HP-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\IAR-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Intel-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-C-FeatureTests.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-C.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\PGI-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\PathScale-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SCO-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\TI-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Watcom-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\XL-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\zOS-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CompilerId\VS-10.vcxproj.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\GNUInstallDirs.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Internal\FeatureTesting.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows-MSVC-C.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows-MSVC.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\WindowsPaths.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\WriteBasicConfigVersionFile.cmake;E:\github\w32lualib\cares\CMakeLists.txt;E:\github\w32lualib\cares\ares_build.h.cmake;E:\github\w32lualib\cares\ares_config.h.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeCCompiler.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeRCCompiler.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeSystem.cmake;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_INET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_NAMESER_COMPAT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_NAMESER_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_DLFCN_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_FCNTL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_LIMITS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETDB_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_IN_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_TCP_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NET_IF_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SIGNAL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SOCKET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDINT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRINGS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRING_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STROPTS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_PARAM_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SELECT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SOCKET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_STAT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TIME_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TYPES_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_TIME_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_UNISTD_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c;E:\github\w32lualib\cares\build\CMakeFiles\feature_tests.c;E:\github\w32lualib\cares\build\Makefile.inc.cmake;E:\github\w32lualib\cares\c-ares-config.cmake.in;E:\github\w32lualib\cares\libcares.pc.cmake;E:\github\w32lualib\cares\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\github\w32lualib\cares\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule E:/github/w32lualib/cares/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+E:\github\cmake-3.13.2-win64-x64\bin\cmake.exe -SE:/github/w32lualib/cares -BE:/github/w32lualib/cares/build --check-stamp-file E:/github/w32lualib/cares/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:/github/w32lualib/cares/CMakeLists.txt;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompiler.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompilerABI.c;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCommonLanguageInclude.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCompilerIdDetection.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeConfigurableFile.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompileFeatures.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompilerABI.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompilerId.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineRCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineSystem.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeFindBinUtils.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeGenericSystem.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeInitializeConfigs.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeLanguageInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakePackageConfigHelpers.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeParseImplicitLinkInfo.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeRCCompiler.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeRCInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystem.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystemSpecificInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystemSpecificInitialize.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestCompilerCommon.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestRCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckCSourceCompiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckCXXSourceCompiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckFunctionExists.c;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckFunctionExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFile.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFileCXX.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckLibraryExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckStructHasMember.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckSymbolExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckTypeSize.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\ADSP-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\ARMCC-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\AppleClang-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Borland-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Clang-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Cray-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\GHS-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\GNU-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\HP-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\IAR-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Intel-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-C-FeatureTests.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-C.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\PGI-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\PathScale-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SCO-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\TI-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Watcom-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\XL-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\zOS-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CompilerId\VS-10.vcxproj.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\GNUInstallDirs.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Internal\FeatureTesting.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows-MSVC-C.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows-MSVC.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\WindowsPaths.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\WriteBasicConfigVersionFile.cmake;E:\github\w32lualib\cares\CMakeLists.txt;E:\github\w32lualib\cares\ares_build.h.cmake;E:\github\w32lualib\cares\ares_config.h.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeCCompiler.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeRCCompiler.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeSystem.cmake;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_INET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_NAMESER_COMPAT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_NAMESER_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_DLFCN_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_FCNTL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_LIMITS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETDB_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_IN_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_TCP_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NET_IF_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SIGNAL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SOCKET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDINT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRINGS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRING_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STROPTS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_PARAM_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SELECT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SOCKET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_STAT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TIME_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TYPES_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_TIME_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_UNISTD_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c;E:\github\w32lualib\cares\build\CMakeFiles\feature_tests.c;E:\github\w32lualib\cares\build\Makefile.inc.cmake;E:\github\w32lualib\cares\c-ares-config.cmake.in;E:\github\w32lualib\cares\libcares.pc.cmake;E:\github\w32lualib\cares\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\github\w32lualib\cares\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule E:/github/w32lualib/cares/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+E:\github\cmake-3.13.2-win64-x64\bin\cmake.exe -SE:/github/w32lualib/cares -BE:/github/w32lualib/cares/build --check-stamp-file E:/github/w32lualib/cares/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:/github/w32lualib/cares/CMakeLists.txt;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompiler.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCCompilerABI.c;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCommonLanguageInclude.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeCompilerIdDetection.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeConfigurableFile.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompileFeatures.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompilerABI.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineCompilerId.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineRCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeDetermineSystem.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeFindBinUtils.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeGenericSystem.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeInitializeConfigs.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeLanguageInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakePackageConfigHelpers.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeParseImplicitLinkInfo.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeRCCompiler.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeRCInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystem.cmake.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystemSpecificInformation.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeSystemSpecificInitialize.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestCompilerCommon.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CMakeTestRCCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckCSourceCompiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckCXXSourceCompiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckFunctionExists.c;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckFunctionExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFile.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFileCXX.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckIncludeFiles.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckLibraryExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckStructHasMember.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckSymbolExists.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CheckTypeSize.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\ADSP-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\ARMCC-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\AppleClang-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Borland-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Clang-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Cray-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\GHS-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\GNU-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\HP-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\IAR-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Intel-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MIPSpro-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-C-FeatureTests.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-C.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\MSVC-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\PGI-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\PathScale-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SCO-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\TI-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\Watcom-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\XL-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Compiler\zOS-C-DetermineCompiler.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\CompilerId\VS-10.vcxproj.in;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\GNUInstallDirs.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Internal\FeatureTesting.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows-MSVC-C.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows-MSVC.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\Windows.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\Platform\WindowsPaths.cmake;E:\github\cmake-3.13.2-win64-x64\share\cmake-3.13\Modules\WriteBasicConfigVersionFile.cmake;E:\github\w32lualib\cares\CMakeLists.txt;E:\github\w32lualib\cares\ares_build.h.cmake;E:\github\w32lualib\cares\ares_config.h.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeCCompiler.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeRCCompiler.cmake;E:\github\w32lualib\cares\build\CMakeFiles\3.13.2\CMakeSystem.cmake;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_INET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_NAMESER_COMPAT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ARPA_NAMESER_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ASSERT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_DLFCN_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_ERRNO_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_FCNTL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_INTTYPES_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_LIMITS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MALLOC_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_MEMORY_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETDB_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_IN_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NETINET_TCP_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_NET_IF_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SIGNAL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SOCKET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDBOOL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDINT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STDLIB_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRINGS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STRING_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_STROPTS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_IOCTL_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_PARAM_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SELECT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_SOCKET_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_STAT_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TIME_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_TYPES_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_SYS_UIO_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_TIME_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_UNISTD_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINDOWS_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK2_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WINSOCK_H.c;E:\github\w32lualib\cares\build\CMakeFiles\CheckIncludeFiles\HAVE_WS2TCPIP_H.c;E:\github\w32lualib\cares\build\CMakeFiles\feature_tests.c;E:\github\w32lualib\cares\build\Makefile.inc.cmake;E:\github\w32lualib\cares\c-ares-config.cmake.in;E:\github\w32lualib\cares\libcares.pc.cmake;E:\github\w32lualib\cares\CMakeLists.txt;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\github\w32lualib\cares\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="E:\github\w32lualib\cares\ares__close_sockets.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares__get_hostent.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares__read_line.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares__timeval.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_android.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_cancel.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_data.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_destroy.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_expand_name.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_expand_string.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_fds.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_free_hostent.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_free_string.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_getenv.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_gethostbyaddr.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_gethostbyname.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_getnameinfo.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_getsock.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_init.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_library_init.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_llist.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_mkquery.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_create_query.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_nowarn.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_options.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_parse_a_reply.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_parse_aaaa_reply.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_parse_mx_reply.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_parse_naptr_reply.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_parse_ns_reply.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_parse_ptr_reply.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_parse_soa_reply.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_parse_srv_reply.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_parse_txt_reply.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_platform.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_process.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_query.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_search.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_send.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_strcasecmp.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_strdup.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_strerror.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_strsplit.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_timeout.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_version.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\ares_writev.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\bitncmp.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\inet_net_pton.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\inet_ntop.c" />
+    <ClCompile Include="E:\github\w32lualib\cares\windows_port.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="E:\github\w32lualib\cares\build\ZERO_CHECK.vcxproj">
+      <Project>{55B15AB6-CB12-3161-9529-DC548ED2DE49}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

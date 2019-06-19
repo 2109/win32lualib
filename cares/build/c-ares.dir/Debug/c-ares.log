@@ -1,0 +1,120 @@
+﻿生成启动时间为 2019/6/17 19:38:54。
+     1>项目“E:\github\w32lualib\cares\build\c-ares.vcxproj”在节点 2 上(Build 个目标)。
+     1>CustomBuild:
+         Building Custom Rule E:/github/w32lualib/cares/CMakeLists.txt
+         CMake does not need to re-run because E:/github/w32lualib/cares/build/CMakeFiles/generate.stamp is up-to-date.
+       ClCompile:
+         D:\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /IE:\github\w32lualib\cares\build /IE:\github\w32lualib\cares /Zi /nologo /W3 /WX- /Od /Ob0 /Oy- /D WIN32 /D _WINDOWS /D HAVE_CONFIG_H=1 /D CARES_BUILDING_LIBRARY /D WIN32_LEAN_AND_MEAN /D _CRT_SECURE_NO_DEPRECATE /D _CRT_NONSTDC_NO_DEPRECATE /D _WIN32_WINNT=0x0600 /D "CMAKE_INTDIR=\"Debug\"" /D c_ares_EXPORTS /D _WINDLL /D _MBCS /Gm- /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"c-ares.dir\Debug\\" /Fd"c-ares.dir\Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt E:\github\w32lualib\cares\ares__close_sockets.c E:\github\w32lualib\cares\ares__get_hostent.c E:\github\w32lualib\cares\ares__read_line.c E:\github\w32lualib\cares\ares__timeval.c E:\github\w32lualib\cares\ares_android.c E:\github\w32lualib\cares\ares_cancel.c E:\github\w32lualib\cares\ares_data.c E:\github\w32lualib\cares\ares_destroy.c E:\github\w32lualib\cares\ares_expand_name.c E:\github\w32lualib\cares\ares_expand_string.c E:\github\w32lualib\cares\ares_fds.c E:\github\w32lualib\cares\ares_free_hostent.c E:\github\w32lualib\cares\ares_free_string.c E:\github\w32lualib\cares\ares_getenv.c E:\github\w32lualib\cares\ares_gethostbyaddr.c E:\github\w32lualib\cares\ares_gethostbyname.c E:\github\w32lualib\cares\ares_getnameinfo.c E:\github\w32lualib\cares\ares_getsock.c E:\github\w32lualib\cares\ares_init.c E:\github\w32lualib\cares\ares_library_init.c E:\github\w32lualib\cares\ares_llist.c E:\github\w32lualib\cares\ares_mkquery.c E:\github\w32lualib\cares\ares_create_query.c E:\github\w32lualib\cares\ares_nowarn.c E:\github\w32lualib\cares\ares_options.c E:\github\w32lualib\cares\ares_parse_a_reply.c E:\github\w32lualib\cares\ares_parse_aaaa_reply.c E:\github\w32lualib\cares\ares_parse_mx_reply.c E:\github\w32lualib\cares\ares_parse_naptr_reply.c E:\github\w32lualib\cares\ares_parse_ns_reply.c E:\github\w32lualib\cares\ares_parse_ptr_reply.c E:\github\w32lualib\cares\ares_parse_soa_reply.c E:\github\w32lualib\cares\ares_parse_srv_reply.c E:\github\w32lualib\cares\ares_parse_txt_reply.c E:\github\w32lualib\cares\ares_platform.c E:\github\w32lualib\cares\ares_process.c E:\github\w32lualib\cares\ares_query.c E:\github\w32lualib\cares\ares_search.c E:\github\w32lualib\cares\ares_send.c E:\github\w32lualib\cares\ares_strcasecmp.c E:\github\w32lualib\cares\ares_strdup.c E:\github\w32lualib\cares\ares_strerror.c E:\github\w32lualib\cares\ares_strsplit.c E:\github\w32lualib\cares\ares_timeout.c E:\github\w32lualib\cares\ares_version.c E:\github\w32lualib\cares\ares_writev.c E:\github\w32lualib\cares\bitncmp.c E:\github\w32lualib\cares\inet_net_pton.c E:\github\w32lualib\cares\inet_ntop.c E:\github\w32lualib\cares\windows_port.c
+         ares__close_sockets.c
+         ares__get_hostent.c
+         ares__read_line.c
+         ares__timeval.c
+         ares_android.c
+         ares_cancel.c
+         ares_data.c
+         ares_destroy.c
+         ares_expand_name.c
+         ares_expand_string.c
+         ares_fds.c
+         ares_free_hostent.c
+         ares_free_string.c
+         ares_getenv.c
+         ares_gethostbyaddr.c
+         ares_gethostbyname.c
+         ares_getnameinfo.c
+         ares_getsock.c
+         ares_init.c
+         ares_library_init.c
+         正在生成代码...
+         正在编译...
+         ares_llist.c
+         ares_mkquery.c
+         ares_create_query.c
+         ares_nowarn.c
+         ares_options.c
+         ares_parse_a_reply.c
+         ares_parse_aaaa_reply.c
+         ares_parse_mx_reply.c
+         ares_parse_naptr_reply.c
+         ares_parse_ns_reply.c
+         ares_parse_ptr_reply.c
+         ares_parse_soa_reply.c
+         ares_parse_srv_reply.c
+         ares_parse_txt_reply.c
+         ares_platform.c
+         ares_process.c
+         ares_query.c
+         ares_search.c
+         ares_send.c
+         ares_strcasecmp.c
+         正在生成代码...
+         正在编译...
+         ares_strdup.c
+         ares_strerror.c
+         ares_strsplit.c
+         ares_timeout.c
+         ares_version.c
+         ares_writev.c
+         bitncmp.c
+         inet_net_pton.c
+         inet_ntop.c
+         windows_port.c
+         正在生成代码...
+       Link:
+         D:\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\github\w32lualib\cares\build\bin\Debug\cares.dll" /INCREMENTAL /NOLOGO ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"E:/github/w32lualib/cares/build/bin/Debug/cares.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:/github/w32lualib/cares/build/lib/Debug/cares.lib" /MACHINE:X86 /SAFESEH  /machine:X86 /DLL "c-ares.dir\Debug\ares__close_sockets.obj"
+         "c-ares.dir\Debug\ares__get_hostent.obj"
+         "c-ares.dir\Debug\ares__read_line.obj"
+         "c-ares.dir\Debug\ares__timeval.obj"
+         "c-ares.dir\Debug\ares_android.obj"
+         "c-ares.dir\Debug\ares_cancel.obj"
+         "c-ares.dir\Debug\ares_data.obj"
+         "c-ares.dir\Debug\ares_destroy.obj"
+         "c-ares.dir\Debug\ares_expand_name.obj"
+         "c-ares.dir\Debug\ares_expand_string.obj"
+         "c-ares.dir\Debug\ares_fds.obj"
+         "c-ares.dir\Debug\ares_free_hostent.obj"
+         "c-ares.dir\Debug\ares_free_string.obj"
+         "c-ares.dir\Debug\ares_getenv.obj"
+         "c-ares.dir\Debug\ares_gethostbyaddr.obj"
+         "c-ares.dir\Debug\ares_gethostbyname.obj"
+         "c-ares.dir\Debug\ares_getnameinfo.obj"
+         "c-ares.dir\Debug\ares_getsock.obj"
+         "c-ares.dir\Debug\ares_init.obj"
+         "c-ares.dir\Debug\ares_library_init.obj"
+         "c-ares.dir\Debug\ares_llist.obj"
+         "c-ares.dir\Debug\ares_mkquery.obj"
+         "c-ares.dir\Debug\ares_create_query.obj"
+         "c-ares.dir\Debug\ares_nowarn.obj"
+         "c-ares.dir\Debug\ares_options.obj"
+         "c-ares.dir\Debug\ares_parse_a_reply.obj"
+         "c-ares.dir\Debug\ares_parse_aaaa_reply.obj"
+         "c-ares.dir\Debug\ares_parse_mx_reply.obj"
+         "c-ares.dir\Debug\ares_parse_naptr_reply.obj"
+         "c-ares.dir\Debug\ares_parse_ns_reply.obj"
+         "c-ares.dir\Debug\ares_parse_ptr_reply.obj"
+         "c-ares.dir\Debug\ares_parse_soa_reply.obj"
+         "c-ares.dir\Debug\ares_parse_srv_reply.obj"
+         "c-ares.dir\Debug\ares_parse_txt_reply.obj"
+         "c-ares.dir\Debug\ares_platform.obj"
+         "c-ares.dir\Debug\ares_process.obj"
+         "c-ares.dir\Debug\ares_query.obj"
+         "c-ares.dir\Debug\ares_search.obj"
+         "c-ares.dir\Debug\ares_send.obj"
+         "c-ares.dir\Debug\ares_strcasecmp.obj"
+         "c-ares.dir\Debug\ares_strdup.obj"
+         "c-ares.dir\Debug\ares_strerror.obj"
+         "c-ares.dir\Debug\ares_strsplit.obj"
+         "c-ares.dir\Debug\ares_timeout.obj"
+         "c-ares.dir\Debug\ares_version.obj"
+         "c-ares.dir\Debug\ares_writev.obj"
+         "c-ares.dir\Debug\bitncmp.obj"
+         "c-ares.dir\Debug\inet_net_pton.obj"
+         "c-ares.dir\Debug\inet_ntop.obj"
+         "c-ares.dir\Debug\windows_port.obj"
+            正在创建库 E:/github/w32lualib/cares/build/lib/Debug/cares.lib 和对象 E:/github/w32lualib/cares/build/lib/Debug/cares.exp
+         c-ares.vcxproj -> E:\github\w32lualib\cares\build\bin\Debug\cares.dll
+     1>已完成生成项目“E:\github\w32lualib\cares\build\c-ares.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:19.59

@@ -1,0 +1,7 @@
+E:/github/w32lualib/cares/build/CMakeFiles/c-ares.dir
+E:/github/w32lualib/cares/build/CMakeFiles/acountry.dir
+E:/github/w32lualib/cares/build/CMakeFiles/ahost.dir
+E:/github/w32lualib/cares/build/CMakeFiles/adig.dir
+E:/github/w32lualib/cares/build/CMakeFiles/INSTALL.dir
+E:/github/w32lualib/cares/build/CMakeFiles/ALL_BUILD.dir
+E:/github/w32lualib/cares/build/CMakeFiles/ZERO_CHECK.dir
