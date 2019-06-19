@@ -26,9 +26,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="pto.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
     <ClInclude Include="format.h">
       <Filter>头文件</Filter>
     </ClInclude>

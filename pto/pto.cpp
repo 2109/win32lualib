@@ -34,20 +34,19 @@ struct ArraySizeException : public PtoException {
 };
 
 struct FieldException : public PtoException {
-	FieldException(const char* field, const char* expect, const char* vt) {
-		reason_ = fmt::format("field:{} expect {},not {}", field, expect, vt);
+	FieldException(bool array, const char* field, const char* expect, const char* vt) {
+		if (array) {
+			reason_ = fmt::format("field:{} array member expect {},not {}", field, expect, vt);
+		}
+		else {
+			reason_ = fmt::format("field:{} expect {},not {}", field, expect, vt);
+		}
 	}
 };
 
-struct ArrayFieldException : public PtoException {
-	ArrayFieldException(const char* field, const char* expect, const char* vt) {
-		reason_ = fmt::format("field:{} array member expect {},not {}", field, expect, vt);
-	}
-};
-
-struct IntLimitException : public PtoException {
-	IntLimitException(const char* field, lua_Integer val, bool array) {
-		if ( array ) {
+struct IntOutofRange : public PtoException {
+	IntOutofRange(const char* field, lua_Integer val, bool array) {
+		if (array) {
 			reason_ = fmt::format("field:{} array member int out of range,{}", field, val);
 		}
 		else {
@@ -56,8 +55,8 @@ struct IntLimitException : public PtoException {
 	}
 };
 
-struct StringLimitException : public PtoException {
-	StringLimitException(const char* field, size_t size) {
+struct LengthOutofRange : public PtoException {
+	LengthOutofRange(const char* field, size_t size) {
 		reason_ = fmt::format("field:{} string size more than 0xffff:{}", field, size);
 	}
 };
@@ -68,15 +67,15 @@ struct TypeException : public PtoException {
 	}
 };
 
-struct ErrorDecode : public PtoException {
-	ErrorDecode() {
+struct InvalidPto : public PtoException {
+	InvalidPto() {
 		reason_ = "invalid message";
 	}
 };
 
 struct TooDepthException : public PtoException {
 	TooDepthException(bool encode) {
-		if ( encode ) {
+		if (encode) {
 			reason_ = "pto encode too depth";
 		}
 		else {
@@ -90,41 +89,27 @@ struct Field {
 	bool array_;
 	eTYPE type_;
 
-	std::vector<Field*>* childs_;
+	std::vector<Field*> childs_;
 
 	Field(const char* name, bool array, eTYPE type) {
 		name_ = _strdup(name);
 		array_ = array;
 		type_ = type;
-		childs_ = NULL;
 	}
 
 	~Field() {
 		free(name_);
-		if ( childs_ ) {
-			for ( int i = 0; i < childs_->size(); ++i ) {
-				Field* field = (*childs_)[i];
-				delete field;
-			}
-			delete childs_;
+		for (int i = 0; i < childs_.size(); ++i) {
+			Field* field = childs_[i];
+			delete field;
 		}
-	}
-
-	void AddField(struct Field* field) {
-		if ( !childs_ ) {
-			childs_ = new std::vector<Field*>();
-		}
-		childs_->push_back(field);
 	}
 
 	inline Field* GetField(int index) {
-		if (!childs_) {
+		if (index > childs_.size()) {
 			return NULL;
 		}
-		if (index > childs_->size()) {
-			return NULL;
-		}
-		return (*childs_)[index];
+		return childs_[index];
 	}
 };
 
@@ -138,7 +123,7 @@ struct Protocol {
 
 	~Protocol() {
 		free(name_);
-		for ( int i = 0; i < fields_.size(); ++i ) {
+		for (int i = 0; i < fields_.size(); ++i) {
 			Field* field = fields_[i];
 			delete field;
 		}
@@ -153,15 +138,15 @@ struct Protocol {
 	}
 };
 
-struct ProtocolContext {
+struct Context {
 	std::vector<Protocol*> ptos_;
 
-	ProtocolContext() {
+	Context() {
 		ptos_.resize(0xffff);
 	}
 
-	~ProtocolContext() {
-		for ( int i = 0; i < ptos_.size(); ++i ) {
+	~Context() {
+		for (int i = 0; i < ptos_.size(); ++i) {
 			Protocol* pto = ptos_[i];
 			delete pto;
 		}
@@ -185,22 +170,22 @@ struct PtoWriter {
 	}
 
 	~PtoWriter() {
-		if ( ptr_ != init_ ) {
+		if (ptr_ != init_) {
 			free(ptr_);
 		}
 	}
 
 	inline void Reserve(int sz) {
-		if ( offset_ + sz > size_ ) {
+		if (offset_ + sz > size_) {
 			int nsize = size_ * 2;
-			while ( nsize < offset_ + sz )
+			while (nsize < offset_ + sz)
 				nsize = nsize * 2;
 
 			char* nptr = (char*)malloc(nsize);
 			memcpy(nptr, ptr_, size_);
 			size_ = nsize;
 
-			if ( ptr_ != init_ )
+			if (ptr_ != init_)
 				free(ptr_);
 			ptr_ = nptr;
 		}
@@ -224,13 +209,13 @@ struct PtoWriter {
 
 	template<>
 	inline void Append(int64_t val) {
-		if ( val == 0 ) {
+		if (val == 0) {
 			Append((uint8_t)0);
 			return;
 		}
 		uint64_t value;
 		uint8_t positive = 0;
-		if ( val < 0 ) {
+		if (val < 0) {
 			positive = 0;
 			value = -val;
 		}
@@ -240,22 +225,22 @@ struct PtoWriter {
 		}
 
 		int length;
-		if ( value <= 0xff ) {
+		if (value <= 0xff) {
 			length = 1;
 		}
-		else if ( value <= 0xffff ) {
+		else if (value <= 0xffff) {
 			length = 2;
 		}
-		else if ( value <= 0xffffff ) {
+		else if (value <= 0xffffff) {
 			length = 3;
 		}
-		else if ( value <= 0xffffffff ) {
+		else if (value <= 0xffffffff) {
 			length = 4;
 		}
-		else if ( value <= 0xffffffffff ) {
+		else if (value <= 0xffffffffff) {
 			length = 5;
 		}
-		else if ( value <= 0xffffffffffff ) {
+		else if (value <= 0xffffffffffff) {
 			length = 6;
 		}
 		else {
@@ -265,7 +250,7 @@ struct PtoWriter {
 		uint8_t tag = length;
 		tag = (tag << 1) | positive;
 
-		uint8_t data[8] = {0};
+		uint8_t data[8] = { 0 };
 		data[0] = tag;
 		memcpy(&data[1], &value, length);
 
@@ -273,72 +258,72 @@ struct PtoWriter {
 	}
 
 	inline int CheckArray(lua_State* L, Field* field, int index, int vt) {
-		if ( vt != LUA_TTABLE ) {
+		if (vt != LUA_TTABLE) {
 			throw ArrayMemberException(field->name_, lua_typename(L, vt));
 		}
 
 		int size = lua_rawlen(L, index);
-		if ( size > 0xffff ) {
+		if (size > 0xffff) {
 			throw ArraySizeException(field->name_);
 		}
 		return size;
 	}
 
 	void EncodeOne(lua_State* L, Field* field, int index, int depth) {
-		switch ( field->type_ ) {
-			case eTYPE::Bool: {
-								 EncodeBool(L, field, index);
-								 break;
-			}
-			case eTYPE::Short: {
-								  EncodeShort(L, field, index);
-								  break;
-			}
-			case eTYPE::Int: {
-								EncodeInt(L, field, index);
-								break;
-			}
-			case eTYPE::Float: {
-								  EncodeFloat(L, field, index);
-								  break;
-			}
-			case eTYPE::Double: {
-								   EncodeDouble(L, field, index);
-								   break;
-			}
-			case eTYPE::String: {
-								   EncodeString(L, field, index);
-								   break;
-			}
-			case eTYPE::Pto: {
-									 EncodePto(L, field, index, depth);
-									 break;
-			}
-			default: {
-						 throw TypeException(field->name_, field->type_);
-						 break;
-			}
+		switch (field->type_) {
+		case eTYPE::Bool:
+			EncodeBool(L, field, index);
+			break;
+
+		case eTYPE::Short:
+			EncodeShort(L, field, index);
+			break;
+
+		case eTYPE::Int:
+			EncodeInt(L, field, index);
+			break;
+
+		case eTYPE::Float:
+			EncodeFloat(L, field, index);
+			break;
+
+		case eTYPE::Double:
+			EncodeDouble(L, field, index);
+			break;
+
+		case eTYPE::String:
+			EncodeString(L, field, index);
+			break;
+
+		case eTYPE::Pto:
+			EncodePto(L, field, index, depth);
+			break;
+
+		default:
+			throw TypeException(field->name_, field->type_);
+			break;
+
 		}
 	}
 
 	void EncodeBool(lua_State* L, Field* field, int index) {
 		int vt = lua_type(L, index);
-		if ( field->array_ ) {
+		if (field->array_) {
 			int size = CheckArray(L, field, index, vt);
 			Append<uint16_t>(size);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
-				if ( vt != LUA_TBOOLEAN ) {
-					throw ArrayFieldException(field->name_, "bool", lua_typename(L, vt));
+				if (vt != LUA_TBOOLEAN) {
+					throw FieldException(true, field->name_, "bool", lua_typename(L, vt));
 				}
 				Append<bool>((bool)lua_toboolean(L, -1));
 				lua_pop(L, 1);
 			}
 		}
 		else {
-			if ( vt != LUA_TBOOLEAN ) {
-				throw FieldException(field->name_, "bool", lua_typename(L, vt));
+			if (vt != LUA_TBOOLEAN) {
+				throw FieldException(false, field->name_, "bool", lua_typename(L, vt));
 			}
 			Append<bool>((bool)lua_toboolean(L, index));
 		}
@@ -346,22 +331,22 @@ struct PtoWriter {
 
 	void EncodeShort(lua_State* L, Field* field, int index) {
 		int vt = lua_type(L, index);
-		if ( field->array_ ) {
+		if (field->array_) {
 			int size = CheckArray(L, field, index, vt);
 			Append<uint16_t>(size);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
-				if ( vt != LUA_TNUMBER ) {
-					throw ArrayFieldException(field->name_, "short", lua_typename(L, vt));
+				if (vt != LUA_TNUMBER) {
+					throw FieldException(true, field->name_, "short", lua_typename(L, vt));
 				}
 				Append<short>((short)lua_tointeger(L, -1));
 				lua_pop(L, 1);
 			}
 		}
 		else {
-			if ( vt != LUA_TNUMBER ) {
-				throw FieldException(field->name_, "short", lua_typename(L, vt));
+			if (vt != LUA_TNUMBER) {
+				throw FieldException(false, field->name_, "short", lua_typename(L, vt));
 			}
 			Append<short>((short)lua_tointeger(L, index));
 		}
@@ -370,30 +355,30 @@ struct PtoWriter {
 	inline void EncodeInt(lua_State* L, Field* field, int index) {
 		int vt = lua_type(L, index);
 
-		if ( field->array_ ) {
+		if (field->array_) {
 			int size = CheckArray(L, field, index, vt);
 			Append<uint16_t>(size);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
-				if ( vt != LUA_TNUMBER ) {
-					throw ArrayFieldException(field->name_, "int", lua_typename(L, vt));
+				if (vt != LUA_TNUMBER) {
+					throw FieldException(true, field->name_, "int", lua_typename(L, vt));
 				}
 				lua_Integer val = lua_tointeger(L, -1);
-				if ( val > MAX_INT || val < -MAX_INT ) {
-					throw IntLimitException(field->name_, val, true);
+				if (val > MAX_INT || val < -MAX_INT) {
+					throw IntOutofRange(field->name_, val, true);
 				}
 				Append<int64_t>(val);
 				lua_pop(L, 1);
 			}
 		}
 		else {
-			if ( vt != LUA_TNUMBER ) {
-				throw FieldException(field->name_, "int", lua_typename(L, vt));
+			if (vt != LUA_TNUMBER) {
+				throw FieldException(false, field->name_, "int", lua_typename(L, vt));
 			}
 			lua_Integer val = lua_tointeger(L, index);
-			if ( val > MAX_INT || val < -MAX_INT ) {
-				throw IntLimitException(field->name_, val, false);
+			if (val > MAX_INT || val < -MAX_INT) {
+				throw IntOutofRange(field->name_, val, false);
 			}
 			Append<int64_t>(val);
 		}
@@ -402,22 +387,22 @@ struct PtoWriter {
 	inline void EncodeFloat(lua_State* L, Field* field, int index) {
 		int vt = lua_type(L, index);
 
-		if ( field->array_ ) {
+		if (field->array_) {
 			int size = CheckArray(L, field, index, vt);
 			Append<uint16_t>(size);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
-				if ( vt != LUA_TNUMBER ) {
-					throw ArrayFieldException(field->name_, "float", lua_typename(L, vt));
+				if (vt != LUA_TNUMBER) {
+					throw FieldException(true, field->name_, "float", lua_typename(L, vt));
 				}
 				Append<float>((float)lua_tonumber(L, -1));
 				lua_pop(L, 1);
 			}
 		}
 		else {
-			if ( vt != LUA_TNUMBER ) {
-				throw FieldException(field->name_, "float", lua_typename(L, vt));
+			if (vt != LUA_TNUMBER) {
+				throw FieldException(false, field->name_, "float", lua_typename(L, vt));
 			}
 			Append<float>((float)lua_tonumber(L, index));
 		}
@@ -425,22 +410,22 @@ struct PtoWriter {
 
 	inline void EncodeDouble(lua_State* L, Field* field, int index) {
 		int vt = lua_type(L, index);
-		if ( field->array_ ) {
+		if (field->array_) {
 			int size = CheckArray(L, field, index, vt);
 			Append<uint16_t>(size);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
-				if ( vt != LUA_TNUMBER ) {
-					throw ArrayFieldException(field->name_, "double", lua_typename(L, vt));
+				if (vt != LUA_TNUMBER) {
+					throw FieldException(true, field->name_, "double", lua_typename(L, vt));
 				}
 				Append<double>(lua_tonumber(L, -1));
 				lua_pop(L, 1);
 			}
 		}
 		else {
-			if ( vt != LUA_TNUMBER ) {
-				throw FieldException(field->name_, "double", lua_typename(L, vt));
+			if (vt != LUA_TNUMBER) {
+				throw FieldException(false, field->name_, "double", lua_typename(L, vt));
 			}
 			Append<double>(lua_tonumber(L, index));
 		}
@@ -448,32 +433,32 @@ struct PtoWriter {
 
 	inline void EncodeString(lua_State* L, Field* field, int index) {
 		int vt = lua_type(L, index);
-		if ( field->array_ ) {
+		if (field->array_) {
 			int size = CheckArray(L, field, index, vt);
 			Append<uint16_t>(size);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				lua_rawgeti(L, index, i);
 				vt = lua_type(L, -1);
-				if ( vt != LUA_TSTRING ) {
-					throw ArrayFieldException(field->name_, "string", lua_typename(L, vt));
+				if (vt != LUA_TSTRING) {
+					throw FieldException(true, field->name_, "string", lua_typename(L, vt));
 				}
 				size_t size;
 				const char* str = lua_tolstring(L, -1, &size);
-				if ( size > 0xffff ) {
-					throw StringLimitException(field->name_, size);
+				if (size > 0xffff) {
+					throw LengthOutofRange(field->name_, size);
 				}
 				Append(str, size);
 				lua_pop(L, 1);
 			}
 		}
 		else {
-			if ( vt != LUA_TSTRING ) {
-				throw FieldException(field->name_, "string", lua_typename(L, vt));
+			if (vt != LUA_TSTRING) {
+				throw FieldException(false, field->name_, "string", lua_typename(L, vt));
 			}
 			size_t size;
 			const char* str = lua_tolstring(L, index, &size);
-			if ( size > 0xffff ) {
-				throw StringLimitException(field->name_, size);
+			if (size > 0xffff) {
+				throw LengthOutofRange(field->name_, size);
 			}
 			Append(str, size);
 		}
@@ -482,26 +467,26 @@ struct PtoWriter {
 
 	inline void EncodePto(lua_State* L, Field* field, int index, int depth) {
 		depth++;
-		if ( depth > MAX_DEPTH ) {
+		if (depth > MAX_DEPTH) {
 			throw TooDepthException(true);
 		}
 
 		int vt = lua_type(L, index);
-		if ( vt != LUA_TTABLE ) {
-			throw FieldException(field->name_, "table", lua_typename(L, vt));
+		if (vt != LUA_TTABLE) {
+			throw FieldException(false, field->name_, "table", lua_typename(L, vt));
 		}
 
-		if ( field->array_ ) {
+		if (field->array_) {
 			int size = CheckArray(L, field, index, vt);
 			Append<uint16_t>(size);
-			for ( int i = 0; i < size; i++ ) {
+			for (int i = 0; i < size; i++) {
 				lua_rawgeti(L, index, i + 1);
 				vt = lua_type(L, -1);
-				if ( vt != LUA_TTABLE ) {
-					throw ArrayFieldException(field->name_, "table", lua_typename(L, vt));
+				if (vt != LUA_TTABLE) {
+					throw FieldException(true, field->name_, "table", lua_typename(L, vt));
 				}
 
-				for ( int j = 0; j < field->childs_->size(); j++ ) {
+				for (int j = 0; j < field->childs_.size(); j++) {
 					Field* child = field->GetField(j);
 					lua_getfield(L, -1, child->name_);
 					EncodeOne(L, child, index + 2, depth);
@@ -511,7 +496,7 @@ struct PtoWriter {
 			}
 		}
 		else {
-			for ( int i = 0; i < field->childs_->size(); i++ ) {
+			for (int i = 0; i < field->childs_.size(); i++) {
 				Field* child = field->GetField(i);
 				lua_getfield(L, index, child->name_);
 				EncodeOne(L, child, index + 1, depth);
@@ -534,8 +519,8 @@ struct PtoReader {
 	}
 
 	inline void Read(uint8_t* val, size_t size) {
-		if ( size_ - offset_ < size ) {
-			throw ErrorDecode();
+		if (size_ - offset_ < size) {
+			throw InvalidPto();
 		}
 		memcpy(val, ptr_ + offset_, size);
 		offset_ += size;
@@ -543,8 +528,8 @@ struct PtoReader {
 
 	template<typename T>
 	inline T Read()  {
-		if ( sizeof(T) > size_ - offset_ ) {
-			throw ErrorDecode();
+		if (sizeof(T) > size_ - offset_) {
+			throw InvalidPto();
 		}
 		T val = *((T*)&ptr_[offset_]);
 		offset_ += sizeof(T);
@@ -555,7 +540,7 @@ struct PtoReader {
 	inline int64_t Read() {
 		uint8_t tag = Read<uint8_t>();
 
-		if ( tag == 0 ) {
+		if (tag == 0) {
 			return 0;
 		}
 
@@ -569,8 +554,8 @@ struct PtoReader {
 
 	inline char* Read(uint16_t* size) {
 		*size = Read<uint16_t>();
-		if ( size_ - offset_ < *size ) {
-			throw ErrorDecode();
+		if (size_ - offset_ < *size) {
+			throw InvalidPto();
 		}
 		char* result = ptr_ + offset_;
 		offset_ += *size;
@@ -578,46 +563,46 @@ struct PtoReader {
 	}
 
 	void DecodeOne(lua_State* L, Field* field, int index, int depth) {
-		switch ( field->type_ ) {
-			case eTYPE::Bool: {
-								 DecodeBool(L, field, index);
-								 break;
-			}
-			case eTYPE::Short: {
-								  DecodeShort(L, field, index);
-								  break;
-			}
-			case eTYPE::Int: {
-								DecodeInt(L, field, index);
-								break;
-			}
-			case eTYPE::Float: {
-								  DecodeFloat(L, field, index);
-								  break;
-			}
-			case eTYPE::Double: {
-								   DecodeDouble(L, field, index);
-								   break;
-			}
-			case eTYPE::String: {
-								   DecodeString(L, field, index);
-								   break;
-			}
-			case eTYPE::Pto: {
-									 DecodePto(L, field, index, depth);
-									 break;
-			}
-			default: {
-						 throw TypeException(field->name_, field->type_);
-			}
+		switch (field->type_) {
+		case eTYPE::Bool:
+			DecodeBool(L, field, index);
+			break;
+
+		case eTYPE::Short:
+			DecodeShort(L, field, index);
+			break;
+
+		case eTYPE::Int:
+			DecodeInt(L, field, index);
+			break;
+
+		case eTYPE::Float:
+			DecodeFloat(L, field, index);
+			break;
+
+		case eTYPE::Double:
+			DecodeDouble(L, field, index);
+			break;
+
+		case eTYPE::String:
+			DecodeString(L, field, index);
+			break;
+
+		case eTYPE::Pto:
+			DecodePto(L, field, index, depth);
+			break;
+
+		default:
+			throw TypeException(field->name_, field->type_);
+
 		}
 	}
 
 	inline void DecodeBool(lua_State* L, Field* field, int index) {
-		if ( field->array_ ) {
+		if (field->array_) {
 			uint16_t size = Read<uint16_t>();
 			lua_createtable(L, 0, 0);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				bool val = Read<bool>();
 				lua_pushboolean(L, val);
 				lua_rawseti(L, -2, i);
@@ -632,10 +617,10 @@ struct PtoReader {
 	}
 
 	inline void DecodeShort(lua_State* L, Field* field, int index) {
-		if ( field->array_ ) {
+		if (field->array_) {
 			uint16_t size = Read<uint16_t>();
 			lua_createtable(L, 0, 0);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				short val = Read<short>();
 				lua_pushinteger(L, val);
 				lua_rawseti(L, -2, i);
@@ -650,10 +635,10 @@ struct PtoReader {
 	}
 
 	inline void DecodeInt(lua_State* L, Field* field, int index) {
-		if ( field->array_ ) {
+		if (field->array_) {
 			uint16_t size = Read<uint16_t>();
 			lua_createtable(L, 0, 0);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				lua_Integer val = Read<int64_t>();
 				lua_pushinteger(L, val);
 				lua_rawseti(L, -2, i);
@@ -668,10 +653,10 @@ struct PtoReader {
 	}
 
 	inline void DecodeFloat(lua_State* L, Field* field, int index) {
-		if ( field->array_ ) {
+		if (field->array_) {
 			uint16_t size = Read<uint16_t>();
 			lua_createtable(L, 0, 0);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				float val = Read<float>();
 				lua_pushnumber(L, val);
 				lua_rawseti(L, -2, i);
@@ -686,10 +671,10 @@ struct PtoReader {
 	}
 
 	inline void DecodeDouble(lua_State* L, Field* field, int index) {
-		if ( field->array_ ) {
+		if (field->array_) {
 			uint16_t size = Read<uint16_t>();
 			lua_createtable(L, 0, 0);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				double val = Read<double>();
 				lua_pushnumber(L, val);
 				lua_rawseti(L, -2, i);
@@ -704,10 +689,10 @@ struct PtoReader {
 	}
 
 	inline void DecodeString(lua_State* L, Field* field, int index) {
-		if ( field->array_ ) {
+		if (field->array_) {
 			uint16_t size = Read<uint16_t>();
 			lua_createtable(L, 0, 0);
-			for ( int i = 1; i <= size; i++ ) {
+			for (int i = 1; i <= size; i++) {
 				uint16_t size;
 				char* val = Read(&size);
 				lua_pushlstring(L, val, size);
@@ -725,16 +710,17 @@ struct PtoReader {
 
 	inline void DecodePto(lua_State* L, Field* field, int index, int depth) {
 		depth++;
-		if ( depth > MAX_DEPTH ) {
+		if (depth > MAX_DEPTH) {
 			throw TooDepthException(false);
 		}
 
-		if ( field->array_ ) {
+		if (field->array_) {
 			uint16_t size = Read<uint16_t>();
 			lua_createtable(L, 0, 0);
-			for ( int i = 1; i <= size; i++ ) {
-				lua_createtable(L, 0, field->childs_->size());
-				for ( int j = 0; j < field->childs_->size(); j++ ) {
+			for (int i = 1; i <= size; i++) {
+				int size = field->childs_.size();
+				lua_createtable(L, 0, size);
+				for (int j = 0; j < size; j++) {
 					Field* child = field->GetField(j);
 					DecodeOne(L, child, index + 2, depth);
 				}
@@ -743,8 +729,9 @@ struct PtoReader {
 			lua_setfield(L, index, field->name_);
 		}
 		else {
-			lua_createtable(L, 0, field->childs_->size());
-			for ( int i = 0; i < field->childs_->size(); i++ ) {
+			int size = field->childs_.size();
+			lua_createtable(L, 0, size);
+			for (int i = 0; i < size; i++) {
 				Field* child = field->GetField(i);
 				DecodeOne(L, child, index + 1, depth);
 			}
@@ -754,38 +741,9 @@ struct PtoReader {
 
 };
 
-static void ImportField(lua_State* L, ProtocolContext* ctx, Field* field, int index, int depth) {
+static void ImportField(lua_State* L, Context* ctx, std::vector<Field*>& fields, int index, int depth) {
 	int size = lua_rawlen(L, index);
-	for ( int i = 1; i <= size; i++ ) {
-		lua_rawgeti(L, index, i);
-
-		lua_getfield(L, -1, "type");
-		eTYPE type = (eTYPE)lua_tointeger(L, -1);
-		lua_pop(L, 1);
-
-		lua_getfield(L, -1, "array");
-		int array = lua_toboolean(L, -1);
-		lua_pop(L, 1);
-
-		lua_getfield(L, -1, "name");
-		const char* name = lua_tostring(L, -1);
-		lua_pop(L, 1);
-
-		Field* child = new Field(name, array, type);
-		if ( type == eTYPE::Pto ) {
-			lua_getfield(L, -1, "pto");
-			ImportField(L, ctx, child, lua_gettop(L), ++depth);
-			lua_pop(L, 1);
-		}
-		field->AddField(child);
-
-		lua_pop(L, 1);
-	}
-}
-
-static void ImportField(lua_State* L, ProtocolContext* ctx, Protocol* pto, int index, int depth) {
-	int size = lua_rawlen(L, index);
-	for ( int i = 1; i <= size; i++ ) {
+	for (int i = 1; i <= size; i++) {
 		lua_rawgeti(L, index, i);
 
 		lua_getfield(L, -1, "type");
@@ -802,26 +760,26 @@ static void ImportField(lua_State* L, ProtocolContext* ctx, Protocol* pto, int i
 
 		Field* field = new Field(name, array, type);
 
-		if ( type == eTYPE::Pto ) {
+		if (type == eTYPE::Pto) {
 			lua_getfield(L, -1, "pto");
-			ImportField(L, ctx, field, lua_gettop(L), ++depth);
+			ImportField(L, ctx, field->childs_, lua_gettop(L), ++depth);
 			lua_pop(L, 1);
 		}
 
-		pto->AddField(field);
+		fields.push_back(field);
 
 		lua_pop(L, 1);
 	}
 }
 
 static int ImportPto(lua_State* L) {
-	ProtocolContext* ctx = (ProtocolContext*)lua_touserdata(L, 1);
+	Context* ctx = (Context*)lua_touserdata(L, 1);
 	uint16_t id = luaL_checkinteger(L, 2);
 	size_t size;
 	const char* name = luaL_checklstring(L, 3, &size);
 
 	luaL_checktype(L, 4, LUA_TTABLE);
-	if ( id > 0xffff ) {
+	if (id > 0xffff) {
 		luaL_error(L, "id must less than 0xffff");
 	}
 
@@ -830,7 +788,7 @@ static int ImportPto(lua_State* L) {
 	Protocol* pto = new Protocol(name);
 
 	int depth = 0;
-	ImportField(L, ctx, pto, lua_gettop(L), ++depth);
+	ImportField(L, ctx, pto->fields_, lua_gettop(L), ++depth);
 
 	ctx->AddPto(id, pto);
 
@@ -838,7 +796,7 @@ static int ImportPto(lua_State* L) {
 }
 
 static int EncodePto(lua_State* L) {
-	ProtocolContext* ctx = (ProtocolContext*)lua_touserdata(L, 1);
+	Context* ctx = (Context*)lua_touserdata(L, 1);
 	uint16_t id = luaL_checkinteger(L, 2);
 	Protocol* pto = ctx->ptos_[id];
 
@@ -847,14 +805,14 @@ static int EncodePto(lua_State* L) {
 	PtoWriter writer;
 	try {
 		int depth = 1;
-		for ( int i = 0; i < pto->fields_.size(); i++ ) {
+		for (int i = 0; i < pto->fields_.size(); i++) {
 			Field* field = pto->GetField(i);
 			lua_getfield(L, 3, field->name_);
 			writer.EncodeOne(L, field, 4, depth);
 			lua_pop(L, 1);
 		}
 	}
-	catch ( PtoException e ) {
+	catch (PtoException e) {
 		luaL_error(L, e.reason_.c_str());
 	}
 
@@ -863,24 +821,24 @@ static int EncodePto(lua_State* L) {
 }
 
 static int DecodePto(lua_State* L) {
-	ProtocolContext* ctx = (ProtocolContext*)lua_touserdata(L, 1);
+	Context* ctx = (Context*)lua_touserdata(L, 1);
 	uint16_t id = luaL_checkinteger(L, 2);
 	Protocol* pto = ctx->ptos_[id];
 
 	size_t size;
 	const char* str = NULL;
-	switch ( lua_type(L, 3) ) {
-		case LUA_TSTRING: {
-							  str = lua_tolstring(L, 3, &size);
-							  break;
-		}
-		case LUA_TLIGHTUSERDATA:{
-									str = (const char*)lua_touserdata(L, 3);
-									size = lua_tointeger(L, 4);
-									break;
-		}
-		default:
-			luaL_error(L, "decode protocol:%s error,unkown type:%s", pto->name_, lua_typename(L, lua_type(L, 3)));
+	switch (lua_type(L, 3)) {
+	case LUA_TSTRING:
+		str = lua_tolstring(L, 3, &size);
+		break;
+
+	case LUA_TLIGHTUSERDATA:
+		str = (const char*)lua_touserdata(L, 3);
+		size = lua_tointeger(L, 4);
+		break;
+
+	default:
+		luaL_error(L, "decode protocol:%s error,unkown type:%s", pto->name_, lua_typename(L, lua_type(L, 3)));
 	}
 
 	PtoReader reader((char*)str, size);
@@ -892,16 +850,16 @@ static int DecodePto(lua_State* L) {
 	int top = lua_gettop(L);
 
 	try {
-		for ( int i = 0; i < pto->fields_.size(); i++ ) {
+		for (int i = 0; i < pto->fields_.size(); i++) {
 			Field* field = pto->GetField(i);
 			reader.DecodeOne(L, field, top, depth);
 		}
 	}
-	catch ( PtoException* e ) {
+	catch (PtoException* e) {
 		luaL_error(L, e->reason_.c_str());
 	}
 
-	if ( reader.offset_ != reader.size_ ) {
+	if (reader.offset_ != reader.size_) {
 		luaL_error(L, "decode protocol:%s error", pto->name_);
 	}
 
@@ -909,20 +867,22 @@ static int DecodePto(lua_State* L) {
 }
 
 static int Release(lua_State* L) {
+	Context* ctx = (Context*)lua_touserdata(L, 1);
+	ctx->~Context();
 	return 0;
 }
 
 static int Create(lua_State* L) {
-	void* userdata = lua_newuserdata(L, sizeof(ProtocolContext));
-	ProtocolContext* ptoCtx = new (userdata)ProtocolContext();
+	void* userdata = lua_newuserdata(L, sizeof(Context));
+	Context* ctx = new (userdata)Context();
 
 	lua_pushvalue(L, -1);
-	if ( luaL_newmetatable(L, "pto") ) {
+	if (luaL_newmetatable(L, "pto")) {
 		const luaL_Reg meta[] = {
-			{"Import", ImportPto},
-			{"Encode", EncodePto},
-			{"Decode", DecodePto},
-			{NULL, NULL},
+			{ "Import", ImportPto },
+			{ "Encode", EncodePto },
+			{ "Decode", DecodePto },
+			{ NULL, NULL },
 		};
 
 		luaL_newlib(L, meta);
@@ -939,8 +899,8 @@ static int Create(lua_State* L) {
 int luaopen_pto(lua_State* L) {
 	luaL_checkversion(L);
 	luaL_Reg l[] = {
-		{"Create", Create},
-		{NULL, NULL},
+		{ "Create", Create },
+		{ NULL, NULL },
 	};
 	luaL_newlib(L, l);
 
