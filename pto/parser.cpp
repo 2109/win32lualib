@@ -18,7 +18,28 @@ struct BadParse : public std::exception {
 };
 
 void ParserPto::Export(lua_State* L) {
+	lua_createtable(L, 0, 0);
+	for ( int i = 0; i < fields_.size(); ++i ) {
+		ParserField* field = fields_[i];
 
+		lua_createtable(L, 0, 0);
+
+		lua_pushlstring(L, field->name_, strlen(field->name_));
+		lua_setfield(L, -2, "name");
+
+		lua_pushinteger(L, field->type_);
+		lua_setfield(L, -2, "type");
+
+		lua_pushboolean(L, field->array_);
+		lua_setfield(L, -2, "array");
+
+		if ( field->pto_ ) {
+			field->pto_->Export(L);
+			lua_setfield(L, -2, "pto");
+		}
+
+		lua_seti(L, -2, i + 1);
+	}
 }
 
 ParserContext::ParserContext(std::string path) : path_(path) {
@@ -59,36 +80,33 @@ bool ParserContext::Import(std::string name) {
 	return true;
 }
 
-static bool SortPto(const ParserPto* lhs, const ParserPto rhs) {
-    return lhs->name_ < lhs->name_;
+static bool SortPto(const ParserPto* lhs, const ParserPto* rhs) {
+	return lhs->name_ < lhs->name_;
 }
 
 void ParserContext::Export(lua_State* L) {
 	std::map<std::string, ParserPto*>::iterator it = ptos_.begin();
 
-	std::vector<ParserPto*> exportList;
-	std::vector<ParserPto*> HeadList;
+	std::vector<ParserPto*> list;
 
-	for(;it != ptos_.end();it++) {
+	for ( ; it != ptos_.end(); it++ ) {
 		std::string name = it->first;
-		if ( (name[0] == 'c' || name[0] == 's') && name[1] == '_') {
-			exportList.push_back(it->second);
-		} else {
-			HeadList.push_back(it->second);
+		if ( (name[0] == 'c' || name[0] == 's') && name[1] == '_' ) {
+			list.push_back(it->second);
 		}
 	}
 
-	std::sort(exportList.begin(), exportList.end(), SortPto);
-	std::sort(HeadList.begin(), HeadList.end(), SortPto);
+	std::sort(list.begin(), list.end(), SortPto);
 
-	for (int i = 0; i < HeadList.size(); ++i) {
-		ParserPto* pto = HeadList[i];
+	lua_createtable(L, 0, 0);
+	for ( int i = 0; i < list.size(); ++i ) {
+		ParserPto* pto = list[i];
+		lua_createtable(L, 0, 2);
+		lua_pushlstring(L, pto->name_.c_str(), pto->name_.size());
+		lua_setfield(L, -2, "name");
 		pto->Export(L);
-	}
-
-	for (int i = 0; i < exportList.size(); ++i) {
-		ParserPto* pto = HeadList[i];
-		pto->Export(L);
+		lua_setfield(L, -2, "pto");
+		lua_seti(L, -2, i + 1);
 	}
 }
 
@@ -214,7 +232,7 @@ void Parser::ParsePto(ParserPto* last) {
 void Parser::Init() {
 	std::ifstream file;
 	file.open(path_.c_str());
-	if (!file.is_open()) {
+	if ( !file.is_open() ) {
 		ThrowError(fmt::format("no such pto:{}", path_));
 	}
 
