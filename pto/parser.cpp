@@ -18,7 +18,7 @@ struct BadParse : public std::exception {
 };
 
 
-ParserContext::ParserContext(const char* path) : path_(path) {
+ParserContext::ParserContext(std::string path) : path_(path) {
 }
 
 ParserContext::~ParserContext() {
@@ -36,13 +36,15 @@ ParserContext::~ParserContext() {
 	}
 }
 
-bool ParserContext::Import(std::string& name) {
+bool ParserContext::Import(std::string name) {
 	if ( GetParser(name) ) {
 		return true;
 	}
 
+	Parser* parser = new Parser(this, path_, name);
+	parser->Init();
+
 	try {
-		Parser* parser = new Parser(this, path_, name);
 		parser->Run();
 		parsers_[name] = parser;
 	}
@@ -60,21 +62,10 @@ void ParserContext::Export(lua_State* L) {
 Parser::Parser(ParserContext* ctx, std::string& dir, std::string& name) {
 	ctx_ = ctx;
 
-	path_ = fmt::format("{}/{}", dir, name);
+	path_ = fmt::format("{}/{}.pto", dir, name);
 
-	std::ifstream file;
-	file.open(path_.c_str());
-
-	file.seekg(0, std::ios::end);
-	int length = file.tellg();
-	file.seekg(0, std::ios::beg);
-
-	data_ = (char*)malloc(length + 1);
-	memset(data_, 0, length + 1);
-	file.read(data_, length);
-
-	file.close();
-
+	data_ = cursor_ = NULL;
+	line_ = -1;
 	cursor_ = data_;
 	line_ = 1;
 }
@@ -185,6 +176,26 @@ void Parser::ParsePto(ParserPto* last) {
 	}
 	Skip(1);
 	SkipSpace();
+}
+
+void Parser::Init() {
+	std::ifstream file;
+	file.open(path_.c_str());
+	if (!file.is_open()) {
+		ThrowError(fmt::format("no such pto:{}", path_));
+	}
+
+	file.seekg(0, std::ios::end);
+	int length = file.tellg();
+	file.seekg(0, std::ios::beg);
+
+	data_ = (char*)malloc(length + 1);
+	memset(data_, 0, length + 1);
+	file.read(data_, length);
+
+	file.close();
+
+	cursor_ = data_;
 }
 
 void Parser::Run() {

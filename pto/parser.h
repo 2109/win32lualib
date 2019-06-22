@@ -83,7 +83,7 @@ namespace LuaPto {
 		std::map<std::string, ParserPto*> ptos_;
 		std::map<std::string, Parser*> parsers_;
 
-		ParserContext(const char* path);
+		ParserContext(std::string path);
 
 		~ParserContext();
 
@@ -107,7 +107,7 @@ namespace LuaPto {
 			return it->second;
 		}
 
-		bool Import(std::string& name);
+		bool Import(std::string name);
 
 		void Export(lua_State* L);
 	};
@@ -191,6 +191,8 @@ namespace LuaPto {
 		void ThrowError(std::string reason);
 
 		void ParsePto(ParserPto* last);
+
+		void Init();
 
 		void Run();
 

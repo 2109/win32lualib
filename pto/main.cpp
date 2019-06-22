@@ -20,8 +20,12 @@ int main() {
 	exit(1);
 	}*/
 
-	LuaPto::ParserContext ctx("./");
-	std::string file = "login.pto";
-	ctx.Import(file);
+	try {
+		LuaPto::ParserContext ctx("./");
+		ctx.Import("login");
+	} catch (std::exception& e) {
+		std::cout << e.what() << std::endl;
+	}
+	
 	return 0;
 }
