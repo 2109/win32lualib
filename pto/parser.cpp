@@ -69,7 +69,8 @@ Parser::Parser(ParserContext* ctx, std::string& dir, std::string& name) {
 	int length = file.tellg();
 	file.seekg(0, std::ios::beg);
 
-	data_ = (char*)malloc(length);
+	data_ = (char*)malloc(length + 1);
+	memset(data_, 0, length + 1);
 	file.read(data_, length);
 
 	file.close();
@@ -113,83 +114,77 @@ void Parser::ParsePto(ParserPto* last) {
 		if ( pto ) {
 			ThrowError(fmt::format("protocol:{} already define in {}@{}", name, pto->file_, pto->line_));
 		}
+	}
 
-		pto = new ParserPto(path_.c_str(), name.c_str(), line, last);
-		if ( last ) {
-			last->AddPto(name, pto);
+	ParserPto* pto = new ParserPto(path_.c_str(), name.c_str(), line, last);
+	if ( last ) {
+		last->AddPto(name, pto);
+	}
+	else {
+		ctx_->AddPto(name, pto);
+	}
+
+	Skip(1);
+	SkipSpace();
+
+	while ( !Expect('}') ) {
+		name = NextToken();
+		if ( name.size() == 0 ) {
+			ThrowError("syntax error");
 		}
-		else {
-			ctx_->AddPto(name, pto);
+
+		if ( name == "protocol" ) {
+			ParsePto(pto);
+			continue;
 		}
 
-		Skip(1);
-		SkipSpace();
-
-		while ( !Expect('}') ) {
-			name = NextToken();
-			if ( name.size() == 0 ) {
-				ThrowError("syntax error");
+		int type = eTYPE::Pto;
+		for ( int i = 0; i < sizeof(kTYPE_NAME) / sizeof(void*); ++i ) {
+			if ( name == kTYPE_NAME[i] ) {
+				type = i;
+				break;
 			}
+		}
 
-			if ( name == "protocol" ) {
-				ParsePto(pto);
-				continue;
+		bool array = false;
+		if ( strncmp(cursor_, "[]", 2) == 0 ) {
+			array = true;
+			Skip(2);
+			if ( !ExpectSpace() ) {
+				ThrowError("syntax error,expect space");
 			}
+			SkipSpace();
+		}
 
-			int type = eTYPE::Pto;
-			for ( int i = 0; i < sizeof(kTYPE_NAME) / sizeof(void*); ++i ) {
-				if ( name == kTYPE_NAME[i] ) {
-					type = i;
+		ParserPto* reference = NULL;
+		if ( type == eTYPE::Pto ) {
+			ParserPto* last = pto;
+			while ( last ) {
+				reference = last->GetPto(name);
+				if ( reference ) {
 					break;
 				}
+				last = last->last_;
 			}
 
-			bool array = false;
-			if ( strncmp(cursor_, "[]", 2) == 0 ) {
-				array = true;
-				Skip(2);
-				if ( !ExpectSpace() ) {
-					ThrowError("syntax error,expect space");
-				}
-				SkipSpace();
-			}
-
-			ParserPto* reference = NULL;
-			if ( type == eTYPE::Pto ) {
-				ParserPto* last = pto;
-				while ( last ) {
-					reference = last->GetPto(name);
-					if ( reference ) {
-						break;
-					}
-					last = last->last_;
-				}
-
+			if ( !reference ) {
+				reference = ctx_->GetPto(name);
 				if ( !reference ) {
-					reference = ctx_->GetPto(name);
-					if ( !reference ) {
-						ThrowError(fmt::format("unknown protocol:{}", name));
-					}
+					ThrowError(fmt::format("unknown protocol:{}", name));
 				}
 			}
-
-			name = NextToken();
-			if ( name.size() == 0 ) {
-				ThrowError("syntax error");
-			}
-
-			Field* field = new Field(name.c_str(), array, (eTYPE)type);
-			if ( reference ) {
-				for ( int i = 0; i < reference->fields_.size(); i++ ) {
-					Field* other = reference->fields_[i];
-					Field* copy = new Field(other->name_, other->array_, other->type_);
-					field->childs_.push_back(copy);
-				}
-			}
-
-			pto->AddField(field);
 		}
+
+		name = NextToken();
+		if ( name.size() == 0 ) {
+			ThrowError("syntax error");
+		}
+
+		ParserField* field = new ParserField(name.c_str(), array, (eTYPE)type, reference);
+		pto->AddField(field);
 	}
+	Skip(1);
+	SkipSpace();
 }
 
 void Parser::Run() {
@@ -201,7 +196,7 @@ void Parser::Run() {
 		}
 
 		if ( name == "protocol" ) {
-
+			ParsePto(NULL);
 		}
 		else if ( name == "import" ) {
 			SkipSpace();

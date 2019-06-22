@@ -3,16 +3,37 @@
 #include <ctype.h>
 #include <string.h>
 #include <map>
+#include <vector>
+#include "pto.h"
 #include "lua.hpp"
 
 namespace LuaPto {
 	struct Parser;
+	struct ParserPto;
+
+	struct ParserField {
+		char* name_;
+		bool array_;
+		eTYPE type_;
+		ParserPto* pto_;
+
+		ParserField(const char* name, bool array, eTYPE type, ParserPto* pto) {
+			name_ = _strdup(name);
+			array_ = array;
+			type_ = type;
+			pto_ = pto;
+		}
+
+		~ParserField() {
+			free(name_);
+		}
+	};
 
 	struct ParserPto {
 		std::string file_;
 		std::string name_;
 		int line_;
-		std::vector<Field*> fields_;
+		std::vector<ParserField*> fields_;
 		std::map<std::string, ParserPto*> childs_;
 		ParserPto* last_;
 		ParserPto(const char* path, const char* name, int line, ParserPto* last) : file_(path), name_(name), line_(line) {
@@ -20,27 +41,27 @@ namespace LuaPto {
 		}
 
 		~ParserPto()  {
-			{
-				std::map<std::string, ParserPto*>::iterator it = childs_.begin();
-				for ( ; it != childs_.end(); it++ ) {
-					ParserPto* pto = it->second;
-					delete pto;
-				}
+
+			std::map<std::string, ParserPto*>::iterator itPto = childs_.begin();
+			for ( ; itPto != childs_.end(); itPto++ ) {
+				ParserPto* pto = itPto->second;
+				delete pto;
 			}
 
-			{
+
+
 			for ( int i = 0; i < fields_.size(); ++i ) {
-				Field* field = fields_[i];
+				ParserField* field = fields_[i];
 				delete field;
 			}
-		}
+
 		}
 
-		void AddField(struct Field* field) {
+		void AddField(struct ParserField* field) {
 			fields_.push_back(field);
 		}
 
-		inline Field* GetField(int index) {
+		inline ParserField* GetField(int index) {
 			return fields_[index];
 		}
 
@@ -151,7 +172,7 @@ namespace LuaPto {
 			char ch = *cursor_;
 			int index = 0;
 			while ( ch != 0 && (ch == '_' || isalpha(ch) || isdigit(ch)) ) {
-				token[index++] = ch;
+				token += ch;
 				++cursor_;
 				ch = *cursor_;
 			}
