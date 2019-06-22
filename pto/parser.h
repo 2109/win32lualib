@@ -41,20 +41,16 @@ namespace LuaPto {
 		}
 
 		~ParserPto()  {
-
 			std::map<std::string, ParserPto*>::iterator itPto = childs_.begin();
 			for ( ; itPto != childs_.end(); itPto++ ) {
 				ParserPto* pto = itPto->second;
 				delete pto;
 			}
 
-
-
-			for ( int i = 0; i < fields_.size(); ++i ) {
+			for ( uint32_t i = 0; i < fields_.size(); ++i ) {
 				ParserField* field = fields_[i];
 				delete field;
 			}
-
 		}
 
 		void AddField(struct ParserField* field) {

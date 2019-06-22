@@ -8,7 +8,7 @@ AttachInfo = {
 	},
 	{
 		type = pto.INT,
-		array = false,
+		array = true,
 		name = "Value"
 	},
 }

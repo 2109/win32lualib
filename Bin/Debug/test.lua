@@ -1,8 +1,9 @@
-require "login"
+
 local common = require "common"
 
+local export = ...
 local pto = pto.Create()
-
+common.Dump(export)
 pto:Import(1, "login", s2c_login_role_list)
 
 for i = 1, 1 do

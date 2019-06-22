@@ -19,7 +19,7 @@ struct BadParse : public std::exception {
 
 void ParserPto::Export(lua_State* L) {
 	lua_createtable(L, 0, 0);
-	for ( int i = 0; i < fields_.size(); ++i ) {
+	for ( uint32_t i = 0; i < fields_.size(); ++i ) {
 		ParserField* field = fields_[i];
 
 		lua_createtable(L, 0, 0);

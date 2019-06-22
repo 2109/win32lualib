@@ -56,14 +56,23 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "skiplist", "skiplist\skiplist.vcxproj", "{7052D9A4-9180-4FFC-86A2-B95376331C43}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "trie", "trie\trie.vcxproj", "{45122535-60C0-4A78-A3D6-FD78426EE23D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A11B817F-D2D4-4035-BFF7-771E0C33A368} = {A11B817F-D2D4-4035-BFF7-771E0C33A368}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcurl", "curl\projects\Windows\VC12\lib\libcurl.vcxproj", "{DA6F56B4-06A4-441D-AD70-AC5A7D51FADB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "socket", "socket\socket.vcxproj", "{EE35CD29-7CEC-4433-A224-86AEED535619}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A11B817F-D2D4-4035-BFF7-771E0C33A368} = {A11B817F-D2D4-4035-BFF7-771E0C33A368}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c-ares", "cares\build\c-ares.vcxproj", "{E50C25D9-1350-3773-A3BF-89836D26F74B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pto", "pto\pto.vcxproj", "{6E8A503D-70E7-4034-9802-0D85F92CCBCE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{A11B817F-D2D4-4035-BFF7-771E0C33A368} = {A11B817F-D2D4-4035-BFF7-771E0C33A368}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
