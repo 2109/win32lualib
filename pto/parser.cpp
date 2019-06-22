@@ -17,6 +17,9 @@ struct BadParse : public std::exception {
 	}
 };
 
+void ParserPto::Export(lua_State* L) {
+
+}
 
 ParserContext::ParserContext(std::string path) : path_(path) {
 }
@@ -56,8 +59,37 @@ bool ParserContext::Import(std::string name) {
 	return true;
 }
 
-void ParserContext::Export(lua_State* L) {
+static bool SortPto(const ParserPto* lhs, const ParserPto rhs) {
+    return lhs->name_ < lhs->name_;
+}
 
+void ParserContext::Export(lua_State* L) {
+	std::map<std::string, ParserPto*>::iterator it = ptos_.begin();
+
+	std::vector<ParserPto*> exportList;
+	std::vector<ParserPto*> HeadList;
+
+	for(;it != ptos_.end();it++) {
+		std::string name = it->first;
+		if ( (name[0] == 'c' || name[0] == 's') && name[1] == '_') {
+			exportList.push_back(it->second);
+		} else {
+			HeadList.push_back(it->second);
+		}
+	}
+
+	std::sort(exportList.begin(), exportList.end(), SortPto);
+	std::sort(HeadList.begin(), HeadList.end(), SortPto);
+
+	for (int i = 0; i < HeadList.size(); ++i) {
+		ParserPto* pto = HeadList[i];
+		pto->Export(L);
+	}
+
+	for (int i = 0; i < exportList.size(); ++i) {
+		ParserPto* pto = HeadList[i];
+		pto->Export(L);
+	}
 }
 
 Parser::Parser(ParserContext* ctx, std::string& dir, std::string& name) {

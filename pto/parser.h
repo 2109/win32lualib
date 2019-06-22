@@ -76,6 +76,8 @@ namespace LuaPto {
 		void AddPto(std::string& name, ParserPto* pto) {
 			childs_[name] = pto;
 		}
+
+		void Export(lua_State* L);
 	};
 
 	struct ParserContext {
