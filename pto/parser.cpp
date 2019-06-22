@@ -50,6 +50,7 @@ bool ParserContext::Import(std::string name) {
 	}
 	catch ( BadParse& e ) {
 		std::cout << e.what() << std::endl;
+		delete parser;
 		return false;
 	}
 	return true;
