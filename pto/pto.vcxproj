@@ -85,10 +85,16 @@
   <ItemGroup>
     <ClCompile Include="format.cc" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="parser.cpp" />
     <ClCompile Include="pto.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="decode.h" />
+    <ClInclude Include="encode.h" />
+    <ClInclude Include="error.h" />
     <ClInclude Include="format.h" />
+    <ClInclude Include="parser.h" />
+    <ClInclude Include="pto.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

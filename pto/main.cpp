@@ -2,13 +2,13 @@
 #include "lua.hpp"
 
 
-int luaopen_pto(lua_State* L);
+int luaopen_ptocxx(lua_State* L);
 
 int main() {
 	lua_State* L = luaL_newstate();
 	luaL_openlibs(L);
 
-	luaL_requiref(L, "pto", luaopen_pto, 1);
+	luaL_requiref(L, "pto", luaopen_ptocxx, 1);
 
 	if ( luaL_loadfile(L, "test.lua") != LUA_OK )  {
 		std::cerr << lua_tostring(L, -1) << std::endl;
