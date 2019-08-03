@@ -10,8 +10,8 @@
 #include "lauxlib.h"
 
 
-#define BUFFER_SIZE 1024
-#define SLOT_SIZE	16
+#define BUFFER_SIZE 64
+#define PAIR_SIZE 4
 #define MAX_DEPTH	32
 
 #ifdef WIN32
@@ -25,12 +25,17 @@ extern char* i64toa_fast(int64_t value, char* buffer);
 
 extern char* dtoa_fast(double value, char* buffer);
 
+
+struct array_pair;
+
 typedef struct dump_buffer {
 	bool stringify;
 	char* ptr;
 	size_t size;
 	size_t offset;
-	char init[BUFFER_SIZE];
+	struct array_pair* child;
+	int max;
+	int index;
 } buffer_t;
 
 typedef struct array_pair {
@@ -38,43 +43,36 @@ typedef struct array_pair {
 	buffer_t* v;
 } pair_t;
 
-typedef struct array_context {
-	int offset;
-	int size;
-	pair_t** slots;
-	pair_t* init[SLOT_SIZE];
-} array_t;
-
 #ifdef WIN32
-#define dump_error(L,buffer,fmt,...) \
-do \
-{\
-	buffer_release(buffer); \
-	luaL_error(L, "%s:%d pack error : "fmt" ", __FILE__, __LINE__, __VA_ARGS__); \
-} while ( 0 )\
-
+#define dump_error(L,fmt,...) luaL_error(L, "%s:%d dump error : "fmt" ", __FILE__, __LINE__, __VA_ARGS__)
 #else
-
-#define dump_error(L,buffer,fmt,args...) \
-do {\
-	buffer_release(buffer);\
-	luaL_error(L, "%s:%d pack error : "fmt" ", __FILE__, __LINE__, ##args);\
-} while (0)\
-
+#define dump_error(L,fmt,args...) luaL_error(L, "%s:%d dump error : "fmt" ", __FILE__, __LINE__, ##args)
 #endif
 
 static inline void
 buffer_init(buffer_t* buffer, bool stringify) {
 	buffer->stringify = stringify;
-	buffer->ptr = buffer->init;
+	buffer->ptr = (char*)malloc(BUFFER_SIZE);
 	buffer->size = BUFFER_SIZE;
 	buffer->offset = 0;
+	buffer->child = NULL;
+	buffer->index = 0;
+	buffer->max = 0;
 }
 
 static inline void
 buffer_release(buffer_t* buffer) {
-	if (buffer->ptr != buffer->init)
-		free(buffer->ptr);
+	free(buffer->ptr);
+
+	if (buffer->child) {
+		int i;
+		for (i = 0; i < buffer->index; i++) {
+			pair_t* pair = &buffer->child[i];
+			buffer_release(pair->k);
+			buffer_release(pair->v);
+		}
+		free(buffer->child);
+	}
 }
 
 static inline void
@@ -83,15 +81,15 @@ buffer_reservce(buffer_t* buffer, size_t len) {
 		return;
 	}
 	size_t nsize = buffer->size * 2;
-	while (nsize < buffer->offset + len) {
-		nsize = nsize * 2;
+	if (nsize < buffer->offset + len) {
+		nsize = buffer->offset + len;
 	}
+
 	char* nptr = (char*)malloc(nsize);
 	memcpy(nptr, buffer->ptr, buffer->size);
 	buffer->size = nsize;
 
-	if (buffer->ptr != buffer->init)
-		free(buffer->ptr);
+	free(buffer->ptr);
 	buffer->ptr = nptr;
 }
 
@@ -112,6 +110,41 @@ static inline void
 addstring(buffer_t* buffer, const char* str) {
 	int len = strlen(str);
 	addlstring(buffer, str, len);
+}
+
+static inline void
+addbuff(buffer_t* lhs, buffer_t* rhs) {
+	addlstring(lhs, rhs->ptr, rhs->offset);
+}
+
+static inline void
+addpair(buffer_t* buffer, buffer_t* k, buffer_t* v) {
+	if (buffer->child == NULL) {
+		buffer->max = PAIR_SIZE;
+		buffer->index = 0;
+		buffer->child = (struct array_pair*)malloc(buffer->max * sizeof(*buffer->child));
+	}
+
+	if (buffer->index >= buffer->max) {
+		buffer->max *= 2;
+		buffer->child = realloc(buffer->child, buffer->max * sizeof(*buffer->child));
+	}
+	buffer->child[buffer->index].k = k;
+	buffer->child[buffer->index].v = v;
+
+	buffer->index++;
+}
+
+static inline int
+pair_compare(const void* lhs, const void* rhs) {
+	pair_t* l = (pair_t*)lhs;
+	pair_t* r = (pair_t*)rhs;
+	return strcmp(l->k->ptr, r->k->ptr);
+}
+
+static inline void
+pair_sort(buffer_t* buffer) {
+	qsort(buffer->child, buffer->index, sizeof(pair_t*), pair_compare);
 }
 
 static inline void
@@ -143,57 +176,6 @@ newline(buffer_t* buffer) {
 	}
 }
 
-static inline void
-array_init(array_t* array) {
-	array->size = SLOT_SIZE;
-	array->offset = 0;
-	array->slots = array->init;
-}
-
-static inline void
-array_release(array_t* array) {
-	int i;
-	for (i = 0; i < array->offset; i++) {
-		pair_t* pair = array->slots[i];
-		buffer_release(pair->k);
-		buffer_release(pair->v);
-		free(pair->k);
-		free(pair->v);
-		free(pair);
-	}
-
-	if (array->slots != array->init)
-		free(array->slots);
-}
-
-static inline void
-array_add(array_t* array, buffer_t* k, buffer_t* v) {
-	if (array->offset == array->size) {
-		int nsize = array->size * 2;
-		pair_t** nslots = (pair_t**)malloc(sizeof(pair_t*) * nsize);
-		memcpy(nslots, array->slots, sizeof(pair_t*) * array->size);
-		if (array->slots != array->init)
-			free(array->slots);
-		array->slots = nslots;
-		array->size = nsize;
-	}
-	pair_t* pair = (pair_t*)malloc(sizeof(*pair));
-	pair->k = k;
-	pair->v = v;
-	array->slots[array->offset++] = pair;
-}
-
-static inline int
-array_compare(const void* lhs, const void* rhs) {
-	pair_t* l = *(pair_t**)lhs;
-	pair_t* r = *(pair_t**)rhs;
-	return strcmp(l->k->ptr, r->k->ptr);
-}
-
-static inline void
-array_sort(array_t* array) {
-	qsort(array->slots, array->offset, sizeof(pair_t*), array_compare);
-}
 
 void dump_table(lua_State* L, buffer_t* buffer, int index, int depth);
 void dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth);
@@ -297,7 +279,7 @@ dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool 
 				const void* pointer = lua_topointer(L, index);
 				char str[64] = { 0 };
 				snprintf(str, 64, "\"<table:0x%x>\"", (uint32_t)(uintptr_t)pointer);
-				append_lstring(L, buffer, str);
+				addstring(buffer, str);
 			}
 			else {
 				if (order) {
@@ -314,7 +296,7 @@ dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool 
 			const void* pointer = lua_topointer(L, index);
 			char str[64] = { 0 };
 			snprintf(str, 64, "\"<userdata:0x%x>\"", (uint32_t)(uintptr_t)pointer);
-			append_lstring(L, buffer, str);
+			addstring(buffer, str);
 			break;
 		}
 		case LUA_TFUNCTION:
@@ -322,7 +304,7 @@ dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool 
 			const void* pointer = lua_topointer(L, index);
 			char str[64] = { 0 };
 			snprintf(str, 64, "\"<function:0x%x>\"", (uint32_t)(uintptr_t)pointer);
-			append_lstring(L, buffer, str);
+			addstring(buffer, str);
 			break;
 		}
 		case LUA_TTHREAD:
@@ -330,11 +312,11 @@ dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool 
 			const void* pointer = lua_topointer(L, index);
 			char str[64] = { 0 };
 			snprintf(str, 64, "\"<thread:0x%x>\"", (uint32_t)(uintptr_t)pointer);
-			append_lstring(L, buffer, str);
+			addstring(buffer, str);
 			break;
 		}
 		default: {
-			dump_error(L, buffer, "not support type %s", lua_typename(L, type));
+			dump_error(L, "not support type %s", lua_typename(L, type));
 			break;
 		}
 	}
@@ -357,7 +339,7 @@ dump_table_array(lua_State* L, buffer_t* buffer, int index, int depth, bool orde
 void
 dump_table(lua_State* L, buffer_t* buffer, int index, int depth) {
 	if (depth > MAX_DEPTH) {
-		dump_error(L, buffer, "pack table too depth:%d", depth);
+		dump_error(L, "pack table too depth:%d", depth);
 	}
 
 	begin_table(buffer);
@@ -394,14 +376,11 @@ dump_table(lua_State* L, buffer_t* buffer, int index, int depth) {
 void
 dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth) {
 	if (depth > MAX_DEPTH) {
-		dump_error(L, buffer, "pack table sort too depth:%d", depth);
+		dump_error(L, "pack table sort too depth:%d", depth);
 	}
 	begin_table(buffer);
 
 	int size = dump_table_array(L, buffer, index, depth, true);
-
-	array_t array;
-	array_init(&array);
 
 	lua_pushnil(L);
 	while (lua_next(L, index) != 0) {
@@ -418,35 +397,59 @@ dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth) {
 
 		buffer_t* lhs = (buffer_t*)malloc(sizeof(*lhs));
 		buffer_init(lhs, buffer->stringify);
-		dump_one(L, lhs, -2, depth, true, true);
 
 		buffer_t* rhs = (buffer_t*)malloc(sizeof(*rhs));
 		buffer_init(rhs, buffer->stringify);
-		dump_one(L, rhs, -1, depth, true, false);
 
-		array_add(&array, lhs, rhs);
+		addpair(buffer, lhs, rhs);
+
+		dump_one(L, lhs, -2, depth, true, true);
+		dump_one(L, rhs, -1, depth, true, false);
 
 		lua_pop(L, 1);
 	}
 
-	array_sort(&array);
+	if (buffer->child) {
+		pair_sort(buffer);
+		int i;
+		for (i = 0; i < buffer->index; i++) {
+			pair_t* pair = &buffer->child[i];
+			tab(buffer, depth);
 
-	int i;
-	for (i = 0; i < array.offset; i++) {
-		pair_t* pair = array.slots[i];
-		tab(buffer, depth);
+			addchar(buffer, '[');
+			addbuff(buffer, pair->k);
+			addstring(buffer, "]=");
+			addbuff(buffer, pair->v);
+			newline(buffer);
 
-		addchar(buffer, '[');
-		addlstring(buffer, pair->k->ptr, pair->k->offset);
-		addstring(buffer, "]=");
-		addlstring(buffer, pair->v->ptr, pair->v->offset);
-		newline(buffer);
+			buffer_release(pair->k);
+			buffer_release(pair->v);
+		}
+
+		free(buffer->child);
+
+		buffer->child = NULL;
 	}
-
-	array_release(&array);
-
+	
 	tab(buffer, depth - 1);
 	addchar(buffer, '}');
+}
+
+static int
+xpcall_dump(lua_State* L) {
+	buffer_t* buffer = lua_touserdata(L, 1);
+	luaL_checktype(L, 2, LUA_TTABLE);
+	bool order = lua_toboolean(L, 3);
+
+	luaL_checkstack(L, MAX_DEPTH * 2 + 4, NULL);
+
+	if (order) {
+		dump_table_order(L, buffer, 2, 1);
+	}
+	else {
+		dump_table(L, buffer, 2, 1);
+	}
+	return 0;
 }
 
 static int
@@ -455,32 +458,29 @@ dump(lua_State* L) {
 	bool stringify = luaL_optinteger(L, 2, 0);
 	bool order = luaL_optinteger(L, 3, 0);
 	bool tostr = luaL_optinteger(L, 4, 0);
-		
-	luaL_checkstack(L, MAX_DEPTH * 2 + 4, NULL);
 
 	buffer_t buffer;
 	buffer_init(&buffer, stringify);
 
-	if (order) {
-		dump_table_order(L, &buffer, 1, 1);
-	}
-	else {
-		dump_table(L, &buffer, 1, 1);
+	lua_pushcfunction(L, xpcall_dump);
+	lua_pushlightuserdata(L, (void*)&buffer);
+	lua_pushvalue(L, 1);
+	lua_pushboolean(L, order);
+	if (lua_pcall(L, 3, 0, 0) != LUA_OK) {
+		buffer_release(&buffer);
+		luaL_error(L, lua_tostring(L, -1));
 	}
 
 	if (tostr) {
 		lua_pushlstring(L, buffer.ptr, buffer.offset);
 		lua_pushinteger(L, buffer.offset);
+		buffer_release(&buffer);
 	}
 	else {
-		void* data = malloc(buffer.offset);
-		memcpy(data, buffer.ptr, buffer.offset);
-		lua_pushlightuserdata(L, data);
+		lua_pushlightuserdata(L, buffer.ptr);
 		lua_pushinteger(L, buffer.offset);
 	}
 
-	buffer_release(&buffer);
-	
 	return 2;
 }
 
