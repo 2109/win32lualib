@@ -34,8 +34,8 @@ check_multi_info(http_multi_t *multi) {
 	CURL *easy;
 	http_request_t * request = NULL;
 
-	while ( (msg = curl_multi_info_read(multi->ctx, &msgs_left)) ) {
-		if ( msg->msg == CURLMSG_DONE ) {
+	while ((msg = curl_multi_info_read(multi->ctx, &msgs_left))) {
+		if (msg->msg == CURLMSG_DONE) {
 			easy = msg->easy_handle;
 			curl_easy_getinfo(easy, CURLINFO_PRIVATE, &request);
 			curl_multi_remove_handle(multi->ctx, easy);
@@ -58,8 +58,8 @@ read_cb(evutil_socket_t fd, short events, void * userdata) {
 	http_multi_t* multi = request->multi;
 	curl_multi_socket_action(multi->ctx, request->fd, CURL_POLL_IN, &multi->still_running);
 	check_multi_info(multi);
-	if ( multi->still_running <= 0 ) {
-		if ( evtimer_pending(multi->timer, NULL) ) {
+	if (multi->still_running <= 0) {
+		if (evtimer_pending(multi->timer, NULL)) {
 			evtimer_del(multi->timer);
 		}
 	}
@@ -72,8 +72,8 @@ write_cb(evutil_socket_t fd, short events, void * userdata) {
 	http_multi_t* multi = request->multi;
 	curl_multi_socket_action(multi->ctx, request->fd, CURL_POLL_OUT, &multi->still_running);
 	check_multi_info(multi);
-	if ( multi->still_running <= 0 ) {
-		if ( evtimer_pending(multi->timer, NULL) ) {
+	if (multi->still_running <= 0) {
+		if (evtimer_pending(multi->timer, NULL)) {
 			evtimer_del(multi->timer);
 		}
 	}
@@ -83,16 +83,16 @@ static int
 multi_sock_cb(CURL* e, curl_socket_t s, int what, void* cbp, void* ud) {
 	http_multi_t* multi = cbp;
 	http_request_t* request = ud;
-	if ( what == CURL_POLL_REMOVE ) {
-		if ( event_pending(request->rio, EV_READ, NULL) ) {
+	if (what == CURL_POLL_REMOVE) {
+		if (event_pending(request->rio, EV_READ, NULL)) {
 			event_del(request->rio);
 		}
-		if ( event_pending(request->wio, EV_WRITE, NULL) ) {
+		if (event_pending(request->wio, EV_WRITE, NULL)) {
 			event_del(request->wio);
 		}
 	}
 	else {
-		if ( !request ) {
+		if (!request) {
 			curl_easy_getinfo(e, CURLINFO_PRIVATE, &request);
 			curl_multi_assign(request->multi->ctx, s, request);
 			request->fd = s;
@@ -100,21 +100,21 @@ multi_sock_cb(CURL* e, curl_socket_t s, int what, void* cbp, void* ud) {
 			request->wio = event_new(loop_ctx_get(multi->ev_loop), s, EV_WRITE, write_cb, request);
 		}
 
-		if ( what == CURL_POLL_IN ) {
-			if ( !event_pending(request->rio, EV_READ, NULL) ) {
+		if (what == CURL_POLL_IN) {
+			if (!event_pending(request->rio, EV_READ, NULL)) {
 				event_add(request->rio, NULL);
 			}
 		}
-		else if ( what == CURL_POLL_OUT ){
-			if ( !event_pending(request->wio, EV_WRITE, NULL) ) {
+		else if (what == CURL_POLL_OUT){
+			if (!event_pending(request->wio, EV_WRITE, NULL)) {
 				event_add(request->wio, NULL);
 			}
 		}
-		else if ( what == CURL_POLL_INOUT ){
-			if ( !event_pending(request->rio, EV_READ, NULL) ) {
+		else if (what == CURL_POLL_INOUT){
+			if (!event_pending(request->rio, EV_READ, NULL)) {
 				event_add(request->rio, NULL);
 			}
-			if ( !event_pending(request->wio, EV_WRITE, NULL) ) {
+			if (!event_pending(request->wio, EV_WRITE, NULL)) {
 				event_add(request->wio, NULL);
 			}
 		}
@@ -126,11 +126,11 @@ static int
 multi_timer_cb(CURLM* ctx, long timeout_ms, void* ud) {
 	http_multi_t* multi = ud;
 
-	if ( timeout_ms == 0 ) {
+	if (timeout_ms == 0) {
 		curl_multi_socket_action(multi->ctx, CURL_SOCKET_TIMEOUT, 0, &multi->still_running);
 	}
-	else if ( timeout_ms > 0 ) {
-		if ( evtimer_pending(multi->timer, NULL) ) {
+	else if (timeout_ms > 0) {
+		if (evtimer_pending(multi->timer, NULL)) {
 			evtimer_del(multi->timer);
 		}
 
@@ -221,10 +221,10 @@ http_request_release(http_request_t* request) {
 	curl_easy_cleanup(request->ctx);
 	event_free(request->rio);
 	event_free(request->wio);
-	if ( request->headers ) {
+	if (request->headers) {
 		curl_slist_free_all(request->headers);
 	}
-	if ( request->content ) {
+	if (request->content) {
 		free(request->content);
 	}
 	string_release(&request->receive_header);
@@ -252,7 +252,7 @@ http_request_perform(http_multi_t* multi, http_request_t* request, request_callb
 	request->callback_ud = ud;
 	CURLMcode rc = curl_multi_add_handle(multi->ctx, request->ctx);
 
-	if ( rc != CURLM_OK ) {
+	if (rc != CURLM_OK) {
 		http_request_delete(request);
 		return -1;
 	}
@@ -262,7 +262,7 @@ http_request_perform(http_multi_t* multi, http_request_t* request, request_callb
 
 int
 set_url(http_request_t* request, const char* url) {
-	if ( CURLE_OK != curl_easy_setopt(request->ctx, CURLOPT_URL, url) ) {
+	if (CURLE_OK != curl_easy_setopt(request->ctx, CURLOPT_URL, url)) {
 		return -1;
 	}
 	return 0;
@@ -270,7 +270,7 @@ set_url(http_request_t* request, const char* url) {
 
 int
 set_unix_socket_path(http_request_t* request, const char* path) {
-	if ( CURLE_OK != curl_easy_setopt(request->ctx, CURLOPT_UNIX_SOCKET_PATH, path) ) {
+	if (CURLE_OK != curl_easy_setopt(request->ctx, CURLOPT_UNIX_SOCKET_PATH, path)) {
 		return -1;
 	}
 	return 0;
@@ -278,18 +278,18 @@ set_unix_socket_path(http_request_t* request, const char* path) {
 
 int
 set_post_data(http_request_t* request, const char* data, size_t size) {
-	if ( !data ) {
+	if (!data) {
 		return -1;
 	}
 
 	CURLcode status = CURLE_OK;
 
 	status = curl_easy_setopt(request->ctx, CURLOPT_POST, 1);
-	if ( CURLE_OK != status ) {
+	if (CURLE_OK != status) {
 		return status;
 	}
 
-	if ( size == 0 ) {
+	if (size == 0) {
 		status = curl_easy_setopt(request->ctx, CURLOPT_POSTFIELDS, "");
 	}
 	else {
@@ -298,12 +298,12 @@ set_post_data(http_request_t* request, const char* data, size_t size) {
 		status = curl_easy_setopt(request->ctx, CURLOPT_POSTFIELDS, request->content);
 	}
 
-	if ( CURLE_OK != status ) {
+	if (CURLE_OK != status) {
 		return status;
 	}
 
 	status = curl_easy_setopt(request->ctx, CURLOPT_POSTFIELDSIZE, size);
-	if ( CURLE_OK != status ) {
+	if (CURLE_OK != status) {
 		return status;
 	}
 
@@ -312,7 +312,7 @@ set_post_data(http_request_t* request, const char* data, size_t size) {
 
 int
 set_header(http_request_t* request, const char* data, size_t size) {
-	if ( request->headers ) {
+	if (request->headers) {
 		curl_slist_append(request->headers, data);
 	}
 	else {
@@ -321,7 +321,7 @@ set_header(http_request_t* request, const char* data, size_t size) {
 
 	CURLcode status = curl_easy_setopt(request->ctx, CURLOPT_HTTPHEADER, request->headers);
 
-	if ( CURLE_OK != status ) {
+	if (CURLE_OK != status) {
 		return -1;
 	}
 	return 0;
@@ -330,7 +330,7 @@ set_header(http_request_t* request, const char* data, size_t size) {
 int
 set_timeout(http_request_t* request, uint32_t secs) {
 	CURLcode status = curl_easy_setopt(request->ctx, CURLOPT_TIMEOUT, secs);
-	if ( CURLE_OK != status ) {
+	if (CURLE_OK != status) {
 		return -1;
 	}
 

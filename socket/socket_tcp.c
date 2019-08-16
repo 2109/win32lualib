@@ -61,7 +61,7 @@ void ev_session_disable(ev_session_t* ev_session, int ev);
 static inline data_buffer_t*
 buffer_next(ev_loop_ctx_t* loop_ctx) {
 	data_buffer_t* db = NULL;
-	if ( loop_ctx->freelist != NULL ) {
+	if (loop_ctx->freelist != NULL) {
 		db = loop_ctx->freelist;
 		loop_ctx->freelist = db->next;
 	}
@@ -86,7 +86,7 @@ buffer_reclaim(ev_loop_ctx_t* loop_ctx, data_buffer_t* db) {
 static inline void
 buffer_append(ev_buffer_t* ev_buffer, data_buffer_t* db) {
 	ev_buffer->total += db->wpos - db->rpos;
-	if ( ev_buffer->head == NULL ) {
+	if (ev_buffer->head == NULL) {
 		assert(ev_buffer->tail == NULL);
 		ev_buffer->head = ev_buffer->tail = db;
 	}
@@ -100,7 +100,7 @@ buffer_append(ev_buffer_t* ev_buffer, data_buffer_t* db) {
 
 static inline void
 buffer_release(ev_buffer_t* ev_buffer) {
-	while ( ev_buffer->head ) {
+	while (ev_buffer->head) {
 		data_buffer_t* tmp = ev_buffer->head;
 		ev_buffer->head = ev_buffer->head->next;
 		free(tmp->data);
@@ -112,9 +112,9 @@ static void
 _ev_accept_cb(evutil_socket_t fd, short events, void * userdata) {
 	ev_listener_t* listener = userdata;
 
-	const char addr[HOST_SIZE] = {0};
+	const char addr[HOST_SIZE] = { 0 };
 	int accept_fd = socket_accept(listener->fd, (char*)addr, HOST_SIZE);
-	if ( accept_fd < 0 ) {
+	if (accept_fd < 0) {
 		fprintf(stderr, "accept fd error:%s\n", addr);
 		return;
 	}
@@ -130,14 +130,14 @@ _ev_read_cb(evutil_socket_t fd, short events, void * userdata) {
 	rdb->size = ev_session->threshold;
 	int fail = 0;
 	int total = ev_session->input.total;
-	for ( ;; ) {
+	for (;;) {
 		int n = (int)_read(ev_session->fd, (char*)rdb->data + rdb->wpos, rdb->size - rdb->wpos);
-		if ( n < 0 ) {
-			if ( errno ) {
-				if ( errno == EINTR ) {
+		if (n < 0) {
+			if (errno) {
+				if (errno == EINTR) {
 					continue;
 				}
-				else if ( errno == EAGAIN ) {
+				else if (errno == EAGAIN) {
 					break;
 				}
 				else {
@@ -149,7 +149,7 @@ _ev_read_cb(evutil_socket_t fd, short events, void * userdata) {
 				assert(0);
 			}
 		}
-		else if ( n == 0 ) {
+		else if (n == 0) {
 			fail = 1;
 			break;
 		}
@@ -157,18 +157,18 @@ _ev_read_cb(evutil_socket_t fd, short events, void * userdata) {
 			total += n;
 			rdb->wpos += n;
 
-			if ( rdb->wpos == rdb->size ) {
+			if (rdb->wpos == rdb->size) {
 				ev_session->threshold *= 2;
-				if ( ev_session->threshold > MAX_BUFFER_SIZE )
+				if (ev_session->threshold > MAX_BUFFER_SIZE)
 					ev_session->threshold = MAX_BUFFER_SIZE;
 			}
 			else {
 				ev_session->threshold /= 2;
-				if ( ev_session->threshold < MIN_BUFFER_SIZE )
+				if (ev_session->threshold < MIN_BUFFER_SIZE)
 					ev_session->threshold = MIN_BUFFER_SIZE;
 			}
 
-			if ( ev_session->max > 0 && total >= ev_session->max ) {
+			if (ev_session->max > 0 && total >= ev_session->max) {
 				break;
 			}
 		}
@@ -176,15 +176,15 @@ _ev_read_cb(evutil_socket_t fd, short events, void * userdata) {
 
 	buffer_append(&ev_session->input, rdb);
 
-	if ( fail ) {
+	if (fail) {
 		ev_session_disable(ev_session, EV_READ | EV_WRITE);
 		ev_session->alive = 0;
-		if ( ev_session->event_cb ) {
+		if (ev_session->event_cb) {
 			ev_session->event_cb(ev_session, ev_session->userdata);
 		}
 	}
 	else {
-		if ( ev_session->read_cb ) {
+		if (ev_session->read_cb) {
 			ev_session->read_cb(ev_session, ev_session->userdata);
 		}
 	}
@@ -194,24 +194,24 @@ static void
 _ev_write_cb(evutil_socket_t fd, short events, void * userdata) {
 	ev_session_t* ev_session = userdata;
 
-	while ( ev_session->output.head != NULL ) {
+	while (ev_session->output.head != NULL) {
 		data_buffer_t* wdb = ev_session->output.head;
 		int left = wdb->wpos - wdb->rpos;
 		int total = socket_write(ev_session->fd, (char*)wdb->data + wdb->rpos, left);
-		if ( total < 0 ) {
+		if (total < 0) {
 			ev_session_disable(ev_session, EV_READ | EV_WRITE);
 			ev_session->alive = 0;
-			if ( ev_session->event_cb )
+			if (ev_session->event_cb)
 				ev_session->event_cb(ev_session, ev_session->userdata);
 			return;
 		}
 		else {
 			ev_session->output.total -= total;
-			if ( total == left ) {
+			if (total == left) {
 				free(wdb->data);
 				ev_session->output.head = wdb->next;
 				buffer_reclaim(ev_session->loop_ctx, wdb);
-				if ( ev_session->output.head == NULL ) {
+				if (ev_session->output.head == NULL) {
 					ev_session->output.head = ev_session->output.tail = NULL;
 					break;
 				}
@@ -225,7 +225,7 @@ _ev_write_cb(evutil_socket_t fd, short events, void * userdata) {
 
 	ev_session_disable(ev_session, EV_WRITE);
 	assert(ev_session->output.total == 0);
-	if ( ev_session->write_cb ) {
+	if (ev_session->write_cb) {
 		ev_session->write_cb(ev_session, ev_session->userdata);
 	}
 }
@@ -242,7 +242,7 @@ void
 loop_ctx_release(ev_loop_ctx_t* loop_ctx) {
 	event_base_free(loop_ctx->loop);
 
-	while ( loop_ctx->freelist ) {
+	while (loop_ctx->freelist) {
 		data_buffer_t* tmp = loop_ctx->freelist;
 		loop_ctx->freelist = loop_ctx->freelist->next;
 		free(tmp);
@@ -252,8 +252,8 @@ loop_ctx_release(ev_loop_ctx_t* loop_ctx) {
 
 struct event_base*
 	loop_ctx_get(ev_loop_ctx_t* loop_ctx) {
-		return loop_ctx->loop;
-	}
+	return loop_ctx->loop;
+}
 
 void
 loop_ctx_dispatch(ev_loop_ctx_t* loop_ctx) {
@@ -269,7 +269,7 @@ double
 loop_ctx_now(ev_loop_ctx_t* loop_ctx) {
 	struct timeval val;
 	int status = event_base_gettimeofday_cached(loop_ctx->loop, &val);
-	if ( status < 0 ) {
+	if (status < 0) {
 		return -1;
 	}
 	return val.tv_sec + val.tv_usec / 1000000;
@@ -277,7 +277,7 @@ loop_ctx_now(ev_loop_ctx_t* loop_ctx) {
 
 void
 loop_ctx_clean(ev_loop_ctx_t* loop_ctx) {
-	while ( loop_ctx->freelist ) {
+	while (loop_ctx->freelist) {
 		data_buffer_t* tmp = loop_ctx->freelist;
 		loop_ctx->freelist = loop_ctx->freelist->next;
 		free(tmp);
@@ -287,7 +287,7 @@ loop_ctx_clean(ev_loop_ctx_t* loop_ctx) {
 ev_listener_t*
 ev_listener_bind(struct ev_loop_ctx* loop_ctx, struct sockaddr* addr, int addrlen, int backlog, int flag, listener_callback accept_cb, void* userdata) {
 	int fd = socket_listen(addr, addrlen, backlog, flag);
-	if ( fd < 0 ) {
+	if (fd < 0) {
 		return NULL;
 	}
 	ev_listener_t* listener = malloc(sizeof(*listener));
@@ -316,7 +316,7 @@ ev_listener_fd(ev_listener_t* listener) {
 
 int
 ev_listener_addr(ev_listener_t* listener, char* addr, size_t length, int* port) {
-	if ( get_sockname(listener->fd, addr, length, port) < 0 ) {
+	if (get_sockname(listener->fd, addr, length, port) < 0) {
 		return -1;
 	}
 	return 0;
@@ -324,7 +324,7 @@ ev_listener_addr(ev_listener_t* listener, char* addr, size_t length, int* port) 
 
 void
 ev_listener_free(ev_listener_t* listener) {
-	if ( event_pending(listener->rio, EV_READ, NULL) ) {
+	if (event_pending(listener->rio, EV_READ, NULL)) {
 		event_del(listener->rio);
 	}
 	event_free(listener->rio);
@@ -353,7 +353,7 @@ ev_session_t*
 ev_session_connect(struct ev_loop_ctx* loop_ctx, struct sockaddr* addr, int addrlen, int block, int max, int* status) {
 	int result = 0;
 	int fd = socket_connect(addr, addrlen, block, &result);
-	if ( fd < 0 ) {
+	if (fd < 0) {
 		*status = CONNECT_STATUS_CONNECT_FAIL;
 		return NULL;
 	}
@@ -361,7 +361,7 @@ ev_session_connect(struct ev_loop_ctx* loop_ctx, struct sockaddr* addr, int addr
 
 	//if connect op is block,result here must be true
 	*status = CONNECT_STATUS_CONNECTING;
-	if ( result )
+	if (result)
 		*status = CONNECT_STATUS_CONNECTED;
 
 	return ev_session;
@@ -391,13 +391,13 @@ ev_session_setcb(ev_session_t* ev_session, ev_session_callback read_cb, ev_sessi
 
 void
 ev_session_enable(ev_session_t* ev_session, int ev) {
-	if ( ev & EV_READ ) {
-		if ( !event_pending(ev_session->rio, EV_READ, NULL) ) {
+	if (ev & EV_READ) {
+		if (!event_pending(ev_session->rio, EV_READ, NULL)) {
 			event_add(ev_session->rio, NULL);
 		}
 	}
-	if ( ev & EV_WRITE ) {
-		if ( !event_pending(ev_session->wio, EV_WRITE, NULL) ) {
+	if (ev & EV_WRITE) {
+		if (!event_pending(ev_session->wio, EV_WRITE, NULL)) {
 			event_add(ev_session->wio, NULL);
 		}
 	}
@@ -405,13 +405,13 @@ ev_session_enable(ev_session_t* ev_session, int ev) {
 
 void
 ev_session_disable(ev_session_t* ev_session, int ev) {
-	if ( ev & EV_READ ) {
-		if ( event_pending(ev_session->rio, EV_READ, NULL) ) {
+	if (ev & EV_READ) {
+		if (event_pending(ev_session->rio, EV_READ, NULL)) {
 			event_del(ev_session->rio);
 		}
 	}
-	if ( ev & EV_WRITE ) {
-		if ( event_pending(ev_session->wio, EV_WRITE, NULL) ) {
+	if (ev & EV_WRITE) {
+		if (event_pending(ev_session->wio, EV_WRITE, NULL)) {
 			event_del(ev_session->wio);
 		}
 	}
@@ -434,14 +434,14 @@ ev_session_output_size(ev_session_t* ev_session) {
 
 static inline int
 check_eol(data_buffer_t* db, int from, const char* sep, size_t sep_len) {
-	while ( db ) {
+	while (db) {
 		int sz = db->wpos - from;
-		if ( sz >= (int)sep_len ) {
+		if (sz >= (int)sep_len) {
 			return memcmp((char*)db->data + from, sep, sep_len) == 0;
 		}
 
-		if ( sz > 0 ) {
-			if ( memcmp((char*)db->data + from, sep, sz) ) {
+		if (sz > 0) {
+			if (memcmp((char*)db->data + from, sep, sz)) {
 				return 0;
 			}
 		}
@@ -457,11 +457,11 @@ static inline int
 search_eol(ev_session_t* ev_session, const char* sep, size_t sep_len) {
 	data_buffer_t* current = ev_session->input.head;
 	int offset = 0;
-	while ( current ) {
+	while (current) {
 		int i = current->rpos;
-		for ( ; i < current->wpos; i++ ) {
+		for (; i < current->wpos; i++) {
 			int ret = check_eol(current, i, sep, sep_len);
-			if ( ret == 1 ) {
+			if (ret == 1) {
 				return offset + sep_len;
 			}
 			++offset;
@@ -474,14 +474,14 @@ search_eol(ev_session_t* ev_session, const char* sep, size_t sep_len) {
 
 size_t
 ev_session_read(struct ev_session* ev_session, char* result, size_t size) {
-	if ( (int)size > ev_session->input.total )
+	if ((int)size > ev_session->input.total)
 		size = ev_session->input.total;
 
 	int offset = 0;
 	int need = size;
-	while ( need > 0 ) {
+	while (need > 0) {
 		data_buffer_t* rdb = ev_session->input.head;
-		if ( rdb->rpos + need < rdb->wpos ) {
+		if (rdb->rpos + need < rdb->wpos) {
 			memcpy(result + offset, (char*)rdb->data + rdb->rpos, need);
 			rdb->rpos += need;
 
@@ -499,7 +499,7 @@ ev_session_read(struct ev_session* ev_session, char* result, size_t size) {
 			data_buffer_t* tmp = ev_session->input.head;
 
 			ev_session->input.head = ev_session->input.head->next;
-			if ( ev_session->input.head == NULL ) {
+			if (ev_session->input.head == NULL) {
 				ev_session->input.head = ev_session->input.tail = NULL;
 				assert(need == 0);
 			}
@@ -514,12 +514,12 @@ ev_session_read(struct ev_session* ev_session, char* result, size_t size) {
 
 char* ev_session_read_util(ev_session_t* ev_session, const char* sep, size_t size, char* out, size_t out_size, size_t* length) {
 	int offset = search_eol(ev_session, sep, size);
-	if ( offset < 0 ) {
+	if (offset < 0) {
 		return NULL;
 	}
 	*length = offset;
 	char* result = out;
-	if ( offset >(int)out_size ) {
+	if (offset > (int)out_size) {
 		result = malloc(offset);
 	}
 	ev_session_read(ev_session, result, offset);
@@ -528,22 +528,22 @@ char* ev_session_read_util(ev_session_t* ev_session, const char* sep, size_t siz
 
 int
 ev_session_write(ev_session_t* ev_session, char* data, size_t size) {
-	if ( ev_session->alive == 0 )
+	if (ev_session->alive == 0)
 		return -1;
 
-	if ( !event_pending(ev_session->wio, EV_WRITE, NULL) ) {
+	if (!event_pending(ev_session->wio, EV_WRITE, NULL)) {
 		int total = socket_write(ev_session->fd, data, size);
-		if ( total < 0 ) {
+		if (total < 0) {
 			ev_session_disable(ev_session, EV_READ | EV_WRITE);
 			ev_session->alive = 0;
-			if ( ev_session->event_cb )
+			if (ev_session->event_cb)
 				ev_session->event_cb(ev_session, ev_session->userdata);
 			return -1;
 		}
 		else {
-			if ( total == size ) {
+			if (total == size) {
 				free(data);
-				if ( ev_session->write_cb ) {
+				if (ev_session->write_cb) {
 					ev_session->write_cb(ev_session, ev_session->userdata);
 				}
 			}

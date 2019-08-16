@@ -5,7 +5,7 @@
 
 struct http_request;
 struct http_multi;
-typedef void(*request_callback)( struct http_request* request, int code, void* ud );
+typedef void(*request_callback)(struct http_request* request, int code, void* ud);
 
 struct http_multi* http_multi_new(struct ev_loop_ctx* ev_loop);
 void http_multi_delete(struct http_multi* multi);

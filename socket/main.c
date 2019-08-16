@@ -37,7 +37,7 @@ int main() {
 	struct dns_resolver* resolver = dns_resolver_new(loop);
 	struct http_multi* multi = http_multi_new(loop);
 
-	for ( int i = 1; i < 1024; i++ ) {
+	for (int i = 1; i < 1024; i++) {
 		dns_query(resolver, "www.baidu.com", dns_query_callback, resolver);
 		dns_query(resolver, "www.163.com", dns_query_callback, resolver);
 	}

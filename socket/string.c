@@ -21,7 +21,8 @@ string_init(string_t* string, char* str, size_t size) {
 	if (str) {
 		string->kstr.l = size;
 		memcpy(raw, str, size);
-	} else {
+	}
+	else {
 		string->kstr.l = 0;
 	}
 	string->kstr.m = rsize;
@@ -86,7 +87,7 @@ string_concat(string_t** list, int size, int* outsize) {
 	string_init(&result, NULL, 0);
 
 	int i;
-	for(i = 0; i < size;i++) {
+	for (i = 0; i < size; i++) {
 		string_t* str = list[i];
 		string_append_lstr(&result, str->kstr.s, str->kstr.l);
 	}

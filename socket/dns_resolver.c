@@ -37,7 +37,7 @@ task_hash_set(task_hash_t* hash, int fd, dns_task_t* task) {
 dns_task_t*
 task_hash_get(task_hash_t* hash, int fd) {
 	khiter_t k = kh_get(task, hash, fd);
-	if ( k == kh_end(hash) ) {
+	if (k == kh_end(hash)) {
 		return NULL;
 	}
 	return kh_value(hash, k);
@@ -69,8 +69,8 @@ dns_poll_cb(evutil_socket_t fd, short events, void * userdata) {
 	dns_resolver_t* resolver = (dns_resolver_t*)userdata;
 
 	int w = ARES_SOCKET_BAD, r = ARES_SOCKET_BAD;
-	if ( events & EV_READ ) r = fd;
-	if ( events & EV_WRITE ) w = fd;
+	if (events & EV_READ) r = fd;
+	if (events & EV_WRITE) w = fd;
 	ares_process_fd(resolver->channel, r, w);
 }
 
@@ -79,9 +79,9 @@ static void
 dns_sock_state_cb(void* ud, ares_socket_t sock, int readable, int writable) {
 	dns_resolver_t* resolver = ud;
 	dns_task_t* task = task_hash_get(resolver->hash, sock);
-	if ( readable || writable ) {
-		if ( !task ) {
-			if ( !evtimer_pending(resolver->timer, NULL) ) {
+	if (readable || writable) {
+		if (!task) {
+			if (!evtimer_pending(resolver->timer, NULL)) {
 				struct timeval val;
 				val.tv_sec = 0;
 				val.tv_usec = 10000 * 100;
@@ -96,27 +96,27 @@ dns_sock_state_cb(void* ud, ares_socket_t sock, int readable, int writable) {
 			task_hash_set(resolver->hash, sock, task);
 		}
 
-		if ( readable ) {
+		if (readable) {
 			event_add(task->rio, NULL);
 		}
 
-		if ( writable ) {
+		if (writable) {
 			event_add(task->wio, NULL);
 		}
 	}
 	else {
 		task_hash_del(resolver->hash, sock);
 
-		if ( event_pending(task->rio, EV_READ, NULL) ) {
+		if (event_pending(task->rio, EV_READ, NULL)) {
 			event_del(task->rio);
 		}
-		if ( event_pending(task->wio, EV_WRITE, NULL) ) {
+		if (event_pending(task->wio, EV_WRITE, NULL)) {
 			event_del(task->wio);
 		}
 
 		free(task);
 
-		if ( task_hash_count(resolver->hash) == 0 && evtimer_pending(resolver->timer, NULL) ) {
+		if (task_hash_count(resolver->hash) == 0 && evtimer_pending(resolver->timer, NULL)) {
 			evtimer_del(resolver->timer);
 		}
 	}
@@ -134,7 +134,7 @@ dns_resolver_new(struct ev_loop_ctx* ev_loop) {
 	resolver->opts.sock_state_cb_data = resolver;
 	resolver->opts.sock_state_cb = dns_sock_state_cb;
 
-	if ( ares_init_options(&resolver->channel, &resolver->opts, ARES_OPT_TIMEOUTMS | ARES_OPT_TRIES | ARES_OPT_TRIES | ARES_OPT_SOCK_STATE_CB) != ARES_SUCCESS ) {
+	if (ares_init_options(&resolver->channel, &resolver->opts, ARES_OPT_TIMEOUTMS | ARES_OPT_TRIES | ARES_OPT_TRIES | ARES_OPT_SOCK_STATE_CB) != ARES_SUCCESS) {
 		free(resolver);
 		ares_library_cleanup();
 		return NULL;
@@ -159,7 +159,7 @@ dns_resolver_delete(dns_resolver_t* resolver) {
 static void
 query_callback(void* ud, int status, int timeouts, struct hostent *host) {
 	query_param_t* param = ud;
-	if ( status != ARES_SUCCESS ) {
+	if (status != ARES_SUCCESS) {
 		param->cb(0, NULL, ares_strerror(status), param->ud);
 	}
 	else {
