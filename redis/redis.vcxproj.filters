@@ -18,5 +18,19 @@
     <ClCompile Include="lua-redis.c">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="read.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="sds.c">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="read.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="sds.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
