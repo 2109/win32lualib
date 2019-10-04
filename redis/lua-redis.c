@@ -9,9 +9,6 @@
 #include "lauxlib.h"
 #include "read.h"
 
-typedef struct lreader {
-	redisReader* core;
-} lreader;
 
 typedef struct redisReply {
 	int type;
@@ -21,7 +18,14 @@ typedef struct redisReply {
 	char *str;
 	size_t elements;
 	struct redisReply **element;
+	struct redisReply* next;
 } redisReply;
+
+typedef struct lreader {
+	redisReader* core;
+	redisReply* freelist;
+} lreader;
+
 
 static redisReply *createReplyObject(int type);
 static void freeReplyObject(void *reply);
@@ -245,24 +249,12 @@ static int reader_feed(lua_State *L) {
 	return 0;
 }
 
-static int reader_get_reply(lua_State *L) {
-	lreader *reader = (lreader*)lua_touserdata(L, 1);
-	redisReply* reply = NULL;
-	int status = redisReaderGetReply(reader->core, &reply);
-	if (status != REDIS_OK) {
-		luaL_error(L, "redisReaderGetReply ERROR");
-	}
-	if (!reply) {
-		return 0;
-	}
-
+static int push_reply(lua_State* L, redisReply* reply) {
 	int n = 0;
 	switch (reply->type) {
 		case REDIS_REPLY_STRING:
 			lua_pushlstring(L, reply->str, reply->len);
 			n = 1;
-			break;
-		case REDIS_REPLY_ARRAY:
 			break;
 		case REDIS_REPLY_INTEGER:
 			lua_pushinteger(L, reply->integer);
@@ -298,6 +290,33 @@ static int reader_get_reply(lua_State *L) {
 			n = 0;
 			break;
 	}
+	return n;
+}
+
+static int reader_get_reply(lua_State *L) {
+	lreader *reader = (lreader*)lua_touserdata(L, 1);
+	redisReply* reply = NULL;
+	int status = redisReaderGetReply(reader->core, &reply);
+	if (status != REDIS_OK) {
+		luaL_error(L, "redisReaderGetReply ERROR");
+	}
+	if (!reply) {
+		return 0;
+	}
+
+	int n = 0;
+	if (reply->type != REDIS_REPLY_ARRAY) {
+		n = push_reply(L, reply);
+	} else {
+		lua_createtable(L, reply->elements, 0);
+		int i;
+		for (i = 0; i < reply->elements; i++) {
+			assert(1 == push_reply(L, reply->element[i]));
+			lua_seti(L, -2, i + 1);
+		}
+		n = 1;
+	}
+
 	freeReplyObject(reply);
 	return n;
 }
@@ -313,6 +332,7 @@ static int reader_new(lua_State *L) {
 	lreader *reader = (lreader*)lua_newuserdata(L, sizeof(*reader));
 	memset(reader, 0, sizeof(*reader));
 	reader->core = redisReaderCreateWithFunctions(&defaultFunctions);
+	reader->core->privdata = reader;
 
 	if (luaL_newmetatable(L, "redis_meta")) {
 		const luaL_Reg meta[] = {
