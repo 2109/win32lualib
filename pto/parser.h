@@ -14,11 +14,11 @@ namespace LuaPto {
 	struct ParserField {
 		char* name_;
 		bool array_;
-		eTYPE type_;
+		eType type_;
 		ParserPto* pto_;
 
-		ParserField(const char* name, bool array, eTYPE type, ParserPto* pto) {
-			name_ = _strdup(name);
+		ParserField(const char* name, bool array, eType type, ParserPto* pto) {
+			name_ = strdup(name);
 			array_ = array;
 			type_ = type;
 			pto_ = pto;
@@ -40,14 +40,14 @@ namespace LuaPto {
 			last_ = last;
 		}
 
-		~ParserPto()  {
+		~ParserPto() {
 			std::map<std::string, ParserPto*>::iterator itPto = childs_.begin();
-			for ( ; itPto != childs_.end(); itPto++ ) {
+			for (; itPto != childs_.end(); itPto++) {
 				ParserPto* pto = itPto->second;
 				delete pto;
 			}
 
-			for ( uint32_t i = 0; i < fields_.size(); ++i ) {
+			for (uint32_t i = 0; i < fields_.size(); ++i) {
 				ParserField* field = fields_[i];
 				delete field;
 			}
@@ -63,7 +63,7 @@ namespace LuaPto {
 
 		ParserPto* GetPto(std::string& name) {
 			std::map<std::string, ParserPto*>::iterator it = childs_.find(name);
-			if ( it == childs_.end() ) {
+			if (it == childs_.end()) {
 				return NULL;
 			}
 			return it->second;
@@ -87,7 +87,7 @@ namespace LuaPto {
 
 		ParserPto* GetPto(std::string& name) {
 			std::map<std::string, ParserPto*>::iterator it = ptos_.find(name);
-			if ( it == ptos_.end() ) {
+			if (it == ptos_.end()) {
 				return NULL;
 			}
 			return it->second;
@@ -99,7 +99,7 @@ namespace LuaPto {
 
 		Parser* GetParser(std::string& name) {
 			std::map<std::string, Parser*>::iterator it = parsers_.find(name);
-			if ( it == parsers_.end() ) {
+			if (it == parsers_.end()) {
 				return NULL;
 			}
 			return it->second;
@@ -122,7 +122,7 @@ namespace LuaPto {
 		~Parser();
 
 		inline bool Eos(int n) {
-			if ( *(cursor_ + n) == 0 ) {
+			if (*(cursor_ + n) == 0) {
 				return true;
 			}
 			return false;
@@ -131,7 +131,7 @@ namespace LuaPto {
 		inline void Skip(int n) {
 			char* c = cursor_;
 			int index = 0;
-			while ( !Eos(0) && index < n ) {
+			while (!Eos(0) && index < n) {
 				c++;
 				index++;
 			}
@@ -140,25 +140,25 @@ namespace LuaPto {
 
 		inline void SkipSpace() {
 			char *c = cursor_;
-			while ( isspace(*c) && *c ) {
-				if ( *c == '\n' ) {
+			while (isspace(*c) && *c) {
+				if (*c == '\n') {
 					line_++;
 				}
 				c++;
 			}
 
 			cursor_ = c;
-			if ( *c == '#' && *c ) {
+			if (*c == '#' && *c) {
 				NextLine();
 			}
 		}
 
 		inline void NextLine() {
 			char* c = cursor_;
-			while ( *c != '\n' && *c ) {
+			while (*c != '\n' && *c) {
 				c++;
 			}
-			if ( *c == '\n' ) {
+			if (*c == '\n') {
 				c++;
 			}
 			line_++;
@@ -168,8 +168,7 @@ namespace LuaPto {
 		inline std::string NextToken() {
 			std::string token;
 			char ch = *cursor_;
-			int index = 0;
-			while ( ch != 0 && (ch == '_' || isalpha(ch) || isdigit(ch)) ) {
+			while (ch != 0 && (ch == '_' || isalpha(ch) || isdigit(ch))) {
 				token += ch;
 				++cursor_;
 				ch = *cursor_;

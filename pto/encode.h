@@ -7,45 +7,34 @@
 #include <stdlib.h>
 #include "lua.hpp"
 
-#define BUFFER_SIZE 128
 
 
 namespace LuaPto {
+	// #define BUFFER_SIZE 128
+
 	struct Encoder {
+		lua_State* L_;
 		char* ptr_;
 		int offset_;
 		int size_;
-		char init_[BUFFER_SIZE];
 
-		Encoder() {
-			ptr_ = init_;
+		static char* sBuff_;
+		static int sSize_;
+
+		Encoder(lua_State* L) : L_(L) {
+			ptr_ = sBuff_;
 			offset_ = 0;
-			size_ = BUFFER_SIZE;
+			size_ = sSize_;
 		}
 
 		~Encoder() {
-			if ( ptr_ != init_ ) {
-				free(ptr_);
-			}
 		}
 
 		inline void Reserve(int sz) {
-			if ( offset_ + sz <= size_ ) {
+			if (offset_ + sz <= size_) {
 				return;
 			}
-			int nsize = size_ * 2;
-			while ( nsize < offset_ + sz ) {
-				nsize = nsize * 2;
-			}
-
-			char* nptr = (char*)malloc(nsize);
-			memcpy(nptr, ptr_, size_);
-			size_ = nsize;
-
-			if ( ptr_ != init_ ) {
-				free(ptr_);
-			}
-			ptr_ = nptr;
+			luaL_error(L_, "encode pto size limited!");
 		}
 
 		inline void Append(void* data, int size) {
@@ -67,48 +56,41 @@ namespace LuaPto {
 
 	template<>
 	inline void Encoder::Append(int64_t val) {
-		if ( val == 0 ) {
+		if (val == 0) {
 			Append((uint8_t)0);
 			return;
 		}
 		uint64_t value;
 		uint8_t positive = 0;
-		if ( val < 0 ) {
+		if (val < 0) {
 			positive = 0;
 			value = -val;
-		}
-		else {
+		} else {
 			positive = 1;
 			value = val;
 		}
 
 		int length;
-		if ( value <= 0xff ) {
+		if (value <= 0xff) {
 			length = 1;
-		}
-		else if ( value <= 0xffff ) {
+		} else if (value <= 0xffff) {
 			length = 2;
-		}
-		else if ( value <= 0xffffff ) {
+		} else if (value <= 0xffffff) {
 			length = 3;
-		}
-		else if ( value <= 0xffffffff ) {
+		} else if (value <= 0xffffffff) {
 			length = 4;
-		}
-		else if ( value <= 0xffffffffff ) {
+		} else if (value <= 0xffffffffff) {
 			length = 5;
-		}
-		else if ( value <= 0xffffffffffff ) {
+		} else if (value <= 0xffffffffffff) {
 			length = 6;
-		}
-		else {
+		} else {
 			length = 7;
 		}
 
 		uint8_t tag = length;
 		tag = (tag << 1) | positive;
 
-		uint8_t data[8] = {0};
+		uint8_t data[8] = { 0 };
 		data[0] = tag;
 		memcpy(&data[1], &value, length);
 

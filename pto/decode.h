@@ -6,23 +6,24 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include "lua.hpp"
-#include "error.h"
 
 namespace LuaPto {
 	struct Decoder {
+		lua_State* L_;
 		const char* ptr_;
 		int offset_;
 		int size_;
 
-		Decoder(const char* ptr, int size) {
+		Decoder(lua_State* L, const char* ptr, int size) {
+			L_ = L;
 			ptr_ = ptr;
 			size_ = size;
 			offset_ = 0;
 		}
 
 		inline void Read(uint8_t* val, int size) {
-			if ( size_ - offset_ < size ) {
-				throw new BadPto("invalid message");
+			if (size_ - offset_ < size) {
+				luaL_error(L_, "invalid message");
 			}
 			memcpy(val, ptr_ + offset_, size);
 			offset_ += size;
@@ -30,8 +31,8 @@ namespace LuaPto {
 
 		inline const char* Read(uint16_t* size) {
 			*size = Read<uint16_t>();
-			if ( size_ - offset_ < *size ) {
-				throw new BadPto("invalid message");
+			if (size_ - offset_ < (int)*size) {
+				luaL_error(L_, "invalid message");
 			}
 			const char* result = ptr_ + offset_;
 			offset_ += *size;
@@ -39,9 +40,9 @@ namespace LuaPto {
 		}
 
 		template<typename T>
-		inline T Read()  {
-			if ( sizeof(T) > size_ - offset_ ) {
-				throw new BadPto("invalid message");
+		inline T Read() {
+			if (sizeof(T) > (size_t)(size_ - offset_)) {
+				luaL_error(L_, "invalid message");
 			}
 			T val = *((T*)&ptr_[offset_]);
 			offset_ += sizeof(T);
@@ -53,7 +54,7 @@ namespace LuaPto {
 	inline int64_t Decoder::Read() {
 		uint8_t tag = Read<uint8_t>();
 
-		if ( tag == 0 ) {
+		if (tag == 0) {
 			return 0;
 		}
 
