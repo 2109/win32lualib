@@ -9,17 +9,18 @@
 #include "lauxlib.h"
 #include "read.h"
 
-#define inline _inline
+typedef struct lreader {
+	redisReader* core;
+} lreader;
 
 typedef struct redisReply {
-	int type; /* REDIS_REPLY_* */
-	long long integer; /* The integer when type is REDIS_REPLY_INTEGER */
-	double dval; /* The double when type is REDIS_REPLY_DOUBLE */
-	size_t len; /* Length of string */
-	char *str; /* Used for REDIS_REPLY_ERROR, REDIS_REPLY_STRING
-			   and REDIS_REPLY_DOUBLE (in additionl to dval). */
-	size_t elements; /* number of elements, for REDIS_REPLY_ARRAY */
-	struct redisReply **element; /* elements vector for REDIS_REPLY_ARRAY */
+	int type;
+	long long integer;
+	double dval;
+	size_t len;
+	char *str;
+	size_t elements;
+	struct redisReply **element;
 } redisReply;
 
 static redisReply *createReplyObject(int type);
@@ -31,8 +32,6 @@ static void *createDoubleObject(const redisReadTask *task, double value, char *s
 static void *createNilObject(const redisReadTask *task);
 static void *createBoolObject(const redisReadTask *task, int bval);
 
-/* Default set of functions to build the reply. Keep in mind that such a
- * function returning NULL is interpreted as OOM. */
 static redisReplyObjectFunctions defaultFunctions = {
 	createStringObject,
 	createArrayObject,
@@ -43,7 +42,6 @@ static redisReplyObjectFunctions defaultFunctions = {
 	freeReplyObject
 };
 
-/* Create a reply object */
 static redisReply *createReplyObject(int type) {
 	redisReply *r = calloc(1, sizeof(*r));
 
@@ -54,7 +52,6 @@ static redisReply *createReplyObject(int type) {
 	return r;
 }
 
-/* Free a reply object */
 static void freeReplyObject(void *reply) {
 	redisReply *r = reply;
 	size_t j;
@@ -64,7 +61,7 @@ static void freeReplyObject(void *reply) {
 
 	switch (r->type) {
 		case REDIS_REPLY_INTEGER:
-			break; /* Nothing to free */
+			break;
 		case REDIS_REPLY_ARRAY:
 		case REDIS_REPLY_MAP:
 		case REDIS_REPLY_SET:
@@ -102,7 +99,6 @@ static void *createStringObject(const redisReadTask *task, char *str, size_t len
 		   task->type == REDIS_REPLY_STATUS ||
 		   task->type == REDIS_REPLY_STRING);
 
-	/* Copy string value */
 	memcpy(buf, str, len);
 	buf[len] = '\0';
 	r->str = buf;
@@ -178,11 +174,6 @@ static void *createDoubleObject(const redisReadTask *task, double value, char *s
 		return NULL;
 	}
 
-	/* The double reply also has the original protocol string representing a
-	 * double as a null terminated string. This way the caller does not need
-	 * to format back for string conversion, especially since Redis does efforts
-	 * to make the string more human readable avoiding the calssical double
-	 * decimal string conversion artifacts. */
 	memcpy(r->str, str, len);
 	r->str[len] = '\0';
 
@@ -232,13 +223,6 @@ static void *createBoolObject(const redisReadTask *task, int bval) {
 	return r;
 }
 
-
-typedef struct lreader{
-	redisReader* core;
-} lreader;
-
-
-
 static int reader_feed(lua_State *L) {
 	lreader *reader = (lreader*)lua_touserdata(L, 1);
 
@@ -268,7 +252,54 @@ static int reader_get_reply(lua_State *L) {
 	if (status != REDIS_OK) {
 		luaL_error(L, "redisReaderGetReply ERROR");
 	}
-	return 0;
+	if (!reply) {
+		return 0;
+	}
+
+	int n = 0;
+	switch (reply->type) {
+		case REDIS_REPLY_STRING:
+			lua_pushlstring(L, reply->str, reply->len);
+			n = 1;
+			break;
+		case REDIS_REPLY_ARRAY:
+			break;
+		case REDIS_REPLY_INTEGER:
+			lua_pushinteger(L, reply->integer);
+			n = 1;
+			break;
+		case REDIS_REPLY_NIL:
+			lua_pushnil(L);
+			n = 1;
+			break;
+		case REDIS_REPLY_STATUS:
+			lua_pushboolean(L, 1);
+			lua_pushlstring(L, reply->str, reply->len);
+			n = 2;
+			break;
+		case REDIS_REPLY_ERROR:
+			lua_pushboolean(L, 0);
+			lua_pushlstring(L, reply->str, reply->len);
+			n = 2;
+			break;
+		case REDIS_REPLY_DOUBLE:
+			lua_pushnumber(L, reply->dval);
+			n = 1;
+			break;
+		case REDIS_REPLY_BOOL:
+			lua_pushboolean(L, reply->integer);
+			n = 1;
+			break;
+		case REDIS_REPLY_MAP:
+		case REDIS_REPLY_SET:
+		case REDIS_REPLY_ATTR:
+		case REDIS_REPLY_PUSH:
+		case REDIS_REPLY_BIGNUM:
+			n = 0;
+			break;
+	}
+	freeReplyObject(reply);
+	return n;
 }
 
 static int reader_release(lua_State *L) {

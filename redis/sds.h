@@ -32,16 +32,22 @@
 
 #ifndef __SDS_H
 #define __SDS_H
-#define inline __inline
 
 #define SDS_MAX_PREALLOC (1024*1024)
 #ifdef _MSC_VER
 #define __attribute__(x)
+#define inline _inline
+#define strcasecmp stricmp
+#define snprintf _snprintf
 #endif
 
 #include <sys/types.h>
 #include <stdarg.h>
 #include <stdint.h>
+
+#define s_malloc malloc
+#define s_free free
+#define s_realloc realloc
 
 typedef char *sds;
 

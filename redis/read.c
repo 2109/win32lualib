@@ -45,8 +45,6 @@
 #include "read.h"
 #include "sds.h"
 
-#define strcasecmp stricmp
-#define snprintf _snprintf
 
 static void __redisReaderSetError(redisReader *r, int type, const char *str) {
 	size_t len;
@@ -133,13 +131,11 @@ static char *seekNewline(char *s, size_t len) {
 		if (pos == _len) {
 			/* Not found. */
 			return NULL;
-		}
-		else {
+		} else {
 			if (s[pos + 1] == '\n') {
 				/* Found. */
 				return s + pos;
-			}
-			else {
+			} else {
 				/* Continue searching. */
 				pos++;
 			}
@@ -188,12 +184,10 @@ static int string2ll(const char *s, size_t slen, long long *value) {
 	if (p[0] >= '1' && p[0] <= '9') {
 		v = p[0] - '0';
 		p++; plen++;
-	}
-	else if (p[0] == '0' && slen == 1) {
+	} else if (p[0] == '0' && slen == 1) {
 		*value = 0;
 		return REDIS_OK;
-	}
-	else {
+	} else {
 		return REDIS_ERR;
 	}
 
@@ -217,8 +211,7 @@ static int string2ll(const char *s, size_t slen, long long *value) {
 		if (v >((unsigned long long)(-(LLONG_MIN + 1)) + 1)) /* Overflow. */
 			return REDIS_ERR;
 		if (value != NULL) *value = -v;
-	}
-	else {
+	} else {
 		if (v > LLONG_MAX) /* Overflow. */
 			return REDIS_ERR;
 		if (value != NULL) *value = v;
@@ -257,8 +250,7 @@ static void moveToNextTask(redisReader *r) {
 			   prv->type == REDIS_REPLY_SET);
 		if (cur->idx == prv->elements - 1) {
 			r->ridx--;
-		}
-		else {
+		} else {
 			/* Reset the type because the next item can be anything */
 			assert(cur->idx < prv->elements);
 			cur->type = -1;
@@ -285,12 +277,10 @@ static int processLineItem(redisReader *r) {
 					return REDIS_ERR;
 				}
 				obj = r->fn->createInteger(cur, v);
-			}
-			else {
+			} else {
 				obj = (void*)REDIS_REPLY_INTEGER;
 			}
-		}
-		else if (cur->type == REDIS_REPLY_DOUBLE) {
+		} else if (cur->type == REDIS_REPLY_DOUBLE) {
 			if (r->fn && r->fn->createDouble) {
 				char buf[326], *eptr;
 				double d;
@@ -306,11 +296,9 @@ static int processLineItem(redisReader *r) {
 
 				if (strcasecmp(buf, ",inf") == 0) {
 					d = INFINITY; /* Positive infinite. */
-				}
-				else if (strcasecmp(buf, ",-inf") == 0) {
+				} else if (strcasecmp(buf, ",-inf") == 0) {
 					d = -INFINITY; /* Nevative infinite. */
-				}
-				else {
+				} else {
 					d = strtod((char*)buf, &eptr);
 					if (buf[0] == '\0' || eptr[0] != '\0' || isnan(d)) {
 						__redisReaderSetError(r, REDIS_ERR_PROTOCOL,
@@ -319,25 +307,21 @@ static int processLineItem(redisReader *r) {
 					}
 				}
 				obj = r->fn->createDouble(cur, d, buf, len);
-			}
-			else {
+			} else {
 				obj = (void*)REDIS_REPLY_DOUBLE;
 			}
-		}
-		else if (cur->type == REDIS_REPLY_NIL) {
+		} else if (cur->type == REDIS_REPLY_NIL) {
 			if (r->fn && r->fn->createNil)
 				obj = r->fn->createNil(cur);
 			else
 				obj = (void*)REDIS_REPLY_NIL;
-		}
-		else if (cur->type == REDIS_REPLY_BOOL) {
+		} else if (cur->type == REDIS_REPLY_BOOL) {
 			int bval = p[0] == 't' || p[0] == 'T';
 			if (r->fn && r->fn->createBool)
 				obj = r->fn->createBool(cur, bval);
 			else
 				obj = (void*)REDIS_REPLY_BOOL;
-		}
-		else {
+		} else {
 			/* Type will be error or status. */
 			if (r->fn && r->fn->createString)
 				obj = r->fn->createString(cur, p, len);
@@ -392,8 +376,7 @@ static int processBulkItem(redisReader *r) {
 			else
 				obj = (void*)REDIS_REPLY_NIL;
 			success = 1;
-		}
-		else {
+		} else {
 			/* Only continue when the buffer contains the entire bulk item. */
 			bytelen += len + 2; /* include \r\n */
 			if (r->pos + bytelen <= r->len) {
@@ -466,8 +449,7 @@ static int processAggregateItem(redisReader *r) {
 			}
 
 			moveToNextTask(r);
-		}
-		else {
+		} else {
 			if (cur->type == REDIS_REPLY_MAP) elements *= 2;
 
 			if (r->fn && r->fn->createArray)
@@ -491,8 +473,7 @@ static int processAggregateItem(redisReader *r) {
 				r->rstack[r->ridx].obj = NULL;
 				r->rstack[r->ridx].parent = cur;
 				r->rstack[r->ridx].privdata = r->privdata;
-			}
-			else {
+			} else {
 				moveToNextTask(r);
 			}
 		}
@@ -547,8 +528,7 @@ static int processItem(redisReader *r) {
 					__redisReaderSetErrorProtocolByte(r, *p);
 					return REDIS_ERR;
 			}
-		}
-		else {
+		} else {
 			/* could not consume 1 byte */
 			return REDIS_ERR;
 		}
@@ -680,8 +660,7 @@ int redisReaderGetReply(redisReader *r, void **reply) {
 	if (r->ridx == -1) {
 		if (reply != NULL) {
 			*reply = r->reply;
-		}
-		else if (r->reply != NULL && r->fn && r->fn->freeObject) {
+		} else if (r->reply != NULL && r->fn && r->fn->freeObject) {
 			r->fn->freeObject(r->reply);
 		}
 		r->reply = NULL;
