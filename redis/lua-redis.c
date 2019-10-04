@@ -256,6 +256,15 @@ static int push_reply(lua_State* L, redisReply* reply) {
 			lua_pushlstring(L, reply->str, reply->len);
 			n = 1;
 			break;
+		case REDIS_REPLY_ARRAY:
+			lua_createtable(L, reply->elements, 0);
+			int i;
+			for (i = 0; i < reply->elements; i++) {
+				assert(1 == push_reply(L, reply->element[i]));
+				lua_seti(L, -2, i + 1);
+			}
+			n = 1;
+			break;
 		case REDIS_REPLY_INTEGER:
 			lua_pushinteger(L, reply->integer);
 			n = 1;
@@ -304,19 +313,7 @@ static int reader_get_reply(lua_State *L) {
 		return 0;
 	}
 
-	int n = 0;
-	if (reply->type != REDIS_REPLY_ARRAY) {
-		n = push_reply(L, reply);
-	} else {
-		lua_createtable(L, reply->elements, 0);
-		int i;
-		for (i = 0; i < reply->elements; i++) {
-			assert(1 == push_reply(L, reply->element[i]));
-			lua_seti(L, -2, i + 1);
-		}
-		n = 1;
-	}
-
+	int n = push_reply(L, reply);
 	freeReplyObject(reply);
 	return n;
 }
