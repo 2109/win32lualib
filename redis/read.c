@@ -50,7 +50,7 @@ static void __redisReaderSetError(redisReader *r, int type, const char *str) {
 	size_t len;
 
 	if (r->reply != NULL && r->fn && r->fn->freeObject) {
-		r->fn->freeObject(r->reply);
+		r->fn->freeObject(r->reply, r->privdata);
 		r->reply = NULL;
 	}
 
@@ -578,7 +578,7 @@ void redisReaderFree(redisReader *r) {
 	if (r == NULL)
 		return;
 	if (r->reply != NULL && r->fn && r->fn->freeObject)
-		r->fn->freeObject(r->reply);
+		r->fn->freeObject(r->reply, r->privdata);
 	sdsfree(r->buf);
 	free(r);
 }
@@ -661,7 +661,7 @@ int redisReaderGetReply(redisReader *r, void **reply) {
 		if (reply != NULL) {
 			*reply = r->reply;
 		} else if (r->reply != NULL && r->fn && r->fn->freeObject) {
-			r->fn->freeObject(r->reply);
+			r->fn->freeObject(r->reply, r->privdata);
 		}
 		r->reply = NULL;
 	}

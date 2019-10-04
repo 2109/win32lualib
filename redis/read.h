@@ -85,7 +85,7 @@ extern "C" {
 		void *(*createDouble)(const redisReadTask*, double, char*, size_t);
 		void *(*createNil)(const redisReadTask*);
 		void *(*createBool)(const redisReadTask*, int);
-		void(*freeObject)(void*);
+		void(*freeObject)(void*, void*);
 	} redisReplyObjectFunctions;
 
 	typedef struct redisReader {

@@ -10,56 +10,59 @@
 #include "read.h"
 
 
-typedef struct redisReply {
+typedef struct redis_reply {
 	int type;
 	long long integer;
 	double dval;
 	size_t len;
 	char *str;
 	size_t elements;
-	struct redisReply **element;
-	struct redisReply* next;
-} redisReply;
+	struct redis_reply **element;
+	struct redis_reply* next;
+} redis_reply;
 
 typedef struct lreader {
 	redisReader* core;
-	redisReply* freelist;
+	redis_reply* freelist;
 } lreader;
 
 
-static redisReply *createReplyObject(int type);
-static void freeReplyObject(void *reply);
-static void *createStringObject(const redisReadTask *task, char *str, size_t len);
-static void *createArrayObject(const redisReadTask *task, size_t elements);
-static void *createIntegerObject(const redisReadTask *task, long long value);
-static void *createDoubleObject(const redisReadTask *task, double value, char *str, size_t len);
-static void *createNilObject(const redisReadTask *task);
-static void *createBoolObject(const redisReadTask *task, int bval);
+static redis_reply *create_reply(int type, void* userdata);
+static void free_reply(void *reply, void* userdata);
+static void *create_string(const redisReadTask *task, char *str, size_t len);
+static void *create_array(const redisReadTask *task, size_t elements);
+static void *create_integer(const redisReadTask *task, long long value);
+static void *create_double(const redisReadTask *task, double value, char *str, size_t len);
+static void *create_nil(const redisReadTask *task);
+static void *create_bool(const redisReadTask *task, int bval);
 
 static redisReplyObjectFunctions defaultFunctions = {
-	createStringObject,
-	createArrayObject,
-	createIntegerObject,
-	createDoubleObject,
-	createNilObject,
-	createBoolObject,
-	freeReplyObject
+	create_string,
+	create_array,
+	create_integer,
+	create_double,
+	create_nil,
+	create_bool,
+	free_reply
 };
 
-static redisReply *createReplyObject(int type) {
-	redisReply *r = calloc(1, sizeof(*r));
-
-	if (r == NULL)
-		return NULL;
-
+static redis_reply *create_reply(int type, void* userdata) {
+	lreader* reader = (lreader*)userdata;
+	redis_reply *r = NULL;
+	if (reader->freelist) {
+		r = reader->freelist;
+		reader->freelist = r->next;
+	} else {
+		r = calloc(1, sizeof(*r));
+	}
+	r->next = NULL;
 	r->type = type;
 	return r;
 }
 
-static void freeReplyObject(void *reply) {
-	redisReply *r = reply;
+static void free_reply(void *reply, void* userdata) {
+	redis_reply *r = reply;
 	size_t j;
-
 	if (r == NULL)
 		return;
 
@@ -71,8 +74,9 @@ static void freeReplyObject(void *reply) {
 		case REDIS_REPLY_SET:
 			if (r->element != NULL) {
 				for (j = 0; j < r->elements; j++)
-					freeReplyObject(r->element[j]);
+					free_reply(r->element[j], userdata);
 				free(r->element);
+				r->element = NULL;
 			}
 			break;
 		case REDIS_REPLY_ERROR:
@@ -82,20 +86,22 @@ static void freeReplyObject(void *reply) {
 			free(r->str);
 			break;
 	}
-	free(r);
+	lreader* reader = (lreader*)userdata;
+	r->next = reader->freelist;
+	reader->freelist = r;
 }
 
-static void *createStringObject(const redisReadTask *task, char *str, size_t len) {
-	redisReply *r, *parent;
+static void *create_string(const redisReadTask *task, char *str, size_t len) {
+	redis_reply *r, *parent;
 	char *buf;
 
-	r = createReplyObject(task->type);
+	r = create_reply(task->type, task->privdata);
 	if (r == NULL)
 		return NULL;
 
 	buf = malloc(len + 1);
 	if (buf == NULL) {
-		freeReplyObject(r);
+		free_reply(r, task->privdata);
 		return NULL;
 	}
 
@@ -118,17 +124,17 @@ static void *createStringObject(const redisReadTask *task, char *str, size_t len
 	return r;
 }
 
-static void *createArrayObject(const redisReadTask *task, size_t elements) {
-	redisReply *r, *parent;
+static void *create_array(const redisReadTask *task, size_t elements) {
+	redis_reply *r, *parent;
 
-	r = createReplyObject(task->type);
+	r = create_reply(task->type, task->privdata);
 	if (r == NULL)
 		return NULL;
 
 	if (elements > 0) {
-		r->element = calloc(elements, sizeof(redisReply*));
+		r->element = calloc(elements, sizeof(redis_reply*));
 		if (r->element == NULL) {
-			freeReplyObject(r);
+			free_reply(r, task->privdata);
 			return NULL;
 		}
 	}
@@ -145,10 +151,10 @@ static void *createArrayObject(const redisReadTask *task, size_t elements) {
 	return r;
 }
 
-static void *createIntegerObject(const redisReadTask *task, long long value) {
-	redisReply *r, *parent;
+static void *create_integer(const redisReadTask *task, long long value) {
+	redis_reply *r, *parent;
 
-	r = createReplyObject(REDIS_REPLY_INTEGER);
+	r = create_reply(REDIS_REPLY_INTEGER, task->privdata);
 	if (r == NULL)
 		return NULL;
 
@@ -164,17 +170,17 @@ static void *createIntegerObject(const redisReadTask *task, long long value) {
 	return r;
 }
 
-static void *createDoubleObject(const redisReadTask *task, double value, char *str, size_t len) {
-	redisReply *r, *parent;
+static void *create_double(const redisReadTask *task, double value, char *str, size_t len) {
+	redis_reply *r, *parent;
 
-	r = createReplyObject(REDIS_REPLY_DOUBLE);
+	r = create_reply(REDIS_REPLY_DOUBLE, task->privdata);
 	if (r == NULL)
 		return NULL;
 
 	r->dval = value;
 	r->str = malloc(len + 1);
 	if (r->str == NULL) {
-		freeReplyObject(r);
+		free_reply(r, task->privdata);
 		return NULL;
 	}
 
@@ -191,10 +197,10 @@ static void *createDoubleObject(const redisReadTask *task, double value, char *s
 	return r;
 }
 
-static void *createNilObject(const redisReadTask *task) {
-	redisReply *r, *parent;
+static void *create_nil(const redisReadTask *task) {
+	redis_reply *r, *parent;
 
-	r = createReplyObject(REDIS_REPLY_NIL);
+	r = create_reply(REDIS_REPLY_NIL, task->privdata);
 	if (r == NULL)
 		return NULL;
 
@@ -208,10 +214,10 @@ static void *createNilObject(const redisReadTask *task) {
 	return r;
 }
 
-static void *createBoolObject(const redisReadTask *task, int bval) {
-	redisReply *r, *parent;
+static void *create_bool(const redisReadTask *task, int bval) {
+	redis_reply *r, *parent;
 
-	r = createReplyObject(REDIS_REPLY_BOOL);
+	r = create_reply(REDIS_REPLY_BOOL, task->privdata);
 	if (r == NULL)
 		return NULL;
 
@@ -249,7 +255,7 @@ static int reader_feed(lua_State *L) {
 	return 0;
 }
 
-static int push_reply(lua_State* L, redisReply* reply) {
+static int push_reply(lua_State* L, redis_reply* reply) {
 	int n = 0;
 	switch (reply->type) {
 		case REDIS_REPLY_STRING:
@@ -270,7 +276,7 @@ static int push_reply(lua_State* L, redisReply* reply) {
 			n = 1;
 			break;
 		case REDIS_REPLY_NIL:
-			lua_pushnil(L);
+			lua_pushliteral(L, "");
 			n = 1;
 			break;
 		case REDIS_REPLY_STATUS:
@@ -304,7 +310,7 @@ static int push_reply(lua_State* L, redisReply* reply) {
 
 static int reader_get_reply(lua_State *L) {
 	lreader *reader = (lreader*)lua_touserdata(L, 1);
-	redisReply* reply = NULL;
+	redis_reply* reply = NULL;
 	int status = redisReaderGetReply(reader->core, &reply);
 	if (status != REDIS_OK) {
 		luaL_error(L, "redisReaderGetReply ERROR");
@@ -314,7 +320,7 @@ static int reader_get_reply(lua_State *L) {
 	}
 
 	int n = push_reply(L, reply);
-	freeReplyObject(reply);
+	free_reply(reply, reader);
 	return n;
 }
 
@@ -325,11 +331,10 @@ static int reader_release(lua_State *L) {
 }
 
 static int reader_new(lua_State *L) {
-
 	lreader *reader = (lreader*)lua_newuserdata(L, sizeof(*reader));
 	memset(reader, 0, sizeof(*reader));
 	reader->core = redisReaderCreateWithFunctions(&defaultFunctions);
-	reader->core->privdata = reader;
+	redisReaderSetPrivdata(reader->core, reader);
 
 	if (luaL_newmetatable(L, "redis_meta")) {
 		const luaL_Reg meta[] = {
