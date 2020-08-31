@@ -3,39 +3,43 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <ctype.h>
-#include <stdbool.h>
 #include <stdint.h>
+#include <stdbool.h>
 #include "lua.h"
 #include "lualib.h"
 #include "lauxlib.h"
 
-
-#define BUFFER_SIZE 64
-#define PAIR_SIZE 4
-#define MAX_DEPTH	32
-
 #ifdef WIN32
-#define inline __inline
-#define snprintf _snprintf
+#define inline                    __inline
+#define snprintf                  _snprintf
+#define dump_error(L,fmt,...)     luaL_error(L, "%s:%d dump error : "fmt" ", __FILE__, __LINE__, __VA_ARGS__)
+#else
+#define dump_error(L,fmt,args...) luaL_error(L, "%s:%d dump error : "fmt" ", __FILE__, __LINE__, ##args)
 #endif
 
 extern char* i32toa_fast(int32_t value, char* buffer);
-
 extern char* i64toa_fast(int64_t value, char* buffer);
-
 extern char* dtoa_fast(double value, char* buffer);
 
+#define kBUFFER_SIZE 64
+#define kPAIR_SIZE 	 4
+#define kMAX_DEPTH	 32
+#define kMAX_NUMBER  1024
+
+static char kDUMP_STR[kMAX_NUMBER][4];
+static int kDUMP_STR_LEN[kMAX_NUMBER];
 
 struct array_pair;
 
 typedef struct dump_buffer {
-	bool stringify;
+	bool prettify;
 	char* ptr;
 	size_t size;
 	size_t offset;
 	struct array_pair* child;
 	int max;
 	int index;
+	char init[kBUFFER_SIZE];
 } buffer_t;
 
 typedef struct array_pair {
@@ -43,40 +47,39 @@ typedef struct array_pair {
 	buffer_t* v;
 } pair_t;
 
-#ifdef WIN32
-#define dump_error(L,fmt,...) luaL_error(L, "%s:%d dump error : "fmt" ", __FILE__, __LINE__, __VA_ARGS__)
-#else
-#define dump_error(L,fmt,args...) luaL_error(L, "%s:%d dump error : "fmt" ", __FILE__, __LINE__, ##args)
-#endif
+static void dump_table(lua_State* L, buffer_t* buffer, int index, int depth);
+static void dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth);
 
-static inline void
-buffer_init(buffer_t* buffer, bool stringify) {
-	buffer->stringify = stringify;
-	buffer->ptr = (char*)malloc(BUFFER_SIZE);
-	buffer->size = BUFFER_SIZE;
+static inline void buffer_init(buffer_t* buffer, bool prettify) {
+	buffer->prettify = prettify;
+	buffer->ptr = &buffer->init[0];
+	memset(buffer->ptr, 0, kBUFFER_SIZE);
+	buffer->size = kBUFFER_SIZE;
 	buffer->offset = 0;
 	buffer->child = NULL;
 	buffer->index = 0;
 	buffer->max = 0;
 }
 
-static inline void
-buffer_release(buffer_t* buffer) {
-	free(buffer->ptr);
+static inline void buffer_release(buffer_t* buffer) {
+	if (buffer->ptr != &buffer->init[0]) {
+		free(buffer->ptr);
+	}
 
 	if (buffer->child) {
 		int i;
 		for (i = 0; i < buffer->index; i++) {
 			pair_t* pair = &buffer->child[i];
 			buffer_release(pair->k);
+			free(pair->k);
 			buffer_release(pair->v);
+			free(pair->v);
 		}
 		free(buffer->child);
 	}
 }
 
-static inline void
-buffer_reservce(buffer_t* buffer, size_t len) {
+static inline void buffer_reservce(buffer_t* buffer, size_t len) {
 	if (buffer->offset + len <= buffer->size) {
 		return;
 	}
@@ -86,41 +89,39 @@ buffer_reservce(buffer_t* buffer, size_t len) {
 	}
 
 	char* nptr = (char*)malloc(nsize);
+	memset(nptr, 0, nsize);
 	memcpy(nptr, buffer->ptr, buffer->size);
 	buffer->size = nsize;
 
-	free(buffer->ptr);
+	if (buffer->ptr != &buffer->init[0]) {
+		free(buffer->ptr);
+	}
 	buffer->ptr = nptr;
 }
 
-static inline void
-addchar(buffer_t* buffer, char c) {
+static inline void addchar(buffer_t* buffer, char c) {
 	buffer_reservce(buffer, 1);
 	buffer->ptr[buffer->offset++] = c;
 }
 
-static inline void
-addlstring(buffer_t* buffer, const char* str, size_t len) {
+static inline void addlstring(buffer_t* buffer, const char* str, size_t len) {
 	buffer_reservce(buffer, len);
 	memcpy(buffer->ptr + buffer->offset, str, len);
 	buffer->offset += len;
 }
 
-static inline void
-addstring(buffer_t* buffer, const char* str) {
+static inline void addstring(buffer_t* buffer, const char* str) {
 	int len = strlen(str);
 	addlstring(buffer, str, len);
 }
 
-static inline void
-addbuff(buffer_t* lhs, buffer_t* rhs) {
-	addlstring(lhs, rhs->ptr, rhs->offset);
+static inline void addbuff(buffer_t* buffer, buffer_t* rhs) {
+	addlstring(buffer, rhs->ptr, rhs->offset);
 }
 
-static inline void
-addpair(buffer_t* buffer, buffer_t* k, buffer_t* v) {
+static inline void pair_push(buffer_t* buffer, buffer_t* k, buffer_t* v) {
 	if (buffer->child == NULL) {
-		buffer->max = PAIR_SIZE;
+		buffer->max = kPAIR_SIZE;
 		buffer->index = 0;
 		buffer->child = (struct array_pair*)malloc(buffer->max * sizeof(*buffer->child));
 	}
@@ -135,53 +136,48 @@ addpair(buffer_t* buffer, buffer_t* k, buffer_t* v) {
 	buffer->index++;
 }
 
-static inline int
-pair_compare(const void* lhs, const void* rhs) {
+static inline int pair_compare(const void* lhs, const void* rhs) {
 	pair_t* l = (pair_t*)lhs;
 	pair_t* r = (pair_t*)rhs;
 	return strcmp(l->k->ptr, r->k->ptr);
 }
 
-static inline void
-pair_sort(buffer_t* buffer) {
-	qsort(buffer->child, buffer->index, sizeof(pair_t*), pair_compare);
+static inline void pair_sort(buffer_t* buffer) {
+	qsort(buffer->child, buffer->index, sizeof(pair_t), pair_compare);
 }
 
-static inline void
-begin_table(buffer_t* buffer) {
-	if (buffer->stringify) {
-		addstring(buffer, "{\n");
-	}
-	else {
-		addchar(buffer, '{');
-	}
-}
-
-static inline void
-tab(buffer_t* buffer, int depth) {
-	if (buffer->stringify) {
+static inline void tab(buffer_t* buffer, int depth) {
+	if (buffer->prettify) {
 		buffer_reservce(buffer, depth);
 		memset(buffer->ptr + buffer->offset, '\t', depth);
 		buffer->offset += depth;
 	}
 }
 
-static inline void
-newline(buffer_t* buffer) {
-	if (buffer->stringify) {
-		addstring(buffer, ",\n");
+static inline void table_begin(buffer_t* buffer) {
+	if (buffer->prettify) {
+		addstring(buffer, "{\n");
+	} else {
+		addchar(buffer, '{');
 	}
-	else {
+}
+
+static inline void table_end(buffer_t* buffer, int depth) {
+	if (buffer->prettify) {
+		tab(buffer, depth);
+	}
+	addchar(buffer, '}');
+}
+
+static inline void newline(buffer_t* buffer) {
+	if (buffer->prettify) {
+		addstring(buffer, ",\n");
+	} else {
 		addchar(buffer, ',');
 	}
 }
 
-
-void dump_table(lua_State* L, buffer_t* buffer, int index, int depth);
-void dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth);
-
-static inline void
-dump_string(lua_State* L, buffer_t* buffer, const char* str, size_t size) {
+static inline void dump_string(lua_State* L, buffer_t* buffer, const char* str, size_t size) {
 	addchar(buffer, '\"');
 	size_t i;
 	for (i = 0; i < size; i++) {
@@ -217,34 +213,53 @@ dump_string(lua_State* L, buffer_t* buffer, const char* str, size_t size) {
 	addchar(buffer, '\"');
 }
 
-static inline void
-dump_number(lua_State* L, buffer_t* buffer, int index) {
-	char str[32];
-	size_t len;
-
+static inline void dump_number(lua_State* L, buffer_t* buffer, int index) {
+	char str[32] = { 0 };
+#ifdef USE_SNPRINTF
+	int n;
 	if (lua_isinteger(L, index)) {
 		lua_Integer val = lua_tointeger(L, index);
 		int32_t i32 = (int32_t)val;
-		char* end = NULL;
 		if ((lua_Integer)i32 == val) {
-			end = i32toa_fast(i32, str);
+			if (i32 >= 0 && i32 < kMAX_NUMBER) {
+				memcpy(str, kDUMP_STR[i32], 4);
+				n = kDUMP_STR_LEN[i32];
+			} else {
+				n = snprintf(str, sizeof(str), "%d", i32);
+			}
+		} else {
+			n = snprintf(str, sizeof(str), "%ld", (long int)val);
 		}
-		else {
+	} else {
+		lua_Number val = lua_tonumber(L, index);
+		n = snprintf(str, sizeof(str), "%.16g", val);
+	}
+	addlstring(buffer, str, n);
+#else
+	char* end = NULL;
+	if (lua_isinteger(L, index)) {
+		lua_Integer val = lua_tointeger(L, index);
+		int32_t i32 = (int32_t)val;
+		if ((lua_Integer)i32 == val) {
+			if (i32 >= 0 && i32 < kMAX_NUMBER) {
+				memcpy(str, kDUMP_STR[i32], 4);
+				end = str + kDUMP_STR_LEN[i32];
+			} else {
+				end = i32toa_fast(i32, str);
+			}
+		} else {
 			end = i64toa_fast(val, str);
 		}
-		*end = 0;
-		len = end - str;
+	} else {
+		lua_Number val = lua_tonumber(L, index);
+		end = dtoa_fast(val, str);
 	}
-	else {
-		lua_Number n = lua_tonumber(L, index);
-		dtoa_fast(n, str);
-		len = strlen(str);
-	}
-	addlstring(buffer, str, len);
+	*end = 0;
+	addlstring(buffer, str, end - str);
+#endif
 }
 
-static void
-dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool iskey) {
+static void dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool iskey) {
 	int type = lua_type(L, index);
 	switch (type) {
 		case LUA_TNIL: {
@@ -254,8 +269,7 @@ dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool 
 		case LUA_TBOOLEAN: {
 			if (lua_toboolean(L, index)) {
 				addstring(buffer, "true");
-			}
-			else {
+			} else {
 				addstring(buffer, "false");
 			}
 			break;
@@ -280,12 +294,10 @@ dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool 
 				char str[64] = { 0 };
 				snprintf(str, 64, "\"<table:0x%x>\"", (uint32_t)(uintptr_t)pointer);
 				addstring(buffer, str);
-			}
-			else {
+			} else {
 				if (order) {
 					dump_table_order(L, buffer, index, ++depth);
-				}
-				else {
+				} else {
 					dump_table(L, buffer, index, ++depth);
 				}
 			}
@@ -299,16 +311,14 @@ dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool 
 			addstring(buffer, str);
 			break;
 		}
-		case LUA_TFUNCTION:
-		{
+		case LUA_TFUNCTION: {
 			const void* pointer = lua_topointer(L, index);
 			char str[64] = { 0 };
 			snprintf(str, 64, "\"<function:0x%x>\"", (uint32_t)(uintptr_t)pointer);
 			addstring(buffer, str);
 			break;
 		}
-		case LUA_TTHREAD:
-		{
+		case LUA_TTHREAD: {
 			const void* pointer = lua_topointer(L, index);
 			char str[64] = { 0 };
 			snprintf(str, 64, "\"<thread:0x%x>\"", (uint32_t)(uintptr_t)pointer);
@@ -322,8 +332,7 @@ dump_one(lua_State* L, buffer_t* buffer, int index, int depth, bool order, bool 
 	}
 }
 
-static inline int
-dump_table_array(lua_State* L, buffer_t* buffer, int index, int depth, bool order) {
+static inline int dump_table_array(lua_State* L, buffer_t* buffer, int index, int depth, bool order) {
 	int size = lua_rawlen(L, index);
 	int i;
 	for (i = 1; i <= size; i++) {
@@ -336,13 +345,14 @@ dump_table_array(lua_State* L, buffer_t* buffer, int index, int depth, bool orde
 	return size;
 }
 
-void
-dump_table(lua_State* L, buffer_t* buffer, int index, int depth) {
-	if (depth > MAX_DEPTH) {
-		dump_error(L, "pack table too depth:%d", depth);
+static void dump_table(lua_State* L, buffer_t* buffer, int index, int depth) {
+	if (depth > kMAX_DEPTH) {
+		dump_error(L, "dump table too depth:%d", depth);
 	}
 
-	begin_table(buffer);
+	luaL_checkstack(L, LUA_MINSTACK, NULL);
+
+	table_begin(buffer);
 
 	int size = dump_table_array(L, buffer, index, depth, false);
 
@@ -365,20 +375,20 @@ dump_table(lua_State* L, buffer_t* buffer, int index, int depth) {
 		addstring(buffer, "]=");
 		dump_one(L, buffer, -1, depth, false, false);
 		newline(buffer);
-		
+
 		lua_pop(L, 1);
 	}
 
-	tab(buffer, depth - 1);
-	addchar(buffer, '}');
+	table_end(buffer, depth - 1);
 }
 
-void
-dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth) {
-	if (depth > MAX_DEPTH) {
-		dump_error(L, "pack table sort too depth:%d", depth);
+static void dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth) {
+	if (depth > kMAX_DEPTH) {
+		dump_error(L, "dump table sort too depth:%d", depth);
 	}
-	begin_table(buffer);
+	luaL_checkstack(L, LUA_MINSTACK, NULL);
+
+	table_begin(buffer);
 
 	int size = dump_table_array(L, buffer, index, depth, true);
 
@@ -387,7 +397,7 @@ dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth) {
 		if (lua_type(L, -2) == LUA_TNUMBER) {
 			lua_Number n = lua_tonumber(L, -2);
 			lua_Integer i = lua_tointeger(L, -2);
-			if (n == (lua_Number)i){
+			if (n == (lua_Number)i) {
 				if (i > 0 && i <= size) {
 					lua_pop(L, 1);
 					continue;
@@ -396,12 +406,12 @@ dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth) {
 		}
 
 		buffer_t* lhs = (buffer_t*)malloc(sizeof(*lhs));
-		buffer_init(lhs, buffer->stringify);
+		buffer_init(lhs, buffer->prettify);
 
 		buffer_t* rhs = (buffer_t*)malloc(sizeof(*rhs));
-		buffer_init(rhs, buffer->stringify);
+		buffer_init(rhs, buffer->prettify);
 
-		addpair(buffer, lhs, rhs);
+		pair_push(buffer, lhs, rhs);
 
 		dump_one(L, lhs, -2, depth, true, true);
 		dump_one(L, rhs, -1, depth, true, false);
@@ -423,44 +433,39 @@ dump_table_order(lua_State* L, buffer_t* buffer, int index, int depth) {
 			newline(buffer);
 
 			buffer_release(pair->k);
+			free(pair->k);
 			buffer_release(pair->v);
+			free(pair->v);
 		}
 
 		free(buffer->child);
 
 		buffer->child = NULL;
 	}
-	
-	tab(buffer, depth - 1);
-	addchar(buffer, '}');
+
+	table_end(buffer, depth - 1);
 }
 
-static int
-xpcall_dump(lua_State* L) {
+static int xpcall_dump(lua_State* L) {
 	buffer_t* buffer = lua_touserdata(L, 1);
 	luaL_checktype(L, 2, LUA_TTABLE);
 	bool order = lua_toboolean(L, 3);
-
-	luaL_checkstack(L, MAX_DEPTH * 2 + 4, NULL);
-
 	if (order) {
 		dump_table_order(L, buffer, 2, 1);
-	}
-	else {
+	} else {
 		dump_table(L, buffer, 2, 1);
 	}
 	return 0;
 }
 
-static int
-dump(lua_State* L) {
+static int dump(lua_State* L) {
 	luaL_checktype(L, 1, LUA_TTABLE);
-	bool stringify = luaL_optinteger(L, 2, 0);
+	bool prettify = luaL_optinteger(L, 2, 0);
 	bool order = luaL_optinteger(L, 3, 0);
 	bool tostr = luaL_optinteger(L, 4, 0);
 
 	buffer_t buffer;
-	buffer_init(&buffer, stringify);
+	buffer_init(&buffer, prettify);
 
 	lua_pushcfunction(L, xpcall_dump);
 	lua_pushlightuserdata(L, (void*)&buffer);
@@ -475,8 +480,7 @@ dump(lua_State* L) {
 		lua_pushlstring(L, buffer.ptr, buffer.offset);
 		lua_pushinteger(L, buffer.offset);
 		buffer_release(&buffer);
-	}
-	else {
+	} else {
 		lua_pushlightuserdata(L, buffer.ptr);
 		lua_pushinteger(L, buffer.offset);
 	}
@@ -499,8 +503,7 @@ static const int KEY_WORD_SIZE[] = { 3, 4, 5 };
 #define eof(parser) ((parser)->ptr >= (parser)->data + (parser)->size)
 #define expect(parser,c) (*((parser)->ptr) == c)
 
-static inline void
-parser_init(struct parser_context* parser, const char* str, size_t size) {
+static inline void parser_init(struct parser_context* parser, const char* str, size_t size) {
 	parser->data = (char*)str;
 	parser->ptr = parser->data;
 	parser->size = size;
@@ -508,13 +511,11 @@ parser_init(struct parser_context* parser, const char* str, size_t size) {
 	parser->reserve = malloc(parser->length);
 }
 
-static inline void
-parser_release(struct parser_context* parser) {
+static inline void parser_release(struct parser_context* parser) {
 	free(parser->reserve);
 }
 
 #ifdef WIN32
-
 #define parse_error(L,parser,fmt,...) \
 do \
 {\
@@ -535,8 +536,7 @@ do {\
 
 #endif
 
-static inline void
-reserve_eat(struct parser_context *parser, int index, char ch) {
+static inline void reserve_eat(struct parser_context *parser, int index, char ch) {
 	if (index >= parser->length) {
 		parser->reserve = realloc(parser->reserve, parser->length * 2);
 		parser->length *= 2;
@@ -544,16 +544,14 @@ reserve_eat(struct parser_context *parser, int index, char ch) {
 	parser->reserve[index] = ch;
 }
 
-static inline void
-eat_space(struct parser_context* parser) {
+static inline void eat_space(struct parser_context* parser) {
 	while (isspace(*parser->ptr) && !eof(parser)) {
 		parser->ptr++;
 	}
 	return;
 }
 
-static inline void
-eat(lua_State* L, struct parser_context* parser, int offset) {
+static inline void eat(lua_State* L, struct parser_context* parser, int offset) {
 	if (eof(parser)) {
 		return;
 	}
@@ -563,8 +561,7 @@ eat(lua_State* L, struct parser_context* parser, int offset) {
 	parser->ptr += offset;
 }
 
-static inline void
-eat_string(lua_State* L, struct parser_context *parser) {
+static inline void eat_string(lua_State* L, struct parser_context *parser) {
 	char quot = *parser->ptr;
 	eat(L, parser, 1);
 	int index = 0;
@@ -592,8 +589,7 @@ eat_string(lua_State* L, struct parser_context *parser) {
 	parse_error(L, parser, "unexpect eof");
 }
 
-static inline void
-eat_pure_string(lua_State* L, struct parser_context *parser) {
+static inline void eat_pure_string(lua_State* L, struct parser_context *parser) {
 	int index = 0;
 	char ch = *parser->ptr;
 	char next = *(parser->ptr + 1);
@@ -616,8 +612,7 @@ eat_pure_string(lua_State* L, struct parser_context *parser) {
 
 extern double fpconv_strtod(const char *s00, char **se);
 
-static inline void
-eat_number(lua_State* L, struct parser_context *parser) {
+static inline void eat_number(lua_State* L, struct parser_context *parser) {
 	char* end = NULL;
 	lua_Number number = strtod(parser->ptr, &end);
 	// lua_Number number = fpconv_strtod(parser->ptr, &end);
@@ -631,32 +626,53 @@ eat_number(lua_State* L, struct parser_context *parser) {
 
 	if ((lua_Number)integer == number) {
 		lua_pushinteger(L, integer);
-	}
-	else {
+	} else {
 		lua_pushnumber(L, number);
 	}
 	eat_space(parser);
 }
 
-void
-parse_table(lua_State* L, struct parser_context *parser, int depth);
+static void parse_table(lua_State* L, struct parser_context *parser, int depth);
 
-void
-parse_key(lua_State* L, struct parser_context *parser, int i, int depth) {
+static void parse_key(lua_State* L, struct parser_context *parser, int i, int depth) {
 	char ch = *parser->ptr;
-	switch (ch)
-	{
-	case '[':
-	{
-		eat(L, parser, 1);
-		ch = *parser->ptr;
-		switch (ch)
-		{
+	switch (ch) {
+		case '[': {
+			eat(L, parser, 1);
+			ch = *parser->ptr;
+			switch (ch) {
+				case '\'':
+				case '\"': {
+					eat_string(L, parser);
+					break;
+				}
+				case '.':
+				case '-':
+				case '0':
+				case '1':
+				case '2':
+				case '3':
+				case '4':
+				case '5':
+				case '6':
+				case '7':
+				case '8':
+				case '9': {
+					eat_number(L, parser);
+					break;
+				}
+				default: {
+					parse_error(L, parser, "unknown char:%c", ch);
+				}
+			}
+			eat(L, parser, 1);
+			eat_space(parser);
+			return;
+		}
 		case '\'':
-		case '\"':
-		{
+		case '\"': {
 			eat_string(L, parser);
-			break;
+			return;
 		}
 		case '.':
 		case '-':
@@ -669,192 +685,142 @@ parse_key(lua_State* L, struct parser_context *parser, int i, int depth) {
 		case '6':
 		case '7':
 		case '8':
-		case '9':
-		{
+		case '9': {
 			eat_number(L, parser);
-			break;
+			return;
 		}
-		default:
-		{
-			parse_error(L, parser, "unknown char:%c", ch);
+		case '{': {
+			parse_table(L, parser, depth);
+			eat(L, parser, 1);
+			eat_space(parser);
+			return;
 		}
-		}
-		eat(L, parser, 1);
-		eat_space(parser);
-		return;
-	}
-	case '\'':
-	case '\"':
-	{
-		eat_string(L, parser);
-		return;
-	}
-	case '.':
-	case '-':
-	case '0':
-	case '1':
-	case '2':
-	case '3':
-	case '4':
-	case '5':
-	case '6':
-	case '7':
-	case '8':
-	case '9':
-	{
-		eat_number(L, parser);
-		return;
-	}
-	case '{':
-	{
-		parse_table(L, parser, depth);
-		eat(L, parser, 1);
-		eat_space(parser);
-		return;
-	}
-	default:
-	{
-		int index = 0;
-		char ch = *parser->ptr;
-		while (!eof(parser)) {
-			if ((ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'z') || ch == '_') {
-				reserve_eat(parser, index, ch);
-				index++;
-				eat(L, parser, 1);
-				ch = *parser->ptr;
+		default: {
+			int index = 0;
+			char ch = *parser->ptr;
+			while (!eof(parser)) {
+				if ((ch >= '0' && ch <= '9') || (ch >= 'A' && ch <= 'z') || ch == '_') {
+					reserve_eat(parser, index, ch);
+					index++;
+					eat(L, parser, 1);
+					ch = *parser->ptr;
+				} else {
+					eat_space(parser);
+					break;
+				}
 			}
-			else {
-				eat_space(parser);
-				break;
-			}
-		}
 
-		int i;
-		for (i = 0; i < 3; i++) {
-			const char* kw = KEY_WORD[i];
-			const int kws = KEY_WORD_SIZE[i];
-			if (kws == index && strncmp(kw, parser->reserve, index) == 0) {
-				if (expect(parser, ',') || expect(parser, '}')) {
-					if (i == 0) {
-						lua_pushnil(L);
+			int i;
+			for (i = 0; i < 3; i++) {
+				const char* kw = KEY_WORD[i];
+				const int kws = KEY_WORD_SIZE[i];
+				if (kws == index && strncmp(kw, parser->reserve, index) == 0) {
+					if (expect(parser, ',') || expect(parser, '}')) {
+						if (i == 0) {
+							lua_pushnil(L);
+						} else if (i == 1) {
+							lua_pushboolean(L, 1);
+						} else {
+							lua_pushboolean(L, 0);
+						}
+						return;
+					} else {
+						parse_error(L, parser, "expect ,or} after %s", kw);
 					}
-					else if (i == 1) {
-						lua_pushboolean(L, 1);
-					}
-					else {
-						lua_pushboolean(L, 0);
-					}
-					return;
-				}
-				else {
-					parse_error(L, parser, "expect ,or} after %s", kw);
 				}
 			}
+			if (!expect(parser, '=')) {
+				parse_error(L, parser, "expect =,unknown char:%c", *parser->ptr);
+			}
+			lua_pushlstring(L, parser->reserve, index);
+			return;
 		}
-		if (!expect(parser, '=')) {
-			parse_error(L, parser, "expect =,unknown char:%c", *parser->ptr);
-		}
-		lua_pushlstring(L, parser->reserve, index);
-		return;
-	}
 	}
 	parse_error(L, parser, "unknown char:%c", *parser->ptr);
 	return;
 }
 
-void
-parse_value(lua_State* L, struct parser_context *parser, int depth) {
+static void parse_value(lua_State* L, struct parser_context *parser, int depth) {
 	char ch = *parser->ptr;
 
 	switch (ch) {
-	case '\'':
-	case '"':
-	{
-		eat_string(L, parser);
-		return;
-	}
-	case '[':
-	{
-		if (*(parser->ptr + 1) == '[') {
-			eat(L, parser, 2);
-			eat_pure_string(L, parser);
+		case '\'':
+		case '"': {
+			eat_string(L, parser);
 			return;
 		}
-		else {
-			break;
+		case '[': {
+			if (*(parser->ptr + 1) == '[') {
+				eat(L, parser, 2);
+				eat_pure_string(L, parser);
+				return;
+			} else {
+				break;
+			}
 		}
-	}
-	case '.':
-	case '-':
-	case '0':
-	case '1':
-	case '2':
-	case '3':
-	case '4':
-	case '5':
-	case '6':
-	case '7':
-	case '8':
-	case '9':
-	{
-		eat_number(L, parser);
-		return;
-	}
-	case 'n':
-	{
-		if (strncmp(parser->ptr, "nil", 3) == 0) {
-			lua_pushnil(L);
-			eat(L, parser, 3);
+		case '.':
+		case '-':
+		case '0':
+		case '1':
+		case '2':
+		case '3':
+		case '4':
+		case '5':
+		case '6':
+		case '7':
+		case '8':
+		case '9': {
+			eat_number(L, parser);
+			return;
+		}
+		case 'n': {
+			if (strncmp(parser->ptr, "nil", 3) == 0) {
+				lua_pushnil(L);
+				eat(L, parser, 3);
+				eat_space(parser);
+				return;
+			} else {
+				break;
+			}
+		}
+		case 't': {
+			if (strncmp(parser->ptr, "true", 4) == 0) {
+				lua_pushboolean(L, 1);
+				eat(L, parser, 4);
+				eat_space(parser);
+				return;
+			} else {
+				break;
+			}
+		}
+		case 'f': {
+			if (strncmp(parser->ptr, "false", 5) == 0) {
+				lua_pushboolean(L, 0);
+				eat(L, parser, 5);
+				eat_space(parser);
+				return;
+			} else {
+				break;
+			}
+		}
+		case '{': {
+			parse_table(L, parser, depth);
+			eat(L, parser, 1);
 			eat_space(parser);
 			return;
 		}
-		else {
+		default:
 			break;
-		}
-	}
-	case 't':
-	{
-		if (strncmp(parser->ptr, "true", 4) == 0) {
-			lua_pushboolean(L, 1);
-			eat(L, parser, 4);
-			eat_space(parser);
-			return;
-		}
-		else {
-			break;
-		}
-	}
-	case 'f':
-	{
-		if (strncmp(parser->ptr, "false", 5) == 0) {
-			lua_pushboolean(L, 0);
-			eat(L, parser, 5);
-			eat_space(parser);
-			return;
-		}
-		else {
-			break;
-		}
-	}
-	case '{':
-	{
-		parse_table(L, parser, depth);
-		eat(L, parser, 1);
-		eat_space(parser);
-		return;
-	}
-	default:
-		break;
 	}
 	parse_error(L, parser, "unknown char:%c", *parser->ptr);
 }
 
-void
-parse_table(lua_State* L, struct parser_context *parser, int depth) {
+static void parse_table(lua_State* L, struct parser_context *parser, int depth) {
 	++depth;
-	if (depth > MAX_DEPTH) {
+	if (depth > kMAX_DEPTH) {
 		parse_error(L, parser, "parse table too depth:%d", depth);
 	}
+	luaL_checkstack(L, LUA_MINSTACK, NULL);
 
 	lua_newtable(L);
 
@@ -868,8 +834,7 @@ parse_table(lua_State* L, struct parser_context *parser, int depth) {
 			eat(L, parser, 1);
 			eat_space(parser);
 			continue;
-		}
-		else {
+		} else {
 			parse_key(L, parser, i, depth);
 		}
 
@@ -895,15 +860,13 @@ parse_table(lua_State* L, struct parser_context *parser, int depth) {
 	}
 }
 
-int
-parse(lua_State* L) {
+static int parse(lua_State* L) {
 	size_t size;
 	const char* str;
 	if (lua_type(L, 1) == LUA_TLIGHTUSERDATA) {
 		str = lua_touserdata(L, 1);
 		size = lua_tointeger(L, 2);
-	}
-	else {
+	} else {
 		str = luaL_checklstring(L, 1, &size);
 	}
 
@@ -919,8 +882,6 @@ parse(lua_State* L) {
 	parser.escape['r'] = '\r';
 	parser.escape['0'] = '\0';
 
-	luaL_checkstack(L, MAX_DEPTH * 2 + 4, NULL);
-
 	eat_space(&parser);
 	if (!expect(&parser, '{')) {
 		parse_error(L, (&parser), "expect {,unknown char:%c", *parser.ptr);
@@ -933,8 +894,14 @@ parse(lua_State* L) {
 	return 1;
 }
 
-__declspec(dllexport) int
-luaopen_serialize(lua_State* L) {
+__declspec(dllexport) int luaopen_serialize(lua_State* L) {
+	int i;
+	for (i = 0; i < kMAX_NUMBER; i++) {
+		char tmp[8];
+		kDUMP_STR_LEN[i] = sprintf(tmp, "%d", i);
+		memcpy(kDUMP_STR[i], tmp, kDUMP_STR_LEN[i]);
+	}
+
 	luaL_Reg l[] = {
 		{ "dump", dump },
 		{ "parse", parse },
