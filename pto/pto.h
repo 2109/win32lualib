@@ -6,8 +6,20 @@
 #include <stdint.h>
 #include <stdlib.h>
 
+#include "lua.hpp"
+
+#define strdup _strdup
+
 namespace LuaPto {
-	enum eTYPE {
+
+	struct Field;
+	struct Encoder;
+	struct Decoder;
+
+	typedef void(*EncodeFunc)(lua_State* L, Field* field, Encoder* encoder, int index, int depth);
+	typedef void(*DecodeFunc)(lua_State* L, Field* field, Decoder* decoder, int index, int depth);
+
+	enum eType {
 		Bool = 0,
 		Byte,
 		Short,
@@ -23,26 +35,31 @@ namespace LuaPto {
 	struct Field {
 		char* name_;
 		bool array_;
-		eTYPE type_;
+		int type_;
+
+		EncodeFunc encodeFunc_;
+		DecodeFunc decodeFunc_;
 
 		std::vector<Field*> childs_;
 
-		Field(const char* name, bool array, eTYPE type) {
-			name_ = _strdup(name);
+		Field(const char* name, bool array, int type, EncodeFunc encodeFunc, DecodeFunc decodeFunc) {
+			name_ = strdup(name);
 			array_ = array;
 			type_ = type;
+			encodeFunc_ = encodeFunc;
+			decodeFunc_ = decodeFunc;
 		}
 
 		~Field() {
 			free(name_);
-			for ( uint32_t i = 0; i < childs_.size(); ++i ) {
+			for (uint32_t i = 0; i < childs_.size(); ++i) {
 				Field* field = childs_[i];
 				delete field;
 			}
 		}
 
 		inline Field* GetField(uint32_t index) {
-			if ( index > childs_.size() ) {
+			if (index > childs_.size()) {
 				return NULL;
 			}
 			return childs_[index];
@@ -50,16 +67,18 @@ namespace LuaPto {
 	};
 
 	struct Protocol {
+		uint16_t id_;
 		char* name_;
 		std::vector<Field*> fields_;
 
-		Protocol(const char* name) {
-			name_ = _strdup(name);
+		Protocol(uint16_t id, const char* name) {
+			id_ = id;
+			name_ = strdup(name);
 		}
 
 		~Protocol() {
 			free(name_);
-			for ( uint32_t i = 0; i < fields_.size(); ++i ) {
+			for (uint32_t i = 0; i < fields_.size(); ++i) {
 				Field* field = fields_[i];
 				delete field;
 			}
@@ -82,9 +101,9 @@ namespace LuaPto {
 		}
 
 		~Context() {
-			for ( uint32_t i = 0; i < ptos_.size(); ++i ) {
+			for (uint32_t i = 0; i < ptos_.size(); ++i) {
 				Protocol* pto = ptos_[i];
-				if ( pto ) {
+				if (pto) {
 					delete pto;
 				}
 			}
@@ -99,7 +118,7 @@ namespace LuaPto {
 		}
 
 		inline Protocol* GetPto(uint16_t id) {
-			if ( id >= 0xffff ) {
+			if (id >= 0xffff) {
 				return NULL;
 			}
 			return ptos_[id];

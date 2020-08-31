@@ -1,9 +1,9 @@
 ﻿#include "pto.h"
 #include "parser.h"
 #include "lua.hpp"
-#include "format.h"
 #include <fstream>
 #include <iostream>
+#include "format.h"
 
 using namespace LuaPto;
 
@@ -19,7 +19,7 @@ struct BadParse : public std::exception {
 
 void ParserPto::Export(lua_State* L) {
 	lua_createtable(L, 0, 0);
-	for ( uint32_t i = 0; i < fields_.size(); ++i ) {
+	for (uint32_t i = 0; i < fields_.size(); ++i) {
 		ParserField* field = fields_[i];
 
 		lua_createtable(L, 0, 0);
@@ -33,7 +33,7 @@ void ParserPto::Export(lua_State* L) {
 		lua_pushboolean(L, field->array_);
 		lua_setfield(L, -2, "array");
 
-		if ( field->pto_ ) {
+		if (field->pto_) {
 			field->pto_->Export(L);
 			lua_setfield(L, -2, "pto");
 		}
@@ -47,21 +47,21 @@ ParserContext::ParserContext(std::string path) : path_(path) {
 
 ParserContext::~ParserContext() {
 	std::map<std::string, Parser*>::iterator itParser = parsers_.begin();
-	for ( ; itParser != parsers_.end(); itParser++ ) {
+	for (; itParser != parsers_.end(); itParser++) {
 		Parser* parser = itParser->second;
 		delete parser;
 	}
 
 
 	std::map<std::string, ParserPto*>::iterator itPto = ptos_.begin();
-	for ( ; itPto != ptos_.end(); itPto++ ) {
+	for (; itPto != ptos_.end(); itPto++) {
 		ParserPto* pto = itPto->second;
 		delete pto;
 	}
 }
 
 bool ParserContext::Import(std::string name) {
-	if ( GetParser(name) ) {
+	if (GetParser(name)) {
 		return true;
 	}
 
@@ -71,8 +71,7 @@ bool ParserContext::Import(std::string name) {
 	try {
 		parser->Run();
 		parsers_[name] = parser;
-	}
-	catch ( BadParse& e ) {
+	} catch (BadParse& e) {
 		std::cout << e.what() << std::endl;
 		delete parser;
 		return false;
@@ -89,9 +88,9 @@ void ParserContext::Export(lua_State* L) {
 
 	std::vector<ParserPto*> list;
 
-	for ( ; it != ptos_.end(); it++ ) {
+	for (; it != ptos_.end(); it++) {
 		std::string name = it->first;
-		if ( (name[0] == 'c' || name[0] == 's') && name[1] == '_' ) {
+		if ((name[0] == 'c' || name[0] == 's') && name[1] == '_') {
 			list.push_back(it->second);
 		}
 	}
@@ -99,7 +98,7 @@ void ParserContext::Export(lua_State* L) {
 	std::sort(list.begin(), list.end(), SortPto);
 
 	lua_createtable(L, 0, 0);
-	for ( int i = 0; i < list.size(); ++i ) {
+	for (uint32_t i = 0; i < list.size(); ++i) {
 		ParserPto* pto = list[i];
 		lua_createtable(L, 0, 2);
 		lua_pushlstring(L, pto->name_.c_str(), pto->name_.size());
@@ -113,7 +112,7 @@ void ParserContext::Export(lua_State* L) {
 Parser::Parser(ParserContext* ctx, std::string& dir, std::string& name) {
 	ctx_ = ctx;
 
-	path_ = fmt::format("{}/{}.pto", dir, name);
+	//path_ = fmt::format("{}/{}.pto", dir, name);
 
 	data_ = cursor_ = NULL;
 	line_ = -1;
@@ -132,97 +131,96 @@ void Parser::ThrowError(std::string reason) {
 
 void Parser::ParsePto(ParserPto* last) {
 	std::string name = NextToken();
-	if ( name.size() == 0 ) {
+	if (name.size() == 0) {
 		ThrowError("syntax error");
 	}
 
 	int line = line_;
 
-	if ( !Expect('{') ) {
+	if (!Expect('{')) {
 		ThrowError("protocol must start with {");
 	}
 
-	if ( last ) {
+	if (last) {
 		ParserPto* parent = last;
-		while ( parent ) {
+		while (parent) {
 			ParserPto* pto = parent->GetPto(name);
-			if ( pto ) {
+			if (pto) {
 				ThrowError(fmt::format("protocol:{} already define in {}@{}", name, pto->file_, pto->line_));
 			}
 			parent = parent->last_;
 		}
 
 		ParserPto* pto = ctx_->GetPto(name);
-		if ( pto ) {
+		if (pto) {
 			ThrowError(fmt::format("protocol:{} already define in {}@{}", name, pto->file_, pto->line_));
 		}
 	}
 
 	ParserPto* pto = new ParserPto(path_.c_str(), name.c_str(), line, last);
-	if ( last ) {
+	if (last) {
 		last->AddPto(name, pto);
-	}
-	else {
+	} else {
 		ctx_->AddPto(name, pto);
 	}
 
 	Skip(1);
 	SkipSpace();
 
-	while ( !Expect('}') ) {
+	while (!Expect('}')) {
 		name = NextToken();
-		if ( name.size() == 0 ) {
+		if (name.size() == 0) {
 			ThrowError("syntax error");
 		}
 
-		if ( name == "protocol" ) {
+		if (name == "protocol") {
 			ParsePto(pto);
 			continue;
 		}
 
-		int type = eTYPE::Pto;
-		for ( int i = 0; i < sizeof(kTYPE_NAME) / sizeof(void*); ++i ) {
-			if ( name == kTYPE_NAME[i] ) {
+		int type = eType::Pto;
+		for (uint32_t i = 0; i < sizeof(kTYPE_NAME) / sizeof(void*); ++i) {
+			if (name == kTYPE_NAME[i]) {
 				type = i;
 				break;
 			}
 		}
 
 		bool array = false;
-		if ( strncmp(cursor_, "[]", 2) == 0 ) {
+		if (strncmp(cursor_, "[]", 2) == 0) {
 			array = true;
 			Skip(2);
-			if ( !ExpectSpace() ) {
+			if (!ExpectSpace()) {
 				ThrowError("syntax error,expect space");
 			}
 			SkipSpace();
 		}
 
 		ParserPto* reference = NULL;
-		if ( type == eTYPE::Pto ) {
+		if (type == eType::Pto) {
 			ParserPto* last = pto;
-			while ( last ) {
+			while (last) {
 				reference = last->GetPto(name);
-				if ( reference ) {
+				if (reference) {
 					break;
 				}
 				last = last->last_;
 			}
 
-			if ( !reference ) {
+			if (!reference) {
 				reference = ctx_->GetPto(name);
-				if ( !reference ) {
+				if (!reference) {
 					ThrowError(fmt::format("unknown protocol:{}", name));
 				}
 			}
 		}
 
 		name = NextToken();
-		if ( name.size() == 0 ) {
+		if (name.size() == 0) {
 			ThrowError("syntax error");
 		}
 
-		ParserField* field = new ParserField(name.c_str(), array, (eTYPE)type, reference);
+		ParserField* field = new ParserField(name.c_str(), array, (eType)type, reference);
 		pto->AddField(field);
 	}
 	Skip(1);
@@ -232,7 +230,7 @@ void Parser::ParsePto(ParserPto* last) {
 void Parser::Init() {
 	std::ifstream file;
 	file.open(path_.c_str());
-	if ( !file.is_open() ) {
+	if (!file.is_open()) {
 		ThrowError(fmt::format("no such pto:{}", path_));
 	}
 
@@ -251,36 +249,37 @@ void Parser::Init() {
 
 void Parser::Run() {
 	SkipSpace();
-	while ( !Eos(0) ) {
+	while (!Eos(0)) {
 		std::string name = NextToken();
-		if ( name.size() == 0 ) {
+		if (name.size() == 0) {
 			ThrowError("syntax error");
 		}
 
-		if ( name == "protocol" ) {
+		if (name == "protocol") {
 			ParsePto(NULL);
-		}
-		else if ( name == "import" ) {
+		} else if (name == "import") {
 			SkipSpace();
-			if ( !Expect('\"') ) {
+			if (!Expect('\"')) {
 				ThrowError("import format must start with \"");
 			}
 
 			Skip(1);
 
 			name = NextToken();
-			if ( name.size() == 0 ) {
+			if (name.size() == 0) {
 				ThrowError("import protocol name empty");
 			}
 
-			if ( !Expect('\"') ) {
+			if (!Expect('\"')) {
 				ThrowError("import format must end with \"");
 			}
 
 			Skip(1);
 
-			if ( !ctx_->GetParser(name) ) {
-				ctx_->Import(name);
+			if (!ctx_->GetParser(name)) {
+				if (ctx_->Import(name) == false) {
+					ThrowError(fmt::format("import {} error", name));
+				}
 			}
 
 			SkipSpace();
